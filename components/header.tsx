@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { Logo } from './logo'
+import { NavLinks } from './nav-links'
 import { ThemeToggle } from './theme-toggle'
 
 export function Header() {
@@ -8,14 +8,7 @@ export function Header() {
       <div className="shell flex h-18 items-center justify-between gap-5">
         <Logo />
         <div className="flex items-center gap-2 sm:gap-4">
-          <nav aria-label="Main navigation" className="flex items-center gap-1 text-sm font-bold">
-            <Link href="/levels/" className="rounded-full px-3 py-2 transition hover:bg-[var(--panel)] sm:px-4">
-              Levels
-            </Link>
-            <Link href="/#about" className="rounded-full px-3 py-2 transition hover:bg-[var(--panel)] sm:px-4">
-              About
-            </Link>
-          </nav>
+          <NavLinks />
           <ThemeToggle />
         </div>
       </div>

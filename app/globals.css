@@ -121,6 +121,24 @@ a {
   background: var(--button-secondary-hover);
 }
 
+.nav-link {
+  color: var(--muted);
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.nav-link:hover {
+  background: var(--button-secondary);
+  color: var(--foreground);
+}
+
+.nav-link-active,
+.nav-link-active:hover {
+  background: var(--button-primary);
+  color: var(--button-primary-text);
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
