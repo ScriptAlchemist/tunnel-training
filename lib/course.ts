@@ -7,6 +7,7 @@ import remarkHtml from 'remark-html'
 import { remark } from 'remark'
 
 const contentDirectory = path.join(process.cwd(), 'markdown')
+const prerequisitesDirectory = path.join(contentDirectory, 'prerequisites')
 
 export type Video = {
   id: string
@@ -90,6 +91,8 @@ export type SiteContent = {
     referencePending: string
     watchMovement: string
     prerequisite: string
+    prerequisites: string
+    viewPrerequisites: string
     seeLessonNotes: string
     previous: string
     next: string
@@ -121,6 +124,16 @@ export type HomeContent = {
   bookingButton: string
   bookingSubject: string
   aboutHtml: string
+}
+
+export type PrerequisiteContent = {
+  level: string
+  section?: string
+  eyebrow: string
+  title: string
+  description: string
+  topics: string[]
+  html: string
 }
 
 type LevelFrontmatter = Pick<
@@ -292,6 +305,29 @@ export const getSiteContent = cache(() => {
   const parsed = matter(readContentFile('site.md'))
   return parsed.data as SiteContent
 })
+
+export const getPrerequisites = cache(() =>
+  fs
+    .readdirSync(prerequisitesDirectory)
+    .filter((filename) => filename.endsWith('.md'))
+    .sort()
+    .map((filename) => {
+      const source = fs.readFileSync(path.join(prerequisitesDirectory, filename), 'utf8')
+      const parsed = matter(source)
+      return {
+        ...(parsed.data as Omit<PrerequisiteContent, 'html'>),
+        html: markdownToHtml(parsed.content.trim()),
+      }
+    })
+)
+
+export const getLevelPrerequisite = (levelSlug: string) =>
+  getPrerequisites().find((item) => item.level === levelSlug && !item.section)
+
+export const getSectionPrerequisite = (levelSlug: string, sectionSlug: string) =>
+  getPrerequisites().find(
+    (item) => item.level === levelSlug && item.section === sectionSlug
+  )
 
 export const getLevels = cache(() =>
   fs

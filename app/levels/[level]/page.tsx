@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { LessonCard } from '@/components/lesson-card'
+import { PrerequisiteCard } from '@/components/prerequisite-card'
 import { SectionCard } from '@/components/section-card'
-import { getLevel, getLevels, getSiteContent } from '@/lib/course'
+import { getLevel, getLevelPrerequisite, getLevels, getSiteContent } from '@/lib/course'
 
 type LevelPageProps = {
   params: Promise<{ level: string }>
@@ -27,6 +28,7 @@ export default async function LevelPage({ params }: LevelPageProps) {
   const level = getLevel(levelSlug)
   if (!level) notFound()
   const site = getSiteContent()
+  const prerequisite = getLevelPrerequisite(level.slug)
 
   return (
     <div className="shell py-10 sm:py-16">
@@ -59,6 +61,13 @@ export default async function LevelPage({ params }: LevelPageProps) {
           </div>
         </div>
       </header>
+
+      {prerequisite && (
+        <PrerequisiteCard
+          content={prerequisite}
+          href={`/levels/${level.slug}/prerequisites/`}
+        />
+      )}
 
       <div className="mt-14 sm:mt-18">
         {level.groups.length > 1 ? (

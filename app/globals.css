@@ -178,6 +178,29 @@ a {
   font-weight: 750;
 }
 
+.lesson-copy h2,
+.lesson-copy h3 {
+  font-family: var(--font-manrope), ui-rounded, 'Arial Rounded MT Bold', sans-serif;
+  color: var(--foreground);
+  font-weight: 850;
+  letter-spacing: -0.03em;
+}
+
+.lesson-copy h2 {
+  margin: 2.5rem 0 1rem;
+  font-size: 1.75rem;
+}
+
+.lesson-copy h3 {
+  margin: 1.75rem 0 0.65rem;
+  font-size: 1.2rem;
+}
+
+.lesson-copy h2:first-child,
+.lesson-copy h3:first-child {
+  margin-top: 0;
+}
+
 .lesson-copy ul {
   display: grid;
   gap: 0.7rem;
@@ -186,12 +209,12 @@ a {
   list-style: none;
 }
 
-.lesson-copy li {
+.lesson-copy ul li {
   position: relative;
   padding-left: 1.5rem;
 }
 
-.lesson-copy li::before {
+.lesson-copy ul li::before {
   position: absolute;
   top: 0.68rem;
   left: 0;
@@ -200,6 +223,42 @@ a {
   border-radius: 999px;
   background: var(--primary);
   content: '';
+}
+
+.lesson-copy ol {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0 0 1.5rem;
+  padding-left: 1.5rem;
+  list-style: decimal;
+}
+
+.lesson-copy table {
+  display: block;
+  width: 100%;
+  margin: 1.5rem 0 2rem;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.lesson-copy th,
+.lesson-copy td {
+  min-width: 10rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.lesson-copy th {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  font-weight: 800;
+}
+
+.lesson-copy tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--muted) 55%, transparent);
 }
 
 .lesson-copy a {

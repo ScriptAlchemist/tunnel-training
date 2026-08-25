@@ -1,31 +1,28 @@
 ---
 title: Justin Bender's Bodyflight
 author: Justin Bender
-aboutEyebrow: About our progression 
+aboutEyebrow: About our progression
 quoteLabel: Find Your Flow State
-quote: Understand airflow and movement. Well enough, to fly in ways you haven't experimented with.
+quote: Understanding airflow and movement. Requires patience and practice. With the goal of these movements to become second nature.
 levelsEyebrow: The flight path
 levelsTitle: Learn the positions.
-levelsDescription: Start with a dependable neutral position. Add one axis of movement at a time in isolation. Connect the skills into our larger flows.
+levelsDescription: Start with a dependable neutral position. Understand what creates movement and controls friction. Paired with practice until it becomes as simple as walking.
 bookingEyebrow: Book a session
 bookingTitle: Email me to book tunnel time.
 bookingButton: Email Justin →
 bookingSubject: Tunnel training session
 ---
 
-Tunnel flying is and interesting sport. We all do it for different
-reasons, but something draws us here. My goal for you is to make you
-better than myself. Personally I like playing around and feeling things.
-Which sometimes isn't always the best form. Most people would be a
-little too high risk if left alone.
+Welcome to the wonderful world of physics—and bodyflight.
 
-In my effort to make you fly. Progression may feel slow. That's part of
-it. My position is to experiment with ways that you specifically can
-understand how to relate it. If you don't have other training we can
-use. A slight focus on different drills. May be the better option.
+Tunnel flying grew directly from skydiving. Skydivers first used vertical wind tunnels to recreate freefall in a controlled, repeatable environment: no aircraft, weather delays, or limited altitude. The same body position, airflow awareness, balance, and movement principles apply in both places. The tunnel simply gives us more time to explore them.
 
-Depending on what you want to get out of this. I want you to be able to
-understand different movements. How to use those same concepts. To fly
-in ways I haven't taught you.
+As tunnel technology evolved, flying became smoother, safer, and more accessible. Modern recirculating tunnels create a consistent column of air, and iFLY’s ninth-generation (Gen 9) tunnels build on that progress with refined airflow, a spacious flight chamber, and a design that supports everyone from first-time flyers to experienced skydivers and competitive athletes.
 
-That's where we want to breakdown body flight
+We all come here for different reasons, but something about flight draws us in. My goal is to help you become a better flyer than I am. I love experimenting, playing with movement, and learning through feeling—but that approach can become high-risk without structure. The tunnel lets us explore safely while still learning what the air is telling us.
+
+Progression may sometimes feel slow. That is part of the process. My role is to find the drills, explanations, and references that make sense for you. If you have skydiving or other athletic experience, we can build from it. If you do not, we can focus on drills that develop the same awareness from the ground up.
+
+Whatever you want to get from flying, the goal is not just to copy the movements I teach. It is to understand why they work—how your body changes the airflow, how small adjustments create motion, and how to use those concepts to fly in ways you have not been shown yet.
+
+That is where we begin: breaking down bodyflight.
