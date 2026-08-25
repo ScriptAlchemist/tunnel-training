@@ -1,0 +1,176 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-display);
+  --color-ink: #172127;
+  --color-cream: #f4f0e7;
+  --color-sky: #55b9db;
+  --color-coral: #ff6b4a;
+  --color-moss: #798c66;
+}
+
+:root {
+  --background: #f4f0e7;
+  --foreground: #172127;
+  --muted: #5f6a6d;
+  --panel: rgba(255, 255, 255, 0.62);
+  --panel-solid: #fbfaf6;
+  --line: rgba(23, 33, 39, 0.14);
+  --accent: #e95837;
+  --accent-soft: #ffd9cf;
+  --header: rgba(244, 240, 231, 0.86);
+}
+
+.dark {
+  --background: #11191d;
+  --foreground: #edf3f2;
+  --muted: #aebcbd;
+  --panel: rgba(29, 41, 46, 0.72);
+  --panel-solid: #1a252a;
+  --line: rgba(237, 243, 242, 0.13);
+  --accent: #ff7657;
+  --accent-soft: #582d27;
+  --header: rgba(17, 25, 29, 0.88);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 88% 6%, rgba(85, 185, 219, 0.17), transparent 27rem),
+    radial-gradient(circle at 8% 32%, rgba(255, 107, 74, 0.09), transparent 25rem),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+.display-type {
+  font-family: var(--font-display), ui-rounded, 'Arial Rounded MT Bold', sans-serif;
+  letter-spacing: -0.045em;
+}
+
+.shell {
+  width: min(1180px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 80px rgba(24, 35, 41, 0.06);
+  backdrop-filter: blur(18px);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  width: 1.8rem;
+  height: 2px;
+  background: currentColor;
+  content: '';
+}
+
+.lesson-copy {
+  color: var(--foreground);
+  font-size: 1.04rem;
+  line-height: 1.78;
+}
+
+.lesson-copy > :first-child {
+  margin-top: 0;
+}
+
+.lesson-copy p {
+  margin: 0 0 1.25rem;
+}
+
+.lesson-copy strong {
+  color: var(--foreground);
+  font-weight: 750;
+}
+
+.lesson-copy ul {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.lesson-copy li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.lesson-copy li::before {
+  position: absolute;
+  top: 0.68rem;
+  left: 0;
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 999px;
+  background: var(--accent);
+  content: '';
+}
+
+.lesson-copy a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.lesson-copy blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+}
+
+.balance {
+  text-wrap: balance;
+}
+
+@media (max-width: 640px) {
+  .shell {
+    width: min(100% - 1.25rem, 1180px);
+  }
+}
