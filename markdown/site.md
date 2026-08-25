@@ -9,8 +9,7 @@ navigation:
   levels: Levels
   about: About
 theme:
-  light: Use light theme
-  dark: Use dark theme
+  toggle: Toggle color theme
 footer:
   text: Lesson plans by Justin Bender. Train with a qualified tunnel instructor and fly within your demonstrated ability.
   link: Explore levels →

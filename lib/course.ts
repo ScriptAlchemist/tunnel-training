@@ -56,8 +56,7 @@ export type SiteContent = {
     about: string
   }
   theme: {
-    light: string
-    dark: string
+    toggle: string
   }
   footer: {
     text: string

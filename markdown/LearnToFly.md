@@ -1,9 +1,9 @@
 ---
-title: Justin Bender's Tunnel Flying Lesson Plans
+title: Justin Bender's Bodyflight
 author: Justin Bender
-aboutEyebrow: About the curriculum
-quoteLabel: The coaching idea
-quote: Understand movement well enough to fly in ways you haven't been taught.
+aboutEyebrow: About our progression 
+quoteLabel: Find Your Flow State
+quote: Understand airflow and movement. Well enough, to fly in ways. You haven't been taught. So even without me you can progress.
 levelsEyebrow: The flight path
 levelsTitle: Learn in layers.
 levelsDescription: Start with a dependable neutral position. Add one axis of movement at a time, then connect the skills.
