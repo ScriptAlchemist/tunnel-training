@@ -10,7 +10,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className="grid size-10 cursor-pointer place-items-center rounded-full border border-[var(--line)] bg-[var(--panel)] transition hover:-translate-y-0.5 hover:border-[var(--accent)]"
+      className="action-secondary grid size-10 cursor-pointer place-items-center rounded-full transition hover:-translate-y-0.5"
       aria-label={isDark ? 'Use light theme' : 'Use dark theme'}
     >
       <span aria-hidden="true" className="text-base" suppressHydrationWarning>

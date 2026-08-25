@@ -7,7 +7,7 @@ export default function NotFound() {
         <p className="eyebrow">Off course</p>
         <h1 className="display-type mt-5 text-6xl font-black">That lesson isn’t here.</h1>
         <p className="mt-5 text-[var(--muted)]">Return to the curriculum and choose another flight path.</p>
-        <Link href="/levels/" className="mt-8 inline-flex rounded-full bg-[var(--foreground)] px-6 py-3 text-sm font-extrabold text-[var(--background)]">
+        <Link href="/levels/" className="action-primary mt-8 inline-flex rounded-full px-6 py-3 text-sm font-extrabold">
           View all levels
         </Link>
       </div>

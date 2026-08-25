@@ -23,6 +23,11 @@
   --accent: #e95837;
   --accent-soft: #ffd9cf;
   --header: rgba(244, 240, 231, 0.86);
+  --button-primary: #c8452a;
+  --button-primary-hover: #aa351e;
+  --button-primary-text: #ffffff;
+  --button-secondary: rgba(255, 255, 255, 0.62);
+  --button-secondary-hover: #ffffff;
 }
 
 .dark {
@@ -35,6 +40,11 @@
   --accent: #ff7657;
   --accent-soft: #582d27;
   --header: rgba(17, 25, 29, 0.88);
+  --button-primary: #ff8368;
+  --button-primary-hover: #ff987f;
+  --button-primary-text: #11191d;
+  --button-secondary: rgba(29, 41, 46, 0.92);
+  --button-secondary-hover: #26363d;
 }
 
 * {
@@ -87,6 +97,28 @@ a {
   border: 1px solid var(--line);
   box-shadow: 0 24px 80px rgba(24, 35, 41, 0.06);
   backdrop-filter: blur(18px);
+}
+
+.action-primary {
+  border: 1px solid transparent;
+  background: var(--button-primary);
+  color: var(--button-primary-text);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--button-primary) 24%, transparent);
+}
+
+.action-primary:hover {
+  background: var(--button-primary-hover);
+}
+
+.action-secondary {
+  border: 1px solid var(--line);
+  background: var(--button-secondary);
+  color: var(--foreground);
+}
+
+.action-secondary:hover {
+  border-color: var(--accent);
+  background: var(--button-secondary-hover);
 }
 
 .eyebrow {

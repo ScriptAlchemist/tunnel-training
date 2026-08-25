@@ -46,8 +46,8 @@ export function VideoPlayer({ videos }: { videos: Video[] }) {
               onClick={() => setActive(index)}
               className={`shrink-0 cursor-pointer rounded-full px-4 py-2 text-xs font-extrabold transition ${
                 index === active
-                  ? 'bg-[var(--foreground)] text-[var(--background)]'
-                  : 'border border-[var(--line)] bg-[var(--panel)] hover:border-[var(--accent)]'
+                  ? 'action-primary'
+                  : 'action-secondary'
               }`}
             >
               {item.title}

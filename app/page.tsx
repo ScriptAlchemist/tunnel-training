@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { LevelCard } from '@/components/level-card'
 import { getCourseIntro, getLevels } from '@/lib/course'
 
@@ -50,14 +49,23 @@ export default function HomePage() {
       </section>
 
       <section className="shell py-8 sm:py-14">
-        <div className="flex flex-col gap-6 rounded-[2rem] bg-[var(--accent)] px-8 py-10 text-white sm:flex-row sm:items-center sm:justify-between sm:px-12">
+        <div className="panel flex flex-col gap-7 rounded-[2rem] px-8 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-12">
           <div>
-            <p className="text-xs font-extrabold tracking-[0.18em] uppercase opacity-75">Ready for the next rotation?</p>
-            <h2 className="display-type mt-2 text-3xl font-black sm:text-4xl">Choose your starting level.</h2>
+            <span className="eyebrow">Book a session</span>
+            <h2 className="display-type mt-3 text-3xl font-black sm:text-4xl">Email me to book tunnel time.</h2>
+            <a
+              href="mailto:justin.bender@iflydetroit.com"
+              className="mt-3 inline-block text-sm font-bold text-[var(--muted)] underline decoration-[var(--line)] underline-offset-4 hover:text-[var(--accent)]"
+            >
+              justin.bender@iflydetroit.com
+            </a>
           </div>
-          <Link href="/levels/" className="shrink-0 rounded-full bg-white px-6 py-3.5 text-sm font-extrabold text-[#b9371f] transition hover:-translate-y-0.5">
-            Explore all lessons →
-          </Link>
+          <a
+            href="mailto:justin.bender@iflydetroit.com?subject=Tunnel%20training%20session"
+            className="action-primary shrink-0 rounded-full px-6 py-3.5 text-center text-sm font-extrabold transition hover:-translate-y-0.5"
+          >
+            Email Justin →
+          </a>
         </div>
       </section>
     </>
