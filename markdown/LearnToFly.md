@@ -17,7 +17,7 @@ Welcome to the wonderful world of physics—and bodyflight.
 
 Tunnel flying grew directly from skydiving. Skydivers first used vertical wind tunnels to recreate freefall in a controlled, repeatable environment: no aircraft, weather delays, or limited altitude. The same body position, airflow awareness, balance, and movement principles apply in both places. The tunnel simply gives us more time to explore them.
 
-As tunnel technology evolved, flying became smoother, safer, and more accessible. Modern recirculating tunnels create a consistent column of air, and iFLY’s ninth-generation (Gen 9) tunnels build on that progress with refined airflow, a spacious flight chamber, and a design that supports everyone from first-time flyers to experienced skydivers and competitive athletes.
+As tunnel technology evolved, flying became smoother, safer, and more accessible. Modern recirculating tunnels create a consistent column of air, and iFLY Detroit’s ninth-generation (Gen 9) tunnels build on that progress with refined airflow, a spacious flight chamber, and a design that supports everyone from first-time flyers to experienced skydivers and competitive athletes.
 
 We all come here for different reasons, but something about flight draws us in. My goal is to help you become a better flyer than I am. I love experimenting, playing with movement, and learning through feeling—but that approach can become high-risk without structure. The tunnel lets us explore safely while still learning what the air is telling us.
 
