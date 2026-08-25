@@ -28,17 +28,17 @@ export default async function LevelPage({ params }: LevelPageProps) {
 
   return (
     <div className="shell py-10 sm:py-16">
-      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-bold text-[var(--muted)]">
-        <Link href="/" className="hover:text-[var(--accent)]">Home</Link>
+      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-bold text-muted-foreground">
+        <Link href="/" className="hover:text-primary">Home</Link>
         <span>/</span>
-        <Link href="/levels/" className="hover:text-[var(--accent)]">Levels</Link>
+        <Link href="/levels/" className="hover:text-primary">Levels</Link>
         <span>/</span>
         <span className="text-[var(--foreground)]">{level.shortTitle}</span>
       </nav>
 
       <header className="relative mt-8 overflow-hidden rounded-[2rem] bg-[var(--foreground)] px-7 py-10 text-[var(--background)] sm:px-12 sm:py-14">
         <div className="absolute -top-20 -right-14 size-72 rounded-full border-[4rem] border-[#55b9db]/25" />
-        <div className="absolute -bottom-24 left-[42%] size-60 rounded-full border-[3rem] border-[var(--accent)]/35" />
+        <div className="absolute -bottom-24 left-[42%] size-60 rounded-full border-[3rem] border-primary/35" />
         <div className="relative z-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <p className="text-xs font-extrabold tracking-[0.2em] uppercase opacity-65">Level {Number(level.number)}</p>
@@ -66,7 +66,7 @@ export default async function LevelPage({ params }: LevelPageProps) {
                 <span className="eyebrow">Track {String(index + 1).padStart(2, '0')}</span>
                 <h2 className="display-type mt-3 text-3xl font-black sm:text-4xl">{group.title}</h2>
               </div>
-              <span className="hidden text-sm font-bold text-[var(--muted)] sm:block">
+              <span className="hidden text-sm font-bold text-muted-foreground sm:block">
                 {group.lessons.length} lesson{group.lessons.length === 1 ? '' : 's'}
               </span>
             </div>

@@ -1,4 +1,5 @@
 import { LevelCard } from '@/components/level-card'
+import { Button } from '@/components/ui/button'
 import { getCourseIntro, getLevels } from '@/lib/course'
 
 export default function HomePage() {
@@ -11,7 +12,7 @@ export default function HomePage() {
         <div className="panel grid overflow-hidden rounded-[2rem] lg:grid-cols-[0.72fr_1.28fr]">
           <div className="relative min-h-80 overflow-hidden bg-[var(--foreground)] p-8 text-[var(--background)] sm:p-12">
             <div className="absolute -right-16 -bottom-16 size-64 rounded-full border-[3rem] border-[#55b9db]/35" />
-            <div className="absolute top-1/3 -left-20 size-52 rounded-full border-[2rem] border-[var(--accent)]/60" />
+            <div className="absolute top-1/3 -left-20 size-52 rounded-full border-[2rem] border-primary/60" />
             <div className="relative z-10 flex h-full flex-col justify-between">
               <span className="text-xs font-extrabold tracking-[0.2em] uppercase opacity-65">The coaching idea</span>
               <blockquote className="display-type balance text-3xl leading-tight font-black sm:text-4xl">
@@ -23,10 +24,10 @@ export default function HomePage() {
             <span className="eyebrow">About the curriculum</span>
             <h2 className="display-type balance mt-4 text-3xl font-black sm:text-5xl">{intro.title}</h2>
             <div
-              className="lesson-copy mt-7 max-w-3xl text-[var(--muted)] [&_p:last-child]:mb-0"
+              className="lesson-copy mt-7 max-w-3xl text-muted-foreground [&_p:last-child]:mb-0"
               dangerouslySetInnerHTML={{ __html: intro.aboutHtml }}
             />
-            <p className="mt-8 text-sm font-extrabold text-[var(--accent)]">— {intro.author}</p>
+            <p className="mt-8 text-sm font-extrabold text-primary">— {intro.author}</p>
           </div>
         </div>
       </section>
@@ -37,7 +38,7 @@ export default function HomePage() {
             <span className="eyebrow">The flight path</span>
             <h2 className="display-type balance mt-4 text-4xl font-black sm:text-5xl">Learn in layers.</h2>
           </div>
-          <p className="max-w-md leading-7 text-[var(--muted)]">
+          <p className="max-w-md leading-7 text-muted-foreground">
             Start with a dependable neutral position. Add one axis of movement at a time, then connect the skills.
           </p>
         </div>
@@ -55,17 +56,16 @@ export default function HomePage() {
             <h2 className="display-type mt-3 text-3xl font-black sm:text-4xl">Email me to book tunnel time.</h2>
             <a
               href="mailto:justin.bender@iflydetroit.com"
-              className="mt-3 inline-block text-sm font-bold text-[var(--muted)] underline decoration-[var(--line)] underline-offset-4 hover:text-[var(--accent)]"
+              className="mt-3 inline-block text-sm font-bold text-muted-foreground underline decoration-border underline-offset-4 hover:text-primary"
             >
               justin.bender@iflydetroit.com
             </a>
           </div>
-          <a
-            href="mailto:justin.bender@iflydetroit.com?subject=Tunnel%20training%20session"
-            className="action-primary shrink-0 rounded-full px-6 py-3.5 text-center text-sm font-extrabold transition hover:-translate-y-0.5"
-          >
-            Email Justin →
-          </a>
+          <Button asChild size="lg" className="h-auto shrink-0 rounded-full px-6 py-3.5 font-extrabold hover:-translate-y-0.5">
+            <a href="mailto:justin.bender@iflydetroit.com?subject=Tunnel%20training%20session">
+              Email Justin →
+            </a>
+          </Button>
         </div>
       </section>
     </>

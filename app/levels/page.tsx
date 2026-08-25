@@ -15,7 +15,7 @@ export default function LevelsPage() {
       <header className="max-w-3xl">
         <span className="eyebrow">Course index</span>
         <h1 className="display-type balance mt-5 text-5xl font-black sm:text-7xl">Your path through the air.</h1>
-        <p className="mt-6 text-lg leading-8 text-[var(--muted)]">
+        <p className="mt-6 text-lg leading-8 text-muted-foreground">
           Each level is a progression, not a checklist. Work with your instructor, repeat the fundamentals, and move forward when control feels dependable.
         </p>
       </header>
@@ -24,7 +24,7 @@ export default function LevelsPage() {
           <LevelCard key={level.slug} level={level} />
         ))}
       </div>
-      <aside className="mt-8 rounded-2xl border border-[var(--line)] bg-[var(--panel)] p-6 text-sm leading-7 text-[var(--muted)]">
+      <aside className="mt-8 rounded-2xl border border-border bg-card/70 p-6 text-sm leading-7 text-muted-foreground">
         <strong className="text-[var(--foreground)]">A note on readiness:</strong> Prerequisites and desired outcomes are included on every lesson page. Your on-duty tunnel instructor has final authority over wind speed, spotting, and progression.
       </aside>
     </div>

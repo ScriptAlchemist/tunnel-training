@@ -1,11 +1,34 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
 @plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-display);
+@theme inline {
+  --font-sans: var(--font-nunito);
+  --font-display: var(--font-manrope);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
   --color-ink: #172127;
   --color-cream: #f4f0e7;
   --color-sky: #55b9db;
@@ -14,37 +37,56 @@
 }
 
 :root {
-  --background: #f4f0e7;
-  --foreground: #172127;
-  --muted: #5f6a6d;
-  --panel: rgba(255, 255, 255, 0.62);
-  --panel-solid: #fbfaf6;
-  --line: rgba(23, 33, 39, 0.14);
-  --accent: #e95837;
-  --accent-soft: #ffd9cf;
-  --header: rgba(244, 240, 231, 0.86);
-  --button-primary: #c8452a;
-  --button-primary-hover: #aa351e;
-  --button-primary-text: #ffffff;
-  --button-secondary: rgba(255, 255, 255, 0.62);
-  --button-secondary-hover: #ffffff;
+  --radius: 0.75rem;
+  --background: #f7f3eb;
+  --foreground: #182126;
+  --card: #fffdf8;
+  --card-foreground: #182126;
+  --popover: #fffdf8;
+  --popover-foreground: #182126;
+  --primary: #c7462b;
+  --primary-foreground: #fffaf7;
+  --secondary: #dceaf0;
+  --secondary-foreground: #17333d;
+  --muted: #ece8df;
+  --muted-foreground: #667073;
+  --accent: #f8ddd4;
+  --accent-foreground: #7c2d1d;
+  --destructive: #b42318;
+  --border: #d8d4ca;
+  --input: #d8d4ca;
+  --ring: #c7462b;
+  --panel: color-mix(in srgb, var(--card) 72%, transparent);
+  --panel-solid: var(--card);
+  --line: var(--border);
+  --accent-soft: var(--accent);
+  --header: color-mix(in srgb, var(--background) 88%, transparent);
 }
 
 .dark {
-  --background: #11191d;
+  --background: #10181c;
   --foreground: #edf3f2;
-  --muted: #aebcbd;
-  --panel: rgba(29, 41, 46, 0.72);
-  --panel-solid: #1a252a;
-  --line: rgba(237, 243, 242, 0.13);
-  --accent: #ff7657;
-  --accent-soft: #582d27;
-  --header: rgba(17, 25, 29, 0.88);
-  --button-primary: #ff8368;
-  --button-primary-hover: #ff987f;
-  --button-primary-text: #11191d;
-  --button-secondary: rgba(29, 41, 46, 0.92);
-  --button-secondary-hover: #26363d;
+  --card: #192429;
+  --card-foreground: #edf3f2;
+  --popover: #192429;
+  --popover-foreground: #edf3f2;
+  --primary: #ff8064;
+  --primary-foreground: #25120d;
+  --secondary: #24353c;
+  --secondary-foreground: #dceff5;
+  --muted: #202c31;
+  --muted-foreground: #a6b4b6;
+  --accent: #482d27;
+  --accent-foreground: #ffd6cc;
+  --destructive: #ff7168;
+  --border: rgba(237, 243, 242, 0.14);
+  --input: rgba(237, 243, 242, 0.18);
+  --ring: #ff8064;
+  --panel: color-mix(in srgb, var(--card) 78%, transparent);
+  --panel-solid: var(--card);
+  --line: var(--border);
+  --accent-soft: var(--accent);
+  --header: color-mix(in srgb, var(--background) 90%, transparent);
 }
 
 * {
@@ -64,7 +106,7 @@ body {
     radial-gradient(circle at 8% 32%, rgba(255, 107, 74, 0.09), transparent 25rem),
     var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
   text-rendering: optimizeLegibility;
 }
 
@@ -78,12 +120,12 @@ a {
 }
 
 ::selection {
-  background: var(--accent);
-  color: white;
+  background: var(--primary);
+  color: var(--primary-foreground);
 }
 
 .display-type {
-  font-family: var(--font-display), ui-rounded, 'Arial Rounded MT Bold', sans-serif;
+  font-family: var(--font-manrope), ui-rounded, 'Arial Rounded MT Bold', sans-serif;
   letter-spacing: -0.045em;
 }
 
@@ -99,51 +141,11 @@ a {
   backdrop-filter: blur(18px);
 }
 
-.action-primary {
-  border: 1px solid transparent;
-  background: var(--button-primary);
-  color: var(--button-primary-text);
-  box-shadow: 0 10px 30px color-mix(in srgb, var(--button-primary) 24%, transparent);
-}
-
-.action-primary:hover {
-  background: var(--button-primary-hover);
-}
-
-.action-secondary {
-  border: 1px solid var(--line);
-  background: var(--button-secondary);
-  color: var(--foreground);
-}
-
-.action-secondary:hover {
-  border-color: var(--accent);
-  background: var(--button-secondary-hover);
-}
-
-.nav-link {
-  color: var(--muted);
-  transition:
-    background-color 160ms ease,
-    color 160ms ease;
-}
-
-.nav-link:hover {
-  background: var(--button-secondary);
-  color: var(--foreground);
-}
-
-.nav-link-active,
-.nav-link-active:hover {
-  background: var(--button-primary);
-  color: var(--button-primary-text);
-}
-
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  color: var(--accent);
+  color: var(--primary);
   font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.15em;
@@ -196,12 +198,12 @@ a {
   width: 0.48rem;
   height: 0.48rem;
   border-radius: 999px;
-  background: var(--accent);
+  background: var(--primary);
   content: '';
 }
 
 .lesson-copy a {
-  color: var(--accent);
+  color: var(--primary);
   font-weight: 700;
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -211,8 +213,8 @@ a {
 .lesson-copy blockquote {
   margin: 1.5rem 0;
   padding-left: 1rem;
-  border-left: 3px solid var(--accent);
-  color: var(--muted);
+  border-left: 3px solid var(--primary);
+  color: var(--muted-foreground);
 }
 
 .balance {

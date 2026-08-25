@@ -7,13 +7,13 @@ import './globals.css'
 
 const manrope = Manrope({
   subsets: ['latin'],
-  variable: '--font-display',
+  variable: '--font-manrope',
   display: 'swap',
 })
 
 const nunito = Nunito_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-nunito',
   display: 'swap',
 })
 

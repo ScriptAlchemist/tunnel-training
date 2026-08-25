@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 const links = [
   { href: '/levels/', label: 'Levels', matches: (pathname: string) => pathname.startsWith('/levels') },
@@ -21,7 +23,10 @@ export function NavLinks() {
             key={link.label}
             href={link.href}
             aria-current={active ? 'page' : undefined}
-            className={`nav-link rounded-full px-3 py-2 sm:px-4 ${active ? 'nav-link-active' : ''}`}
+            className={cn(
+              buttonVariants({ variant: active ? 'default' : 'ghost', size: 'sm' }),
+              'rounded-full px-3 font-bold sm:px-4'
+            )}
           >
             {link.label}
           </Link>

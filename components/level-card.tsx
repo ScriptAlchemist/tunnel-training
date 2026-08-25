@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { CourseLevel } from '@/lib/course'
 
 export function LevelCard({ level }: { level: CourseLevel }) {
-  const accent = level.color === 'coral' ? 'var(--accent)' : '#399ec2'
+  const accent = level.color === 'coral' ? 'var(--primary)' : '#399ec2'
 
   return (
     <Link
@@ -24,7 +24,7 @@ export function LevelCard({ level }: { level: CourseLevel }) {
           Level {Number(level.number)}
         </p>
         <h3 className="display-type balance text-3xl font-extrabold sm:text-4xl">{level.shortTitle}</h3>
-        <p className="mt-4 max-w-lg leading-7 text-[var(--muted)]">{level.description}</p>
+        <p className="mt-4 max-w-lg leading-7 text-muted-foreground">{level.description}</p>
         <span className="mt-7 inline-flex items-center gap-2 text-sm font-extrabold">
           View curriculum <span className="transition-transform group-hover:translate-x-1">→</span>
         </span>
