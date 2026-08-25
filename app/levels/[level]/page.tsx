@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { LessonCard } from '@/components/lesson-card'
-import { PrerequisiteSection } from '@/components/prerequisite-section'
+import { PrerequisiteCard } from '@/components/prerequisite-card'
 import { SectionCard } from '@/components/section-card'
 import {
   getLevel,
@@ -69,25 +69,25 @@ export default async function LevelPage({ params }: LevelPageProps) {
         </div>
       </header>
 
+      {showPrerequisite && prerequisite && (
+        <PrerequisiteCard
+          content={prerequisite}
+          href={`/levels/${level.slug}/prerequisites/`}
+        />
+      )}
+
       <div className="mt-14 sm:mt-18">
         {level.groups.length > 1 ? (
-          <>
-            {showPrerequisite && prerequisite && (
-              <PrerequisiteSection content={prerequisite} />
-            )}
-            <div
-              className={`grid gap-5 lg:grid-cols-2 ${showPrerequisite ? 'mt-12' : ''}`}
-            >
-              {level.groups.map((group, index) => (
-                <SectionCard
-                  key={group.slug}
-                  level={level}
-                  section={group}
-                  number={index + 1}
-                />
-              ))}
-            </div>
-          </>
+          <div className="grid gap-5 lg:grid-cols-2">
+            {level.groups.map((group, index) => (
+              <SectionCard
+                key={group.slug}
+                level={level}
+                section={group}
+                number={index + 1}
+              />
+            ))}
+          </div>
         ) : (
           level.groups.map((group, index) => (
             <section key={group.title}>
@@ -103,10 +103,7 @@ export default async function LevelPage({ params }: LevelPageProps) {
                     : site.labels.lessons.toLowerCase()}
                 </span>
               </div>
-              {showPrerequisite && prerequisite && (
-                <PrerequisiteSection content={prerequisite} />
-              )}
-              <div className={showPrerequisite ? 'mt-10' : ''}>
+              <div>
                 {group.lessons.map((lesson) => (
                   <LessonCard key={lesson.slug} lesson={lesson} />
                 ))}

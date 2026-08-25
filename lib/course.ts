@@ -91,6 +91,8 @@ export type SiteContent = {
     referencePending: string
     watchMovement: string
     prerequisite: string
+    prerequisites: string
+    viewPrerequisites: string
     seeLessonNotes: string
     previous: string
     next: string

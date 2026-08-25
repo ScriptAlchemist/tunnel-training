@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { LessonCard } from '@/components/lesson-card'
-import { PrerequisiteSection } from '@/components/prerequisite-section'
+import { PrerequisiteCard } from '@/components/prerequisite-card'
 import {
   getLevel,
   getLevels,
@@ -81,15 +81,17 @@ export default async function SectionPage({ params }: SectionPageProps) {
         </div>
       </header>
 
+      {showPrerequisite && prerequisite && (
+        <PrerequisiteCard
+          content={prerequisite}
+          href={`/levels/${level.slug}/sections/${section.slug}/prerequisites/`}
+        />
+      )}
+
       <section className="mt-12 sm:mt-16">
-        {showPrerequisite && prerequisite && (
-          <PrerequisiteSection content={prerequisite} />
-        )}
-        <div className={showPrerequisite ? 'mt-10' : ''}>
-          {section.lessons.map((lesson) => (
-            <LessonCard key={lesson.slug} lesson={lesson} />
-          ))}
-        </div>
+        {section.lessons.map((lesson) => (
+          <LessonCard key={lesson.slug} lesson={lesson} />
+        ))}
       </section>
     </div>
   )
