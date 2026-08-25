@@ -9,7 +9,7 @@ export function NavLinks({ labels }: { labels: { levels: string; about: string; 
   const pathname = usePathname()
   const links = [
     { href: '/levels/', label: labels.levels, matches: (path: string) => path.startsWith('/levels') },
-    { href: '/#about', label: labels.about, matches: (path: string) => path === '/' },
+    { href: '/', label: labels.about, matches: (path: string) => path === '/' },
   ]
 
   return (
