@@ -38,24 +38,30 @@ export function PrerequisitePage({
         <h1 className="display-type balance mt-5 text-4xl font-black sm:text-6xl">
           {content.title}
         </h1>
-        <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">
-          {content.description}
-        </p>
-        <div className="mt-6 flex flex-wrap gap-2">
-          {content.topics.map((topic) => (
-            <span
-              key={topic}
-              className="rounded-full border border-border bg-card px-3 py-1.5 text-xs font-bold text-muted-foreground"
-            >
-              {topic}
-            </span>
-          ))}
-        </div>
+        {content.description && (
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">
+            {content.description}
+          </p>
+        )}
+        {content.topics.length > 0 && (
+          <div className="mt-6 flex flex-wrap gap-2">
+            {content.topics.map((topic) => (
+              <span
+                key={topic}
+                className="rounded-full border border-border bg-card px-3 py-1.5 text-xs font-bold text-muted-foreground"
+              >
+                {topic}
+              </span>
+            ))}
+          </div>
+        )}
       </header>
 
-      <article className="panel lesson-copy mt-10 rounded-[1.75rem] p-6 sm:p-10">
-        <div dangerouslySetInnerHTML={{ __html: content.html }} />
-      </article>
+      {content.html && (
+        <article className="panel lesson-copy mt-10 rounded-[1.75rem] p-6 sm:p-10">
+          <div dangerouslySetInnerHTML={{ __html: content.html }} />
+        </article>
+      )}
     </div>
   )
 }

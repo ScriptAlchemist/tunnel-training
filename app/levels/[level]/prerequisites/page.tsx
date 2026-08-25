@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: LevelPrerequisitePageProps): 
   const { level: levelSlug } = await params
   const content = getLevelPrerequisite(levelSlug)
   if (!content) return {}
-  return { title: content.title, description: content.description }
+  return { title: content.title, description: content.description || undefined }
 }
 
 export default async function LevelPrerequisitePage({ params }: LevelPrerequisitePageProps) {

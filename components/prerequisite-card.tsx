@@ -21,17 +21,21 @@ export function PrerequisiteCard({
             {content.eyebrow}
           </p>
           <h2 className="display-type mt-2 text-2xl font-black sm:text-3xl">{content.title}</h2>
-          <p className="mt-3 max-w-3xl leading-7 text-muted-foreground">{content.description}</p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {content.topics.map((topic) => (
-              <span
-                key={topic}
-                className="rounded-full border border-border bg-card/75 px-3 py-1 text-xs font-bold text-muted-foreground"
-              >
-                {topic}
-              </span>
-            ))}
-          </div>
+          {content.description && (
+            <p className="mt-3 max-w-3xl leading-7 text-muted-foreground">{content.description}</p>
+          )}
+          {content.topics.length > 0 && (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {content.topics.map((topic) => (
+                <span
+                  key={topic}
+                  className="rounded-full border border-border bg-card/75 px-3 py-1 text-xs font-bold text-muted-foreground"
+                >
+                  {topic}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
         <span className="inline-flex shrink-0 items-center gap-2 text-sm font-extrabold text-primary">
           {site.labels.viewPrerequisites}{' '}

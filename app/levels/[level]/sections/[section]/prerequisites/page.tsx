@@ -27,7 +27,7 @@ export async function generateMetadata({
   const { level: levelSlug, section: sectionSlug } = await params
   const content = getSectionPrerequisite(levelSlug, sectionSlug)
   if (!content) return {}
-  return { title: content.title, description: content.description }
+  return { title: content.title, description: content.description || undefined }
 }
 
 export default async function SectionPrerequisitePage({
