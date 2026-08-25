@@ -4,7 +4,10 @@ A static Next.js training curriculum generated from the Markdown lesson plans in
 
 ## Local development
 
+The project uses Node.js 24. If you use `nvm`, select it with `nvm use` before installing dependencies.
+
 ```bash
+nvm use
 npm install
 npm run dev
 ```
