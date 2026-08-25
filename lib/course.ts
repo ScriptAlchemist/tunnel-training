@@ -70,6 +70,7 @@ export type SiteContent = {
     breadcrumb: string
     lessonNavigation: string
     home: string
+    back: string
     levels: string
     level: string
     lesson: string

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { BackButton } from '@/components/back-button'
 import { VideoPlayer } from '@/components/video-player'
 import { getAdjacentLessons, getLesson, getLevel, getLevels, getSiteContent } from '@/lib/course'
 
@@ -31,29 +32,36 @@ export default async function LessonPage({ params }: LessonPageProps) {
   const adjacent = getAdjacentLessons(level, lesson)
   const site = getSiteContent()
   const section = level.groups.find((item) => item.title === lesson.groupTitle)
+  const parentHref =
+    level.groups.length > 1 && section
+      ? `/levels/${level.slug}/sections/${section.slug}/`
+      : `/levels/${level.slug}/`
 
   return (
     <div className="shell py-10 sm:py-16">
-      <nav aria-label={site.labels.breadcrumb} className="flex flex-wrap items-center gap-2 text-xs font-bold text-muted-foreground">
-        <Link href="/" className="hover:text-primary">{site.labels.home}</Link>
-        <span>/</span>
-        <Link href="/levels/" className="hover:text-primary">{site.labels.levels}</Link>
-        <span>/</span>
-        <Link href={`/levels/${level.slug}/`} className="hover:text-primary">{level.shortTitle}</Link>
-        <span>/</span>
-        {level.groups.length > 1 && section && (
-          <>
-            <Link
-              href={`/levels/${level.slug}/sections/${section.slug}/`}
-              className="hover:text-primary"
-            >
-              {section.title}
-            </Link>
-            <span>/</span>
-          </>
-        )}
-        <span className="text-[var(--foreground)]">{site.labels.lesson} {lesson.number}</span>
-      </nav>
+      <div className="flex flex-wrap items-center gap-3">
+        <BackButton href={parentHref} label={site.labels.back} />
+        <nav aria-label={site.labels.breadcrumb} className="flex flex-wrap items-center gap-2 text-xs font-bold text-muted-foreground">
+          <Link href="/" className="hover:text-primary">{site.labels.home}</Link>
+          <span>/</span>
+          <Link href="/levels/" className="hover:text-primary">{site.labels.levels}</Link>
+          <span>/</span>
+          <Link href={`/levels/${level.slug}/`} className="hover:text-primary">{level.shortTitle}</Link>
+          <span>/</span>
+          {level.groups.length > 1 && section && (
+            <>
+              <Link
+                href={`/levels/${level.slug}/sections/${section.slug}/`}
+                className="hover:text-primary"
+              >
+                {section.title}
+              </Link>
+              <span>/</span>
+            </>
+          )}
+          <span className="text-[var(--foreground)]">{site.labels.lesson} {lesson.number}</span>
+        </nav>
+      </div>
 
       <header className="mt-9 max-w-4xl">
         <div className="flex flex-wrap items-center gap-3">

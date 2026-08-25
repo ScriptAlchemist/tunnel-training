@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { BackButton } from '@/components/back-button'
 import { LessonCard } from '@/components/lesson-card'
 import { PrerequisiteCard } from '@/components/prerequisite-card'
 import { SectionCard } from '@/components/section-card'
@@ -39,13 +40,16 @@ export default async function LevelPage({ params }: LevelPageProps) {
 
   return (
     <div className="shell py-10 sm:py-16">
-      <nav aria-label={site.labels.breadcrumb} className="flex items-center gap-2 text-xs font-bold text-muted-foreground">
-        <Link href="/" className="hover:text-primary">{site.labels.home}</Link>
-        <span>/</span>
-        <Link href="/levels/" className="hover:text-primary">{site.labels.levels}</Link>
-        <span>/</span>
-        <span className="text-[var(--foreground)]">{level.shortTitle}</span>
-      </nav>
+      <div className="flex flex-wrap items-center gap-3">
+        <BackButton href="/levels/" label={site.labels.back} />
+        <nav aria-label={site.labels.breadcrumb} className="flex items-center gap-2 text-xs font-bold text-muted-foreground">
+          <Link href="/" className="hover:text-primary">{site.labels.home}</Link>
+          <span>/</span>
+          <Link href="/levels/" className="hover:text-primary">{site.labels.levels}</Link>
+          <span>/</span>
+          <span className="text-[var(--foreground)]">{level.shortTitle}</span>
+        </nav>
+      </div>
 
       <header className="relative mt-8 overflow-hidden rounded-[2rem] border border-border bg-card px-7 py-10 text-card-foreground shadow-sm sm:px-12 sm:py-14">
         <div className="absolute -top-20 -right-14 size-72 rounded-full border-[4rem] border-secondary" />

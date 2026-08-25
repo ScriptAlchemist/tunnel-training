@@ -18,6 +18,7 @@ labels:
   breadcrumb: Breadcrumb
   lessonNavigation: Lesson navigation
   home: Home
+  back: Back
   levels: Levels
   level: Level
   lesson: Lesson

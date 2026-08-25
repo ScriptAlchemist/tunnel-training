@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { BackButton } from '@/components/back-button'
 import { getSiteContent, type PrerequisiteContent } from '@/lib/course'
 
 type Breadcrumb = {
@@ -14,26 +15,30 @@ export function PrerequisitePage({
   breadcrumbs: Breadcrumb[]
 }) {
   const site = getSiteContent()
+  const parentHref = [...breadcrumbs].reverse().find((item) => item.href)?.href ?? '/'
 
   return (
     <div className="shell py-10 sm:py-16">
-      <nav
-        aria-label={site.labels.breadcrumb}
-        className="flex flex-wrap items-center gap-2 text-xs font-bold text-muted-foreground"
-      >
-        {breadcrumbs.map((item, index) => (
-          <span key={`${item.label}-${index}`} className="contents">
-            {index > 0 && <span>/</span>}
-            {item.href ? (
-              <Link href={item.href} className="hover:text-primary">
-                {item.label}
-              </Link>
-            ) : (
-              <span className="text-foreground">{item.label}</span>
-            )}
-          </span>
-        ))}
-      </nav>
+      <div className="flex flex-wrap items-center gap-3">
+        <BackButton href={parentHref} label={site.labels.back} />
+        <nav
+          aria-label={site.labels.breadcrumb}
+          className="flex flex-wrap items-center gap-2 text-xs font-bold text-muted-foreground"
+        >
+          {breadcrumbs.map((item, index) => (
+            <span key={`${item.label}-${index}`} className="contents">
+              {index > 0 && <span>/</span>}
+              {item.href ? (
+                <Link href={item.href} className="hover:text-primary">
+                  {item.label}
+                </Link>
+              ) : (
+                <span className="text-foreground">{item.label}</span>
+              )}
+            </span>
+          ))}
+        </nav>
+      </div>
 
       <header className="mt-10 max-w-4xl">
         <span className="eyebrow">{content.eyebrow}</span>

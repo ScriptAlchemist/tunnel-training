@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { BackButton } from '@/components/back-button'
 import { LessonCard } from '@/components/lesson-card'
 import { PrerequisiteCard } from '@/components/prerequisite-card'
 import {
@@ -45,18 +46,21 @@ export default async function SectionPage({ params }: SectionPageProps) {
 
   return (
     <div className="shell py-10 sm:py-16">
-      <nav
-        aria-label={site.labels.breadcrumb}
-        className="flex flex-wrap items-center gap-2 text-xs font-bold text-muted-foreground"
-      >
-        <Link href="/" className="hover:text-primary">{site.labels.home}</Link>
-        <span>/</span>
-        <Link href="/levels/" className="hover:text-primary">{site.labels.levels}</Link>
-        <span>/</span>
-        <Link href={`/levels/${level.slug}/`} className="hover:text-primary">{level.shortTitle}</Link>
-        <span>/</span>
-        <span className="text-foreground">{section.title}</span>
-      </nav>
+      <div className="flex flex-wrap items-center gap-3">
+        <BackButton href={`/levels/${level.slug}/`} label={site.labels.back} />
+        <nav
+          aria-label={site.labels.breadcrumb}
+          className="flex flex-wrap items-center gap-2 text-xs font-bold text-muted-foreground"
+        >
+          <Link href="/" className="hover:text-primary">{site.labels.home}</Link>
+          <span>/</span>
+          <Link href="/levels/" className="hover:text-primary">{site.labels.levels}</Link>
+          <span>/</span>
+          <Link href={`/levels/${level.slug}/`} className="hover:text-primary">{level.shortTitle}</Link>
+          <span>/</span>
+          <span className="text-foreground">{section.title}</span>
+        </nav>
+      </div>
 
       <header className="panel relative mt-8 overflow-hidden rounded-[2rem] p-7 sm:p-12">
         <div className="absolute -top-20 -right-14 size-64 rounded-full border-[3.5rem] border-secondary" />
