@@ -56,6 +56,7 @@ export type SiteContent = {
   email: string
   navigation: {
     levels: string
+    humanoid: string
     about: string
   }
   theme: {
@@ -109,6 +110,38 @@ export type SiteContent = {
     description: string
     button: string
   }
+}
+
+export type HumanoidContent = {
+  eyebrow: string
+  title: string
+  description: string
+  viewportLabel: string
+  instructions: string
+  bodyTitle: string
+  bodyDescription: string
+  jointTitle: string
+  jointDescription: string
+  jointSelect: string
+  resetButton: string
+  axes: Record<'x' | 'y' | 'z', string>
+  joints: Record<
+    | 'chest'
+    | 'neck'
+    | 'leftShoulder'
+    | 'leftElbow'
+    | 'leftWrist'
+    | 'rightShoulder'
+    | 'rightElbow'
+    | 'rightWrist'
+    | 'leftHip'
+    | 'leftKnee'
+    | 'leftAnkle'
+    | 'rightHip'
+    | 'rightKnee'
+    | 'rightAnkle',
+    string
+  >
 }
 
 export type HomeContent = {
@@ -306,6 +339,11 @@ function parseLevel(filename: string): CourseLevel {
 export const getSiteContent = cache(() => {
   const parsed = matter(readContentFile('site.md'))
   return parsed.data as SiteContent
+})
+
+export const getHumanoidContent = cache(() => {
+  const parsed = matter(readContentFile('humanoid.md'))
+  return parsed.data as HumanoidContent
 })
 
 export const getPrerequisites = cache(() =>

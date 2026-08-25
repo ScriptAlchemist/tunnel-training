@@ -10,6 +10,10 @@ Edit `site.md` to change the site title, metadata, navigation labels, contact em
 
 Edit `LearnToFly.md`. Its frontmatter controls section headings, the coaching quote, and booking text. The Markdown body becomes the About copy.
 
+## Humanoid pose lab
+
+Edit `humanoid.md` to change the Humanoid page title, instructions, control labels, and joint names. The interactive figure supports independent X, Y, and Z rotation for the whole body and every listed joint.
+
 ## Levels and lessons
 
 Every file matching `level-*.md` becomes a level page. Copy an existing level file to add another level, then update its frontmatter:

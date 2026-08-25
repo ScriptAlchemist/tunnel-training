@@ -7,6 +7,7 @@ siteUrl: https://scriptalchemist.github.io/tunnel-training/
 email: justin.bender@iflydetroit.com
 navigation:
   levels: Levels
+  humanoid: Humanoid
   about: About
 theme:
   toggle: Toggle color theme
