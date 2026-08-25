@@ -36,23 +36,23 @@ export default async function LevelPage({ params }: LevelPageProps) {
         <span className="text-[var(--foreground)]">{level.shortTitle}</span>
       </nav>
 
-      <header className="relative mt-8 overflow-hidden rounded-[2rem] bg-[var(--foreground)] px-7 py-10 text-[var(--background)] sm:px-12 sm:py-14">
-        <div className="absolute -top-20 -right-14 size-72 rounded-full border-[4rem] border-[#55b9db]/25" />
-        <div className="absolute -bottom-24 left-[42%] size-60 rounded-full border-[3rem] border-primary/35" />
+      <header className="relative mt-8 overflow-hidden rounded-[2rem] border border-border bg-card px-7 py-10 text-card-foreground shadow-sm sm:px-12 sm:py-14">
+        <div className="absolute -top-20 -right-14 size-72 rounded-full border-[4rem] border-secondary" />
+        <div className="absolute -bottom-24 left-[42%] size-60 rounded-full border-[3rem] border-accent" />
         <div className="relative z-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <div>
-            <p className="text-xs font-extrabold tracking-[0.2em] uppercase opacity-65">Level {Number(level.number)}</p>
+            <p className="text-xs font-extrabold tracking-[0.2em] text-muted-foreground uppercase">Level {Number(level.number)}</p>
             <h1 className="display-type balance mt-4 max-w-4xl text-4xl font-black sm:text-6xl">{level.shortTitle}</h1>
-            <p className="mt-5 max-w-2xl text-base leading-7 opacity-75 sm:text-lg">{level.description}</p>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">{level.description}</p>
           </div>
           <div className="flex gap-8 md:text-right">
             <div>
               <p className="display-type text-3xl font-black">{level.lessons.length}</p>
-              <p className="text-xs font-bold uppercase tracking-wider opacity-60">Lessons</p>
+              <p className="text-xs font-bold tracking-wider text-muted-foreground uppercase">Lessons</p>
             </div>
             <div>
               <p className="display-type text-3xl font-black">{level.groups.length}</p>
-              <p className="text-xs font-bold uppercase tracking-wider opacity-60">Tracks</p>
+              <p className="text-xs font-bold tracking-wider text-muted-foreground uppercase">Tracks</p>
             </div>
           </div>
         </div>

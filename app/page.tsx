@@ -8,7 +8,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section id="about" className="shell scroll-mt-28 pt-8 pb-16 sm:pt-12 sm:pb-24">
+      <section id="about" className="shell scroll-mt-28 pt-8 pb-8 sm:pt-12 sm:pb-10">
         <div className="panel grid overflow-hidden rounded-[2rem] lg:grid-cols-[0.72fr_1.28fr]">
           <div className="relative min-h-80 overflow-hidden bg-[var(--foreground)] p-8 text-[var(--background)] sm:p-12">
             <div className="absolute -right-16 -bottom-16 size-64 rounded-full border-[3rem] border-[#55b9db]/35" />
@@ -32,7 +32,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="shell py-16 sm:py-24" id="levels">
+      <section className="shell py-8 sm:py-10" id="levels">
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <span className="eyebrow">The flight path</span>
@@ -49,7 +49,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="shell py-8 sm:py-14">
+      <section className="shell pt-8 pb-4 sm:pt-10 sm:pb-8">
         <div className="panel flex flex-col gap-7 rounded-[2rem] px-8 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-12">
           <div>
             <span className="eyebrow">Book a session</span>
