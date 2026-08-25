@@ -1,5 +1,5 @@
 ---
-title: Tunnel Training
+title: Bender Tunnel Training
 language: en
 description: A progressive tunnel flying curriculum by Justin Bender.
 socialDescription: Build control, awareness, and range in the wind tunnel.

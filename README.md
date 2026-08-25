@@ -1,4 +1,4 @@
-# Tunnel Training
+# Bender Tunnel Training
 
 A static Next.js training curriculum generated from the Markdown lesson plans in this repository. Lessons are organized by level, each skill has a dedicated page, and YouTube references are available in an embedded player.
 
