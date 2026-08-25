@@ -28,7 +28,9 @@ export type Lesson = {
 }
 
 export type LessonGroup = {
+  slug: string
   title: string
+  description: string
   lessons: Lesson[]
 }
 
@@ -71,8 +73,8 @@ export type SiteContent = {
     level: string
     lesson: string
     lessons: string
-    track: string
-    tracks: string
+    section: string
+    sections: string
     courseIndex: string
     levelIndexMetadataTitle: string
     levelIndexMetadataDescription: string
@@ -81,6 +83,7 @@ export type SiteContent = {
     readinessTitle: string
     readinessText: string
     viewCurriculum: string
+    viewSection: string
     prerequisiteIncluded: string
     video: string
     videos: string
@@ -218,7 +221,11 @@ function parseLevel(filename: string): CourseLevel {
   const definition = parsed.data as LevelFrontmatter
   const title = parsed.content.match(/^#\s+(.+)$/m)?.[1] ?? definition.shortTitle
   const hasNestedLessons = /^###\s+/m.test(parsed.content)
-  const draftGroups: Array<{ title: string; lessons: Array<{ title: string; markdown: string }> }> = []
+  const draftGroups: Array<{
+    title: string
+    markdown: string
+    lessons: Array<{ title: string; markdown: string }>
+  }> = []
   let group: (typeof draftGroups)[number] | undefined
   let lesson: { title: string; markdown: string } | undefined
 
@@ -227,7 +234,7 @@ function parseLevel(filename: string): CourseLevel {
     const h3 = line.match(/^###\s+(.+)$/)
 
     if (hasNestedLessons && h2) {
-      group = { title: h2[1], lessons: [] }
+      group = { title: h2[1], markdown: '', lessons: [] }
       draftGroups.push(group)
       lesson = undefined
       continue
@@ -235,7 +242,7 @@ function parseLevel(filename: string): CourseLevel {
 
     if ((hasNestedLessons && h3) || (!hasNestedLessons && h2)) {
       if (!group) {
-        group = { title: definition.shortTitle, lessons: [] }
+        group = { title: definition.shortTitle, markdown: '', lessons: [] }
         draftGroups.push(group)
       }
       lesson = { title: (h3 ?? h2)![1], markdown: '' }
@@ -243,25 +250,35 @@ function parseLevel(filename: string): CourseLevel {
       continue
     }
 
-    if (lesson) lesson.markdown += `${line}\n`
+    if (lesson) {
+      lesson.markdown += `${line}\n`
+    } else if (group) {
+      group.markdown += `${line}\n`
+    }
   }
 
   const levelBase = { slug: definition.slug, title }
   const defaultSummary = getSiteContent().labels.defaultLessonSummary
   let lessonNumber = 0
-  const groups = draftGroups.map((draftGroup) => ({
-    title: draftGroup.title,
-    lessons: draftGroup.lessons.map((draftLesson) =>
-      parseLesson(
-        draftLesson.title,
-        draftLesson.markdown,
-        draftGroup.title,
-        levelBase,
-        ++lessonNumber,
-        defaultSummary
-      )
-    ),
-  }))
+  const groups = draftGroups.map((draftGroup) => {
+    const description = plainText(draftGroup.markdown) || definition.description
+
+    return {
+      slug: slugify(draftGroup.title),
+      title: draftGroup.title,
+      description,
+      lessons: draftGroup.lessons.map((draftLesson) =>
+        parseLesson(
+          draftLesson.title,
+          draftLesson.markdown,
+          draftGroup.title,
+          levelBase,
+          ++lessonNumber,
+          defaultSummary
+        )
+      ),
+    }
+  })
 
   return {
     ...definition,
@@ -289,6 +306,9 @@ export const getLevel = (slug: string) => getLevels().find((level) => level.slug
 export const getLesson = (levelSlug: string, lessonSlug: string) =>
   getLevel(levelSlug)?.lessons.find((lesson) => lesson.slug === lessonSlug)
 
+export const getSection = (levelSlug: string, sectionSlug: string) =>
+  getLevel(levelSlug)?.groups.find((group) => group.slug === sectionSlug)
+
 export const getCourseIntro = cache(() => {
   const parsed = matter(readContentFile('LearnToFly.md'))
   return {
@@ -298,9 +318,11 @@ export const getCourseIntro = cache(() => {
 })
 
 export function getAdjacentLessons(level: CourseLevel, lesson: Lesson) {
-  const index = level.lessons.findIndex((item) => item.slug === lesson.slug)
+  const section = level.groups.find((group) => group.title === lesson.groupTitle)
+  const lessons = section?.lessons ?? level.lessons
+  const index = lessons.findIndex((item) => item.slug === lesson.slug)
   return {
-    previous: index > 0 ? level.lessons[index - 1] : undefined,
-    next: index < level.lessons.length - 1 ? level.lessons[index + 1] : undefined,
+    previous: index > 0 ? lessons[index - 1] : undefined,
+    next: index < lessons.length - 1 ? lessons[index + 1] : undefined,
   }
 }

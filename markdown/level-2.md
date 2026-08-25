@@ -13,7 +13,10 @@ accent: "#399ec2"
 
 The training app groups these skills under Level 2.
 
-## Back Flying
+## Static Flying
+
+Build control in the back-flying orientation, then connect stable movement to
+entries, exits, rolls, and transitions.
 
 ### Neutral Back Fly Position
 
@@ -243,6 +246,9 @@ and avoid pausing vertically because that can produce a rapid descent.
 - [Add resource title](URL)
 
 ## Formations
+
+Apply individual flying skills to shared levels, approaches, positioning, and
+safe movement with other flyers.
 
 ### 2-Way Formations
 

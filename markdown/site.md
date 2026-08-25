@@ -22,8 +22,8 @@ labels:
   level: Level
   lesson: Lesson
   lessons: Lessons
-  track: Track
-  tracks: Tracks
+  section: Section
+  sections: Sections
   courseIndex: Course index
   levelIndexMetadataTitle: Training Levels
   levelIndexMetadataDescription: Explore the full tunnel flying curriculum by level.
@@ -32,6 +32,7 @@ labels:
   readinessTitle: "A note on readiness:"
   readinessText: Prerequisites and desired outcomes are included on every lesson page. Your on-duty tunnel instructor has final authority over wind speed, spotting, and progression.
   viewCurriculum: View curriculum
+  viewSection: View section
   prerequisiteIncluded: Prerequisite included
   video: video
   videos: videos

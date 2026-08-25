@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { LessonCard } from '@/components/lesson-card'
+import { SectionCard } from '@/components/section-card'
 import { getLevel, getLevels, getSiteContent } from '@/lib/course'
 
 type LevelPageProps = {
@@ -53,34 +54,47 @@ export default async function LevelPage({ params }: LevelPageProps) {
             </div>
             <div>
               <p className="display-type text-3xl font-black">{level.groups.length}</p>
-              <p className="text-xs font-bold tracking-wider text-muted-foreground uppercase">{site.labels.tracks}</p>
+              <p className="text-xs font-bold tracking-wider text-muted-foreground uppercase">{site.labels.sections}</p>
             </div>
           </div>
         </div>
       </header>
 
       <div className="mt-14 sm:mt-18">
-        {level.groups.map((group, index) => (
-          <section key={group.title} className={index ? 'mt-16' : ''}>
-            <div className="mb-4 flex items-end justify-between gap-5">
-              <div>
-                <span className="eyebrow">{site.labels.track} {String(index + 1).padStart(2, '0')}</span>
-                <h2 className="display-type mt-3 text-3xl font-black sm:text-4xl">{group.title}</h2>
+        {level.groups.length > 1 ? (
+          <div className="grid gap-5 lg:grid-cols-2">
+            {level.groups.map((group, index) => (
+              <SectionCard
+                key={group.slug}
+                level={level}
+                section={group}
+                number={index + 1}
+              />
+            ))}
+          </div>
+        ) : (
+          level.groups.map((group, index) => (
+            <section key={group.title}>
+              <div className="mb-4 flex items-end justify-between gap-5">
+                <div>
+                  <span className="eyebrow">{site.labels.section} {String(index + 1).padStart(2, '0')}</span>
+                  <h2 className="display-type mt-3 text-3xl font-black sm:text-4xl">{group.title}</h2>
+                </div>
+                <span className="hidden text-sm font-bold text-muted-foreground sm:block">
+                  {group.lessons.length}{' '}
+                  {group.lessons.length === 1
+                    ? site.labels.lesson.toLowerCase()
+                    : site.labels.lessons.toLowerCase()}
+                </span>
               </div>
-              <span className="hidden text-sm font-bold text-muted-foreground sm:block">
-                {group.lessons.length}{' '}
-                {group.lessons.length === 1
-                  ? site.labels.lesson.toLowerCase()
-                  : site.labels.lessons.toLowerCase()}
-              </span>
-            </div>
-            <div>
-              {group.lessons.map((lesson) => (
-                <LessonCard key={lesson.slug} lesson={lesson} />
-              ))}
-            </div>
-          </section>
-        ))}
+              <div>
+                {group.lessons.map((lesson) => (
+                  <LessonCard key={lesson.slug} lesson={lesson} />
+                ))}
+              </div>
+            </section>
+          ))
+        )}
       </div>
     </div>
   )

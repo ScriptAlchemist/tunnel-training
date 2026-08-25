@@ -30,6 +30,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
   if (!level || !lesson) notFound()
   const adjacent = getAdjacentLessons(level, lesson)
   const site = getSiteContent()
+  const section = level.groups.find((item) => item.title === lesson.groupTitle)
 
   return (
     <div className="shell py-10 sm:py-16">
@@ -40,6 +41,17 @@ export default async function LessonPage({ params }: LessonPageProps) {
         <span>/</span>
         <Link href={`/levels/${level.slug}/`} className="hover:text-primary">{level.shortTitle}</Link>
         <span>/</span>
+        {level.groups.length > 1 && section && (
+          <>
+            <Link
+              href={`/levels/${level.slug}/sections/${section.slug}/`}
+              className="hover:text-primary"
+            >
+              {section.title}
+            </Link>
+            <span>/</span>
+          </>
+        )}
         <span className="text-[var(--foreground)]">{site.labels.lesson} {lesson.number}</span>
       </nav>
 
