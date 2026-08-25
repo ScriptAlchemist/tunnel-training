@@ -1,0 +1,5 @@
+from: markdown
+to: markdown
+wrap: none
+columns: 9999
+markdown-headings: atx
