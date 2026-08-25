@@ -1,3 +1,4 @@
+import { FlightFlower } from '@/components/flight-flower'
 import { LevelCard } from '@/components/level-card'
 import { Button } from '@/components/ui/button'
 import { getCourseIntro, getLevels, getSiteContent } from '@/lib/course'
@@ -11,8 +12,14 @@ export default function HomePage() {
     <>
       <section className="shell pt-8 pb-8 sm:pt-12 sm:pb-10" id="levels">
         <div className="panel relative overflow-hidden rounded-[2rem] border-primary/15 bg-card p-8 sm:p-12">
-          <div className="absolute -top-24 -right-16 size-72 rounded-full border-[4rem] border-secondary" />
-          <div className="absolute -bottom-28 left-[18%] size-56 rounded-full border-[3rem] border-accent" />
+          <FlightFlower
+            variant="inspin"
+            className="absolute -top-20 -right-12 size-64 text-secondary"
+          />
+          <FlightFlower
+            variant="outspin"
+            className="absolute -bottom-24 left-[18%] size-52 text-accent"
+          />
           <div className="relative z-10 max-w-4xl">
             <span className="text-xs font-extrabold tracking-[0.2em] text-primary uppercase">
               {intro.quoteLabel}

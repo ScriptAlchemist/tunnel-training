@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { BackButton } from '@/components/back-button'
+import { FlightFlower } from '@/components/flight-flower'
 import { LessonCard } from '@/components/lesson-card'
 import { PrerequisiteCard } from '@/components/prerequisite-card'
 import {
@@ -63,7 +64,10 @@ export default async function SectionPage({ params }: SectionPageProps) {
       </div>
 
       <header className="panel relative mt-8 overflow-hidden rounded-[2rem] p-7 sm:p-12">
-        <div className="absolute -top-20 -right-14 size-64 rounded-full border-[3.5rem] border-secondary" />
+        <FlightFlower
+          variant={sectionNumber % 2 === 0 ? 'outspin' : 'inspin'}
+          className="absolute -top-20 -right-12 size-60 text-secondary"
+        />
         <div className="relative z-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <p className="text-xs font-extrabold tracking-[0.18em] text-primary uppercase">

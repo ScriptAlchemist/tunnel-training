@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { BackButton } from '@/components/back-button'
+import { FlightFlower } from '@/components/flight-flower'
 import { LessonCard } from '@/components/lesson-card'
 import { PrerequisiteCard } from '@/components/prerequisite-card'
 import { SectionCard } from '@/components/section-card'
@@ -52,8 +53,14 @@ export default async function LevelPage({ params }: LevelPageProps) {
       </div>
 
       <header className="relative mt-8 overflow-hidden rounded-[2rem] border border-border bg-card px-7 py-10 text-card-foreground shadow-sm sm:px-12 sm:py-14">
-        <div className="absolute -top-20 -right-14 size-72 rounded-full border-[4rem] border-secondary" />
-        <div className="absolute -bottom-24 left-[42%] size-60 rounded-full border-[3rem] border-accent" />
+        <FlightFlower
+          variant="inspin"
+          className="absolute -top-20 -right-12 size-64 text-secondary"
+        />
+        <FlightFlower
+          variant="outspin"
+          className="absolute -bottom-24 left-[42%] size-52 text-accent"
+        />
         <div className="relative z-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <p className="text-xs font-extrabold tracking-[0.2em] text-muted-foreground uppercase">{site.labels.level} {Number(level.number)}</p>

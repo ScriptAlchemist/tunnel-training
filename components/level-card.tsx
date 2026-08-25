@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { FlightFlower } from '@/components/flight-flower'
 import { getSiteContent, type CourseLevel } from '@/lib/course'
 
 export function LevelCard({ level }: { level: CourseLevel }) {
@@ -10,9 +11,10 @@ export function LevelCard({ level }: { level: CourseLevel }) {
       href={`/levels/${level.slug}/`}
       className="panel group relative flex min-h-80 flex-col overflow-hidden rounded-[2rem] p-7 transition duration-300 hover:-translate-y-1 hover:shadow-2xl sm:p-9"
     >
-      <span
-        className="absolute -top-14 -right-14 size-52 rounded-full opacity-15 transition-transform duration-500 group-hover:scale-110"
-        style={{ background: accent }}
+      <FlightFlower
+        variant={Number(level.number) % 2 === 0 ? 'outspin' : 'inspin'}
+        className="absolute -top-12 -right-12 size-48 opacity-45 transition-transform duration-500 group-hover:scale-110"
+        style={{ color: accent }}
       />
       <div className="relative flex items-start justify-between">
         <span className="display-type text-6xl font-black opacity-15">{level.number}</span>
