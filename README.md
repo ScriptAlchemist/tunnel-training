@@ -30,8 +30,8 @@ The production build automatically uses `/tunnel-training` as its base path when
 
 ## Editing course content
 
-- `LearnToFly.md` supplies the About section.
-- `level-1.md` supplies the Level 1 lessons.
-- `level-2.md` supplies the Level 2 groups and lessons.
+- `markdown/site.md` controls site-wide labels, metadata, navigation, contact details, and interface copy.
+- `markdown/LearnToFly.md` controls the homepage and About section.
+- Every `markdown/level-*.md` file creates a level and its lesson pages.
 
-Keep lesson titles as Markdown headings. Standard YouTube links placed under a lesson’s `**Links:**` section are automatically turned into in-page videos.
+See `markdown/README.md` for the level frontmatter and heading format. Standard YouTube links placed under a lesson’s `**Links:**` section are automatically turned into in-page videos.

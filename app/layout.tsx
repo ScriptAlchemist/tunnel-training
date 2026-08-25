@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Manrope, Nunito_Sans } from 'next/font/google'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
+import { getSiteContent } from '@/lib/course'
 import { ThemeProvider } from './theme-provider'
 import './globals.css'
 
@@ -17,23 +18,25 @@ const nunito = Nunito_Sans({
   display: 'swap',
 })
 
+const site = getSiteContent()
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://scriptalchemist.github.io/tunnel-training/'),
+  metadataBase: new URL(site.siteUrl),
   title: {
-    default: 'Tunnel Training',
-    template: '%s · Tunnel Training',
+    default: site.title,
+    template: `%s · ${site.title}`,
   },
-  description: 'A progressive tunnel flying curriculum by Justin Bender.',
+  description: site.description,
   openGraph: {
-    title: 'Tunnel Training',
-    description: 'Build control, awareness, and range in the wind tunnel.',
+    title: site.title,
+    description: site.socialDescription,
     type: 'website',
   },
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={site.language} suppressHydrationWarning>
       <body className={`${manrope.variable} ${nunito.variable}`}>
         <ThemeProvider>
           <Header />

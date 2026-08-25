@@ -2,9 +2,14 @@
 
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import type { Video } from '@/lib/course'
+import type { SiteContent, Video } from '@/lib/course'
 
-export function VideoPlayer({ videos }: { videos: Video[] }) {
+type VideoLabels = Pick<
+  SiteContent['labels'],
+  'videoPendingTitle' | 'videoPendingText' | 'lessonVideos' | 'openYouTube'
+>
+
+export function VideoPlayer({ videos, labels }: { videos: Video[]; labels: VideoLabels }) {
   const [active, setActive] = useState(0)
 
   if (videos.length === 0) {
@@ -14,9 +19,9 @@ export function VideoPlayer({ videos }: { videos: Video[] }) {
           <span className="mx-auto mb-4 grid size-12 place-items-center rounded-full bg-accent text-xl text-accent-foreground">
             +
           </span>
-          <p className="font-extrabold">Video reference coming soon</p>
+          <p className="font-extrabold">{labels.videoPendingTitle}</p>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">
-            This lesson is ready for the current training program’s approved resource.
+            {labels.videoPendingText}
           </p>
         </div>
       </div>
@@ -39,7 +44,7 @@ export function VideoPlayer({ videos }: { videos: Video[] }) {
         />
       </div>
       {videos.length > 1 && (
-        <div className="mt-3 flex gap-2 overflow-x-auto pb-2" aria-label="Lesson videos">
+        <div className="mt-3 flex gap-2 overflow-x-auto pb-2" aria-label={labels.lessonVideos}>
           {videos.map((item, index) => (
             <Button
               key={item.id}
@@ -60,7 +65,7 @@ export function VideoPlayer({ videos }: { videos: Video[] }) {
         rel="noreferrer"
         className="mt-3 inline-flex text-xs font-bold text-muted-foreground underline decoration-border underline-offset-4 hover:text-primary"
       >
-        Open on YouTube ↗
+        {labels.openYouTube} ↗
       </a>
     </div>
   )

@@ -1,9 +1,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import matter from 'gray-matter'
 import { cache } from 'react'
 import remarkGfm from 'remark-gfm'
 import remarkHtml from 'remark-html'
 import { remark } from 'remark'
+
+const contentDirectory = path.join(process.cwd(), 'markdown')
 
 export type Video = {
   id: string
@@ -34,39 +37,100 @@ export type CourseLevel = {
   title: string
   shortTitle: string
   description: string
-  color: 'coral' | 'sky'
+  accent: string
   number: string
+  order: number
   groups: LessonGroup[]
   lessons: Lesson[]
 }
 
-type LevelDefinition = Pick<
-  CourseLevel,
-  'slug' | 'shortTitle' | 'description' | 'color' | 'number'
-> & {
-  file: string
+export type SiteContent = {
+  title: string
+  language: string
+  description: string
+  socialDescription: string
+  siteUrl: string
+  email: string
+  navigation: {
+    levels: string
+    about: string
+  }
+  theme: {
+    light: string
+    dark: string
+  }
+  footer: {
+    text: string
+    link: string
+  }
+  labels: {
+    mainNavigation: string
+    breadcrumb: string
+    lessonNavigation: string
+    home: string
+    levels: string
+    level: string
+    lesson: string
+    lessons: string
+    track: string
+    tracks: string
+    courseIndex: string
+    levelIndexMetadataTitle: string
+    levelIndexMetadataDescription: string
+    levelIndexTitle: string
+    levelIndexDescription: string
+    readinessTitle: string
+    readinessText: string
+    viewCurriculum: string
+    prerequisiteIncluded: string
+    video: string
+    videos: string
+    referencePending: string
+    watchMovement: string
+    prerequisite: string
+    seeLessonNotes: string
+    previous: string
+    next: string
+    videoPendingTitle: string
+    videoPendingText: string
+    lessonVideos: string
+    openYouTube: string
+    defaultLessonSummary: string
+  }
+  notFound: {
+    eyebrow: string
+    title: string
+    description: string
+    button: string
+  }
 }
 
-const levelDefinitions: LevelDefinition[] = [
-  {
-    slug: 'level-1',
-    file: 'level-1.md',
-    shortTitle: 'Belly Flying',
-    description: 'Build a stable foundation, then add precise movement, altitude control, and safe entries and exits.',
-    color: 'coral',
-    number: '01',
-  },
-  {
-    slug: 'level-2',
-    file: 'level-2.md',
-    shortTitle: 'Back Flying & Formations',
-    description: 'Expand your range with back-flying control, transitions, and the first principles of flying with others.',
-    color: 'sky',
-    number: '02',
-  },
-]
+export type HomeContent = {
+  title: string
+  author: string
+  aboutEyebrow: string
+  quoteLabel: string
+  quote: string
+  levelsEyebrow: string
+  levelsTitle: string
+  levelsDescription: string
+  bookingEyebrow: string
+  bookingTitle: string
+  bookingButton: string
+  bookingSubject: string
+  aboutHtml: string
+}
+
+type LevelFrontmatter = Pick<
+  CourseLevel,
+  'slug' | 'shortTitle' | 'description' | 'accent' | 'number' | 'order'
+>
 
 const markdownProcessor = remark().use(remarkGfm).use(remarkHtml, { sanitize: false })
+
+function readContentFile(filename: string) {
+  return fs.readFileSync(path.join(contentDirectory, filename), 'utf8')
+}
 
 function markdownToHtml(markdown: string) {
   return markdownProcessor.processSync(markdown).toString()
@@ -126,14 +190,15 @@ function parseLesson(
   markdown: string,
   groupTitle: string,
   level: Pick<CourseLevel, 'slug' | 'title'>,
-  number: number
+  number: number,
+  defaultSummary: string
 ): Lesson {
   const summary =
     labeledParagraph(markdown, 'Desired outcome') ??
     labeledParagraph(markdown, 'Purpose') ??
     labeledParagraph(markdown, 'Description') ??
     labeledParagraph(markdown, 'Manual status') ??
-    'Build understanding and control through a focused progression.'
+    defaultSummary
 
   return {
     slug: slugify(title),
@@ -149,15 +214,16 @@ function parseLesson(
   }
 }
 
-function parseLevel(definition: LevelDefinition): CourseLevel {
-  const source = fs.readFileSync(path.join(process.cwd(), definition.file), 'utf8')
-  const title = source.match(/^#\s+(.+)$/m)?.[1] ?? definition.shortTitle
-  const hasNestedLessons = /^###\s+/m.test(source)
+function parseLevel(filename: string): CourseLevel {
+  const parsed = matter(readContentFile(filename))
+  const definition = parsed.data as LevelFrontmatter
+  const title = parsed.content.match(/^#\s+(.+)$/m)?.[1] ?? definition.shortTitle
+  const hasNestedLessons = /^###\s+/m.test(parsed.content)
   const draftGroups: Array<{ title: string; lessons: Array<{ title: string; markdown: string }> }> = []
   let group: (typeof draftGroups)[number] | undefined
   let lesson: { title: string; markdown: string } | undefined
 
-  for (const line of source.split('\n')) {
+  for (const line of parsed.content.split('\n')) {
     const h2 = line.match(/^##\s+(.+)$/)
     const h3 = line.match(/^###\s+(.+)$/)
 
@@ -182,6 +248,7 @@ function parseLevel(definition: LevelDefinition): CourseLevel {
   }
 
   const levelBase = { slug: definition.slug, title }
+  const defaultSummary = getSiteContent().labels.defaultLessonSummary
   let lessonNumber = 0
   const groups = draftGroups.map((draftGroup) => ({
     title: draftGroup.title,
@@ -191,7 +258,8 @@ function parseLevel(definition: LevelDefinition): CourseLevel {
         draftLesson.markdown,
         draftGroup.title,
         levelBase,
-        ++lessonNumber
+        ++lessonNumber,
+        defaultSummary
       )
     ),
   }))
@@ -204,7 +272,18 @@ function parseLevel(definition: LevelDefinition): CourseLevel {
   }
 }
 
-export const getLevels = cache(() => levelDefinitions.map(parseLevel))
+export const getSiteContent = cache(() => {
+  const parsed = matter(readContentFile('site.md'))
+  return parsed.data as SiteContent
+})
+
+export const getLevels = cache(() =>
+  fs
+    .readdirSync(contentDirectory)
+    .filter((filename) => /^level-[a-z0-9-]+\.md$/i.test(filename))
+    .map(parseLevel)
+    .sort((a, b) => a.order - b.order)
+)
 
 export const getLevel = (slug: string) => getLevels().find((level) => level.slug === slug)
 
@@ -212,12 +291,11 @@ export const getLesson = (levelSlug: string, lessonSlug: string) =>
   getLevel(levelSlug)?.lessons.find((lesson) => lesson.slug === lessonSlug)
 
 export const getCourseIntro = cache(() => {
-  const source = fs.readFileSync(path.join(process.cwd(), 'LearnToFly.md'), 'utf8')
-  const title = source.match(/^#\s+(.+)$/m)?.[1] ?? 'Tunnel Flying Lesson Plans'
-  const author = source.match(/^>\s*Author:\s*(.+)$/m)?.[1] ?? 'Justin Bender'
-  const about = source.match(/^## About\s*$([\s\S]*?)(?=^## Levels\s*$)/m)?.[1].trim() ?? ''
-
-  return { title, author, aboutHtml: markdownToHtml(about) }
+  const parsed = matter(readContentFile('LearnToFly.md'))
+  return {
+    ...(parsed.data as Omit<HomeContent, 'aboutHtml'>),
+    aboutHtml: markdownToHtml(parsed.content.trim()),
+  }
 })
 
 export function getAdjacentLessons(level: CourseLevel, lesson: Lesson) {

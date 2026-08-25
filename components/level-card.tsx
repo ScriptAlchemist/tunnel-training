@@ -1,8 +1,9 @@
 import Link from 'next/link'
-import type { CourseLevel } from '@/lib/course'
+import { getSiteContent, type CourseLevel } from '@/lib/course'
 
 export function LevelCard({ level }: { level: CourseLevel }) {
-  const accent = level.color === 'coral' ? 'var(--primary)' : '#399ec2'
+  const site = getSiteContent()
+  const accent = level.accent
 
   return (
     <Link
@@ -16,17 +17,17 @@ export function LevelCard({ level }: { level: CourseLevel }) {
       <div className="relative flex items-start justify-between">
         <span className="display-type text-6xl font-black opacity-15">{level.number}</span>
         <span className="rounded-full border border-[var(--line)] bg-[var(--panel-solid)] px-3 py-1.5 text-xs font-extrabold">
-          {level.lessons.length} lessons
+          {level.lessons.length} {site.labels.lessons.toLowerCase()}
         </span>
       </div>
       <div className="relative mt-auto pt-14">
         <p className="mb-2 text-sm font-extrabold uppercase tracking-[0.18em]" style={{ color: accent }}>
-          Level {Number(level.number)}
+          {site.labels.level} {Number(level.number)}
         </p>
         <h3 className="display-type balance text-3xl font-extrabold sm:text-4xl">{level.shortTitle}</h3>
         <p className="mt-4 max-w-lg leading-7 text-muted-foreground">{level.description}</p>
         <span className="mt-7 inline-flex items-center gap-2 text-sm font-extrabold">
-          View curriculum <span className="transition-transform group-hover:translate-x-1">→</span>
+          {site.labels.viewCurriculum} <span className="transition-transform group-hover:translate-x-1">→</span>
         </span>
       </div>
     </Link>

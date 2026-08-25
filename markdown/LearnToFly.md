@@ -1,8 +1,17 @@
-# Justin Bender's Tunnel Flying Lesson Plans
-
-> Author: Justin Bender
-
-## About
+---
+title: Justin Bender's Tunnel Flying Lesson Plans
+author: Justin Bender
+aboutEyebrow: About the curriculum
+quoteLabel: The coaching idea
+quote: Understand movement well enough to fly in ways you haven't been taught.
+levelsEyebrow: The flight path
+levelsTitle: Learn in layers.
+levelsDescription: Start with a dependable neutral position. Add one axis of movement at a time, then connect the skills.
+bookingEyebrow: Book a session
+bookingTitle: Email me to book tunnel time.
+bookingButton: Email Justin →
+bookingSubject: Tunnel training session
+---
 
 Tunnel flying is and interesting sport. We all do it for different
 reasons, but something draws us here. My goal for you is to make you
@@ -20,8 +29,3 @@ understand different movements. How to use those same concepts. To fly
 in ways I haven't taught you.
 
 That's where we want to breakdown body flight
-
-## Levels
-
-- [Level 1: Belly Flying](level-1.md)
-- [Level 2: Back Flying and Formations](level-2.md)

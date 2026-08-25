@@ -5,16 +5,15 @@ import { usePathname } from 'next/navigation'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
-const links = [
-  { href: '/levels/', label: 'Levels', matches: (pathname: string) => pathname.startsWith('/levels') },
-  { href: '/#about', label: 'About', matches: (pathname: string) => pathname === '/' },
-]
-
-export function NavLinks() {
+export function NavLinks({ labels }: { labels: { levels: string; about: string; mainNavigation: string } }) {
   const pathname = usePathname()
+  const links = [
+    { href: '/levels/', label: labels.levels, matches: (path: string) => path.startsWith('/levels') },
+    { href: '/#about', label: labels.about, matches: (path: string) => path === '/' },
+  ]
 
   return (
-    <nav aria-label="Main navigation" className="flex items-center gap-1 text-sm font-bold">
+    <nav aria-label={labels.mainNavigation} className="flex items-center gap-1 text-sm font-bold">
       {links.map((link) => {
         const active = link.matches(pathname)
 

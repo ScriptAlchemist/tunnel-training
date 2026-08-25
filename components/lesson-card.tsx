@@ -1,7 +1,9 @@
 import Link from 'next/link'
-import type { Lesson } from '@/lib/course'
+import { getSiteContent, type Lesson } from '@/lib/course'
 
 export function LessonCard({ lesson }: { lesson: Lesson }) {
+  const site = getSiteContent()
+
   return (
     <Link
       href={`/levels/${lesson.levelSlug}/${lesson.slug}/`}
@@ -19,10 +21,12 @@ export function LessonCard({ lesson }: { lesson: Lesson }) {
         </span>
         <span className="mt-3 flex flex-wrap gap-2 text-xs font-bold text-muted-foreground">
           {lesson.prerequisite && (
-            <span className="rounded-full bg-[var(--panel)] px-3 py-1">Prerequisite included</span>
+            <span className="rounded-full bg-[var(--panel)] px-3 py-1">{site.labels.prerequisiteIncluded}</span>
           )}
           <span className="rounded-full bg-[var(--panel)] px-3 py-1">
-            {lesson.videos.length ? `${lesson.videos.length} video${lesson.videos.length > 1 ? 's' : ''}` : 'Reference pending'}
+            {lesson.videos.length
+              ? `${lesson.videos.length} ${lesson.videos.length > 1 ? site.labels.videos : site.labels.video}`
+              : site.labels.referencePending}
           </span>
         </span>
       </span>

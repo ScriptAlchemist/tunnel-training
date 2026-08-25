@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { VideoPlayer } from '@/components/video-player'
-import { getAdjacentLessons, getLesson, getLevel, getLevels } from '@/lib/course'
+import { getAdjacentLessons, getLesson, getLevel, getLevels, getSiteContent } from '@/lib/course'
 
 type LessonPageProps = {
   params: Promise<{ level: string; lesson: string }>
@@ -29,17 +29,18 @@ export default async function LessonPage({ params }: LessonPageProps) {
   const lesson = getLesson(levelSlug, lessonSlug)
   if (!level || !lesson) notFound()
   const adjacent = getAdjacentLessons(level, lesson)
+  const site = getSiteContent()
 
   return (
     <div className="shell py-10 sm:py-16">
-      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-xs font-bold text-muted-foreground">
-        <Link href="/" className="hover:text-primary">Home</Link>
+      <nav aria-label={site.labels.breadcrumb} className="flex flex-wrap items-center gap-2 text-xs font-bold text-muted-foreground">
+        <Link href="/" className="hover:text-primary">{site.labels.home}</Link>
         <span>/</span>
-        <Link href="/levels/" className="hover:text-primary">Levels</Link>
+        <Link href="/levels/" className="hover:text-primary">{site.labels.levels}</Link>
         <span>/</span>
         <Link href={`/levels/${level.slug}/`} className="hover:text-primary">{level.shortTitle}</Link>
         <span>/</span>
-        <span className="text-[var(--foreground)]">Lesson {lesson.number}</span>
+        <span className="text-[var(--foreground)]">{site.labels.lesson} {lesson.number}</span>
       </nav>
 
       <header className="mt-9 max-w-4xl">
@@ -60,33 +61,33 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
         <aside className="lg:sticky lg:top-26">
           <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground">
-            Watch the movement
+            {site.labels.watchMovement}
           </p>
-          <VideoPlayer videos={lesson.videos} />
+          <VideoPlayer videos={lesson.videos} labels={site.labels} />
           <div className="mt-6 grid gap-3 rounded-2xl border border-[var(--line)] bg-[var(--panel)] p-5 text-sm">
             <div className="flex items-start justify-between gap-4">
-              <span className="font-bold text-muted-foreground">Level</span>
+              <span className="font-bold text-muted-foreground">{site.labels.level}</span>
               <span className="text-right font-extrabold">{level.shortTitle}</span>
             </div>
             <div className="h-px bg-[var(--line)]" />
             <div className="flex items-start justify-between gap-4">
-              <span className="font-bold text-muted-foreground">Prerequisite</span>
-              <span className="max-w-[16rem] text-right font-extrabold">{lesson.prerequisite ?? 'See lesson notes'}</span>
+              <span className="font-bold text-muted-foreground">{site.labels.prerequisite}</span>
+              <span className="max-w-[16rem] text-right font-extrabold">{lesson.prerequisite ?? site.labels.seeLessonNotes}</span>
             </div>
           </div>
         </aside>
       </div>
 
-      <nav aria-label="Lesson navigation" className="mt-14 grid gap-4 border-t border-[var(--line)] pt-8 sm:grid-cols-2">
+      <nav aria-label={site.labels.lessonNavigation} className="mt-14 grid gap-4 border-t border-[var(--line)] pt-8 sm:grid-cols-2">
         {adjacent.previous ? (
           <Link href={`/levels/${level.slug}/${adjacent.previous.slug}/`} className="group rounded-2xl border border-border bg-card/70 p-5 transition hover:border-primary">
-            <span className="text-xs font-extrabold uppercase tracking-wider text-muted-foreground">← Previous</span>
+            <span className="text-xs font-extrabold uppercase tracking-wider text-muted-foreground">← {site.labels.previous}</span>
             <span className="display-type mt-2 block text-lg font-extrabold group-hover:text-primary">{adjacent.previous.title}</span>
           </Link>
         ) : <span />}
         {adjacent.next && (
           <Link href={`/levels/${level.slug}/${adjacent.next.slug}/`} className="group rounded-2xl border border-border bg-card/70 p-5 text-right transition hover:border-primary">
-            <span className="text-xs font-extrabold uppercase tracking-wider text-muted-foreground">Next →</span>
+            <span className="text-xs font-extrabold uppercase tracking-wider text-muted-foreground">{site.labels.next} →</span>
             <span className="display-type mt-2 block text-lg font-extrabold group-hover:text-primary">{adjacent.next.title}</span>
           </Link>
         )}
