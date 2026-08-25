@@ -91,8 +91,6 @@ export type SiteContent = {
     referencePending: string
     watchMovement: string
     prerequisite: string
-    prerequisites: string
-    viewPrerequisites: string
     seeLessonNotes: string
     previous: string
     next: string
@@ -129,6 +127,7 @@ export type HomeContent = {
 export type PrerequisiteContent = {
   level: string
   section?: string
+  visible: boolean
   eyebrow: string
   title: string
   description: string
@@ -314,8 +313,14 @@ export const getPrerequisites = cache(() =>
     .map((filename) => {
       const source = fs.readFileSync(path.join(prerequisitesDirectory, filename), 'utf8')
       const parsed = matter(source)
+      const definition = parsed.data as Omit<
+        PrerequisiteContent,
+        'html' | 'visible'
+      > & { visible?: boolean }
+
       return {
-        ...(parsed.data as Omit<PrerequisiteContent, 'html'>),
+        ...definition,
+        visible: definition.visible ?? true,
         html: markdownToHtml(parsed.content.trim()),
       }
     })
@@ -327,6 +332,13 @@ export const getLevelPrerequisite = (levelSlug: string) =>
 export const getSectionPrerequisite = (levelSlug: string, sectionSlug: string) =>
   getPrerequisites().find(
     (item) => item.level === levelSlug && item.section === sectionSlug
+  )
+
+export const hasPrerequisiteContent = (content?: PrerequisiteContent) =>
+  Boolean(
+    content &&
+      content.visible &&
+      (content.description || content.topics.length > 0 || content.html.trim())
   )
 
 export const getLevels = cache(() =>

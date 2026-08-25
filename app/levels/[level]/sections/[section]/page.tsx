@@ -2,13 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { LessonCard } from '@/components/lesson-card'
-import { PrerequisiteCard } from '@/components/prerequisite-card'
+import { PrerequisiteSection } from '@/components/prerequisite-section'
 import {
   getLevel,
   getLevels,
   getSection,
   getSectionPrerequisite,
   getSiteContent,
+  hasPrerequisiteContent,
 } from '@/lib/course'
 
 type SectionPageProps = {
@@ -40,6 +41,7 @@ export default async function SectionPage({ params }: SectionPageProps) {
   const site = getSiteContent()
   const sectionNumber = level.groups.findIndex((item) => item.slug === section.slug) + 1
   const prerequisite = getSectionPrerequisite(level.slug, section.slug)
+  const showPrerequisite = hasPrerequisiteContent(prerequisite)
 
   return (
     <div className="shell py-10 sm:py-16">
@@ -79,17 +81,15 @@ export default async function SectionPage({ params }: SectionPageProps) {
         </div>
       </header>
 
-      {prerequisite && (
-        <PrerequisiteCard
-          content={prerequisite}
-          href={`/levels/${level.slug}/sections/${section.slug}/prerequisites/`}
-        />
-      )}
-
       <section className="mt-12 sm:mt-16">
-        {section.lessons.map((lesson) => (
-          <LessonCard key={lesson.slug} lesson={lesson} />
-        ))}
+        {showPrerequisite && prerequisite && (
+          <PrerequisiteSection content={prerequisite} />
+        )}
+        <div className={showPrerequisite ? 'mt-10' : ''}>
+          {section.lessons.map((lesson) => (
+            <LessonCard key={lesson.slug} lesson={lesson} />
+          ))}
+        </div>
       </section>
     </div>
   )

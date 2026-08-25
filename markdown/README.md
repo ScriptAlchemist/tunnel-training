@@ -31,11 +31,11 @@ Lesson text supports regular Markdown. Add YouTube references beneath `**Links:*
 
 ## Prerequisites
 
-Prerequisite pages live in `markdown/prerequisites/` and support full Markdown, including headings, tables, links, and numbered workouts.
+Prerequisite content lives in `markdown/prerequisites/` and appears inline at the top of its level or section, before the lesson list. These files support full Markdown, including headings, tables, links, and numbered workouts.
 
 - `level-1.md` attaches to Level 1.
 - `level-2.md` attaches to Level 2.
 - `level-2--static-flying.md` attaches to the Static Flying section in Level 2.
 - `level-2--formations.md` attaches to the Formations section in Level 2.
 
-Use `level` in frontmatter for a level prerequisite. Add `section` with the section slug for a section prerequisite. The `topics` list becomes a quick overview on prerequisite cards and pages.
+Use `level` in frontmatter for a level prerequisite. Add `section` with the section slug for a section prerequisite. Set `visible: true` to display it or `visible: false` to hide it without deleting the file. The `topics` list becomes a short overview above the prerequisite content. Empty prerequisite files stay hidden until content is added.

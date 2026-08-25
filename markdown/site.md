@@ -39,8 +39,6 @@ labels:
   referencePending: Reference pending
   watchMovement: Watch the movement
   prerequisite: Prerequisite
-  prerequisites: Prerequisites
-  viewPrerequisites: View prerequisites
   seeLessonNotes: See lesson notes
   previous: Previous
   next: Next

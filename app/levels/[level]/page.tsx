@@ -2,9 +2,15 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { LessonCard } from '@/components/lesson-card'
-import { PrerequisiteCard } from '@/components/prerequisite-card'
+import { PrerequisiteSection } from '@/components/prerequisite-section'
 import { SectionCard } from '@/components/section-card'
-import { getLevel, getLevelPrerequisite, getLevels, getSiteContent } from '@/lib/course'
+import {
+  getLevel,
+  getLevelPrerequisite,
+  getLevels,
+  getSiteContent,
+  hasPrerequisiteContent,
+} from '@/lib/course'
 
 type LevelPageProps = {
   params: Promise<{ level: string }>
@@ -29,6 +35,7 @@ export default async function LevelPage({ params }: LevelPageProps) {
   if (!level) notFound()
   const site = getSiteContent()
   const prerequisite = getLevelPrerequisite(level.slug)
+  const showPrerequisite = hasPrerequisiteContent(prerequisite)
 
   return (
     <div className="shell py-10 sm:py-16">
@@ -62,25 +69,25 @@ export default async function LevelPage({ params }: LevelPageProps) {
         </div>
       </header>
 
-      {prerequisite && (
-        <PrerequisiteCard
-          content={prerequisite}
-          href={`/levels/${level.slug}/prerequisites/`}
-        />
-      )}
-
       <div className="mt-14 sm:mt-18">
         {level.groups.length > 1 ? (
-          <div className="grid gap-5 lg:grid-cols-2">
-            {level.groups.map((group, index) => (
-              <SectionCard
-                key={group.slug}
-                level={level}
-                section={group}
-                number={index + 1}
-              />
-            ))}
-          </div>
+          <>
+            {showPrerequisite && prerequisite && (
+              <PrerequisiteSection content={prerequisite} />
+            )}
+            <div
+              className={`grid gap-5 lg:grid-cols-2 ${showPrerequisite ? 'mt-12' : ''}`}
+            >
+              {level.groups.map((group, index) => (
+                <SectionCard
+                  key={group.slug}
+                  level={level}
+                  section={group}
+                  number={index + 1}
+                />
+              ))}
+            </div>
+          </>
         ) : (
           level.groups.map((group, index) => (
             <section key={group.title}>
@@ -96,7 +103,10 @@ export default async function LevelPage({ params }: LevelPageProps) {
                     : site.labels.lessons.toLowerCase()}
                 </span>
               </div>
-              <div>
+              {showPrerequisite && prerequisite && (
+                <PrerequisiteSection content={prerequisite} />
+              )}
+              <div className={showPrerequisite ? 'mt-10' : ''}>
                 {group.lessons.map((lesson) => (
                   <LessonCard key={lesson.slug} lesson={lesson} />
                 ))}
