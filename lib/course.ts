@@ -61,6 +61,18 @@ export type SiteContent = {
   theme: {
     toggle: string
   }
+  visuals: {
+    tunnelAxis: {
+      title: string
+      description: string
+      sideToSide: string
+      height: string
+      forwardBack: string
+      dragToRotate: string
+      reset: string
+      unavailable: string
+    }
+  }
   footer: {
     text: string
     link: string

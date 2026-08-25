@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { LessonContent } from '@/components/lesson-content'
 import { VideoPlayer } from '@/components/video-player'
 import { getAdjacentLessons, getLesson, getLevel, getLevels, getSiteContent } from '@/lib/course'
 
@@ -68,7 +69,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
       <div className="mt-12 grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.88fr)] lg:gap-14">
         <article className="panel rounded-[1.75rem] p-6 sm:p-9">
-          <div className="lesson-copy" dangerouslySetInnerHTML={{ __html: lesson.html }} />
+          <LessonContent html={lesson.html} visuals={site.visuals} />
         </article>
 
         <aside className="lg:sticky lg:top-26">

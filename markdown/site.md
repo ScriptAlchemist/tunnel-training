@@ -10,6 +10,16 @@ navigation:
   about: About
 theme:
   toggle: Toggle color theme
+visuals:
+  tunnelAxis:
+    title: Explore the neutral position in the tunnel
+    description: Move the flyer along all three axes, then drag the chamber to inspect the neutral belly position from another angle.
+    sideToSide: Side to side
+    height: Height
+    forwardBack: Forward and back
+    dragToRotate: Drag to rotate
+    reset: Reset position
+    unavailable: The interactive 3D view is not available in this browser.
 footer:
   text: Lesson plans by Justin Bender. Train with a qualified tunnel instructor and fly within your demonstrated ability.
   link: Explore levels →
