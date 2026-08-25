@@ -285,3 +285,9 @@ a {
     width: min(100% - 1.25rem, 1180px);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .about-background-video {
+    display: none;
+  }
+}

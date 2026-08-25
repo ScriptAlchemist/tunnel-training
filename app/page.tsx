@@ -41,14 +41,32 @@ export default function HomePage() {
       </section>
 
       <section id="about" className="shell scroll-mt-28 py-8 sm:py-10">
-        <div className="panel rounded-[2rem] p-8 sm:p-12 lg:p-14">
-          <span className="eyebrow">{intro.aboutEyebrow}</span>
-          <h2 className="display-type balance mt-4 text-3xl font-black sm:text-5xl">{intro.title}</h2>
+        <div className="panel relative isolate overflow-hidden rounded-[2rem] p-8 sm:p-12 lg:p-14">
+          <video
+            className="about-background-video absolute inset-y-0 right-0 h-full w-full object-cover object-center opacity-45 sm:w-[58%]"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            poster="about-tunnel-poster.jpg"
+            aria-hidden="true"
+          >
+            <source src="about-tunnel.mp4" type="video/mp4" />
+          </video>
           <div
-            className="lesson-copy mt-7 max-w-4xl text-muted-foreground [&_p:last-child]:mb-0"
-            dangerouslySetInnerHTML={{ __html: intro.aboutHtml }}
+            className="absolute inset-0 bg-gradient-to-r from-card via-card/95 to-card/65 sm:to-card/20"
+            aria-hidden="true"
           />
-          <p className="mt-8 text-sm font-extrabold text-primary">— {intro.author}</p>
+          <div className="relative z-10 max-w-2xl">
+            <span className="eyebrow">{intro.aboutEyebrow}</span>
+            <h2 className="display-type balance mt-4 text-3xl font-black sm:text-5xl">{intro.title}</h2>
+            <div
+              className="lesson-copy mt-7 text-muted-foreground [&_p:last-child]:mb-0"
+              dangerouslySetInnerHTML={{ __html: intro.aboutHtml }}
+            />
+            <p className="mt-8 text-sm font-extrabold text-primary">— {intro.author}</p>
+          </div>
         </div>
       </section>
 
