@@ -3,10 +3,10 @@ title: Justin Bender's Bodyflight
 author: Justin Bender
 aboutEyebrow: About our progression 
 quoteLabel: Find Your Flow State
-quote: Understand airflow and movement. Well enough, to fly in ways. You haven't been taught. So even without me you can progress.
+quote: Understand airflow and movement. Well enough, to fly in ways you haven't experimented with.
 levelsEyebrow: The flight path
-levelsTitle: Learn in layers.
-levelsDescription: Start with a dependable neutral position. Add one axis of movement at a time, then connect the skills.
+levelsTitle: Learn the positions.
+levelsDescription: Start with a dependable neutral position. Add one axis of movement at a time in isolation. Connect the skills into our larger flows.
 bookingEyebrow: Book a session
 bookingTitle: Email me to book tunnel time.
 bookingButton: Email Justin →
