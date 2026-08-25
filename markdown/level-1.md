@@ -19,8 +19,6 @@ Flyer Progression.
 **Desired outcome:** Fly at a neutral wind speed with full control in a stable,
 neutral belly position and without excessive movement or rotation.
 
-{{visual:tunnel-axis}}
-
 **Key points:**
 
 - Maintain a symmetrical arch with the head raised and legs shoulder-width

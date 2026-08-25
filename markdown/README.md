@@ -29,14 +29,6 @@ Use `## Lesson title` headings for a level with one section. For multiple sectio
 
 Lesson text supports regular Markdown. Add YouTube references beneath `**Links:**`; they will be converted into the in-page video player automatically.
 
-To place the interactive three-axis tunnel visual inside a lesson, add this on its own line:
-
-```md
-{{visual:tunnel-axis}}
-```
-
-The visual's title, description, controls, and fallback text are editable under `visuals.tunnelAxis` in `site.md`.
-
 ## Prerequisites
 
 Prerequisite pages live in `markdown/prerequisites/` and support full Markdown, including headings, tables, links, and numbered workouts.
