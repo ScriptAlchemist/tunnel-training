@@ -35,6 +35,14 @@ export type LessonGroup = {
   lessons: Lesson[]
 }
 
+export type SinglePageSection = {
+  slug: string
+  title: string
+  html: string
+  mediaHtml: string
+  videos: Video[]
+}
+
 export type CourseLevel = {
   slug: string
   title: string
@@ -46,6 +54,7 @@ export type CourseLevel = {
   singlePage: boolean
   sectionCount: number
   html: string
+  contentSections: SinglePageSection[]
   groups: LessonGroup[]
   lessons: Lesson[]
 }
@@ -94,9 +103,11 @@ export type SiteContent = {
     video: string
     videos: string
     watchMovement: string
+    conceptVisual: string
     prerequisite: string
     prerequisites: string
-    viewPrerequisites: string
+    showPrerequisites: string
+    hidePrerequisites: string
     previous: string
     next: string
     lessonVideos: string
@@ -112,6 +123,7 @@ export type SiteContent = {
 }
 
 export type HumanoidContent = {
+  visible: boolean
   eyebrow: string
   title: string
   description: string
@@ -274,14 +286,32 @@ function parseLevel(filename: string): CourseLevel {
       .replace(/^#\s+.+\n?/m, '')
       .replace(/^\[Back to lesson plan index\]\(README\.md\)\s*/m, '')
       .trim()
-    const sectionCount = [...content.matchAll(/^##\s+.+$/gm)].length
+    const headings = [...content.matchAll(/^##\s+(.+)$/gm)]
+    const introMarkdown = content.slice(0, headings[0]?.index ?? content.length).trim()
+    const conceptFigurePattern = /<figure class="concept-graphic">[\s\S]*?<\/figure>/g
+    const contentSections = headings.map((heading, index) => {
+      const start = (heading.index ?? 0) + heading[0].length
+      const end = headings[index + 1]?.index ?? content.length
+      const sectionMarkdown = content.slice(start, end).trim()
+      const rendered = markdownToHtml(lessonBody(sectionMarkdown))
+      const figures = rendered.match(conceptFigurePattern) ?? []
+
+      return {
+        slug: slugify(heading[1]),
+        title: heading[1],
+        html: rendered.replace(conceptFigurePattern, '').trim(),
+        mediaHtml: figures.join('\n'),
+        videos: extractVideos(sectionMarkdown),
+      }
+    })
 
     return {
       ...definition,
       singlePage,
       title,
-      sectionCount,
-      html: markdownToHtml(content),
+      sectionCount: contentSections.length,
+      html: markdownToHtml(introMarkdown),
+      contentSections,
       groups: [],
       lessons: [],
     }
@@ -353,6 +383,7 @@ function parseLevel(filename: string): CourseLevel {
     title,
     sectionCount: groups.length,
     html: '',
+    contentSections: [],
     groups,
     lessons: groups.flatMap((item) => item.lessons),
   }

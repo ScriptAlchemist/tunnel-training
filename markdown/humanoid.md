@@ -1,4 +1,5 @@
 ---
+visible: false
 eyebrow: Pose lab
 title: Humanoid
 description: Rotate a simple body on every axis, then adjust each joint independently to explore positions before taking them into the tunnel.

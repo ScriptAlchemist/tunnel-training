@@ -63,38 +63,43 @@ export default async function SectionPage({ params }: SectionPageProps) {
         </nav>
       </div>
 
-      <header className="panel relative mt-8 overflow-hidden rounded-[2rem] p-7 sm:p-12">
+      <header className="panel relative mt-8 overflow-hidden rounded-[2rem]">
         <FlightFlower
           variant={sectionNumber % 2 === 0 ? 'outspin' : 'inspin'}
           className="absolute -top-20 -right-12 size-60 text-secondary"
         />
-        <div className="relative z-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
-          <div>
-            <p className="text-xs font-extrabold tracking-[0.18em] text-primary uppercase">
-              {site.labels.section} {String(sectionNumber).padStart(2, '0')}
-            </p>
-            <h1 className="display-type balance mt-4 text-4xl font-black sm:text-6xl">
-              {section.title}
-            </h1>
-            <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              {section.description}
-            </p>
-          </div>
-          <div className="md:text-right">
-            <p className="display-type text-3xl font-black">{section.lessons.length}</p>
-            <p className="text-xs font-bold tracking-wider text-muted-foreground uppercase">
-              {site.labels.lessons}
-            </p>
+        <div className="relative z-10 p-7 sm:p-12">
+          <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+            <div>
+              <p className="text-xs font-extrabold tracking-[0.18em] text-primary uppercase">
+                {site.labels.section} {String(sectionNumber).padStart(2, '0')}
+              </p>
+              <h1 className="display-type balance mt-4 text-4xl font-black sm:text-6xl">
+                {section.title}
+              </h1>
+              <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+                {section.description}
+              </p>
+            </div>
+            <div className="md:text-right">
+              <p className="display-type text-3xl font-black">{section.lessons.length}</p>
+              <p className="text-xs font-bold tracking-wider text-muted-foreground uppercase">
+                {site.labels.lessons}
+              </p>
+            </div>
           </div>
         </div>
-      </header>
 
-      {showPrerequisite && prerequisite && (
-        <PrerequisiteCard
-          content={prerequisite}
-          href={`/levels/${level.slug}/sections/${section.slug}/prerequisites/`}
-        />
-      )}
+        {showPrerequisite && prerequisite && (
+          <PrerequisiteCard
+            content={prerequisite}
+            labels={{
+              show: site.labels.showPrerequisites,
+              hide: site.labels.hidePrerequisites,
+            }}
+          />
+        )}
+      </header>
 
       <section className="mt-12 sm:mt-16">
         {section.lessons.map((lesson) => (

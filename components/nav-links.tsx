@@ -5,11 +5,19 @@ import { usePathname } from 'next/navigation'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
-export function NavLinks({ labels }: { labels: { levels: string; humanoid: string; about: string; mainNavigation: string } }) {
+export function NavLinks({
+  labels,
+  showHumanoid,
+}: {
+  labels: { levels: string; humanoid: string; about: string; mainNavigation: string }
+  showHumanoid: boolean
+}) {
   const pathname = usePathname()
   const links = [
     { href: '/levels/', label: labels.levels, matches: (path: string) => path.startsWith('/levels') },
-    { href: '/humanoid/', label: labels.humanoid, matches: (path: string) => path.startsWith('/humanoid') },
+    ...(showHumanoid
+      ? [{ href: '/humanoid/', label: labels.humanoid, matches: (path: string) => path.startsWith('/humanoid') }]
+      : []),
     { href: '/', label: labels.about, matches: (path: string) => path === '/' },
   ]
 

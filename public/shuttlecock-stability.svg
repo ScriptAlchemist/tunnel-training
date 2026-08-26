@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1050" role="img" aria-labelledby="title description">
+  <title id="title">A shuttlecock finding its naturally stable orientation</title>
+  <desc id="description">Three stages show a shuttlecock released with its feathers pointing down, rotating during the fall, and settling with its rounded cork pointing down.</desc>
+  <defs>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#C7462B" />
+    </marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#399EC2" />
+    </marker>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#182126" flood-opacity="0.14" />
+    </filter>
+    <g id="shuttlecock" filter="url(#shadow)">
+      <path d="M-29-34L-112-158Q0-194 112-158L29-34Z" fill="#DCEAF0" stroke="#182126" stroke-width="5" stroke-linejoin="round" />
+      <path d="M-72-171L-20-36M0-181V-34M72-171L20-36" fill="none" stroke="#8BBACB" stroke-width="5" stroke-linecap="round" />
+      <path d="M-106-155Q0-189 106-155" fill="none" stroke="#182126" stroke-width="5" stroke-linecap="round" />
+      <path d="M-31-38H31V0Q31 42 0 51Q-31 42-31 0Z" fill="#FF8064" stroke="#182126" stroke-width="5" stroke-linejoin="round" />
+      <ellipse cx="0" cy="-37" rx="32" ry="10" fill="#FFB19E" stroke="#182126" stroke-width="5" />
+      <path d="M-24 6Q0 19 24 6" fill="none" stroke="#C7462B" stroke-width="4" stroke-linecap="round" opacity="0.8" />
+    </g>
+  </defs>
+
+  <rect x="4" y="4" width="892" height="1042" rx="44" fill="#F8F5ED" stroke="#D8D4CA" stroke-width="8" />
+  <circle cx="776" cy="126" r="84" fill="#DCEAF0" opacity="0.72" />
+  <circle cx="120" cy="914" r="102" fill="#F8DDD4" opacity="0.75" />
+
+  <text x="68" y="78" fill="#C7462B" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" letter-spacing="4">NATURAL STABILITY</text>
+  <text x="68" y="128" fill="#182126" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="800">The fall finds its orientation.</text>
+  <text x="68" y="164" fill="#667073" font-family="Arial, Helvetica, sans-serif" font-size="21">Follow the shuttlecock from release to stable flight.</text>
+
+  <path d="M300 242C610 325 618 550 402 830" fill="none" stroke="#C7462B" stroke-width="6" stroke-linecap="round" stroke-dasharray="5 18" marker-end="url(#arrow-coral)" opacity="0.72" />
+
+  <g transform="translate(292 305) rotate(180) scale(.67)">
+    <use href="#shuttlecock" />
+  </g>
+  <g transform="translate(548 548) rotate(92) scale(.67)">
+    <use href="#shuttlecock" />
+  </g>
+  <g transform="translate(386 850) scale(.74)">
+    <use href="#shuttlecock" />
+  </g>
+
+  <g>
+    <rect x="520" y="232" width="290" height="96" rx="24" fill="#FFFDF8" stroke="#D8D4CA" stroke-width="3" />
+    <text x="548" y="268" fill="#C7462B" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800" letter-spacing="2">1 · RELEASED</text>
+    <text x="548" y="301" fill="#182126" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800">Feathers point down</text>
+  </g>
+
+  <g>
+    <rect x="72" y="488" width="312" height="108" rx="24" fill="#FFFDF8" stroke="#D8D4CA" stroke-width="3" />
+    <text x="100" y="526" fill="#399EC2" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800" letter-spacing="2">2 · TURNING</text>
+    <text x="100" y="559" fill="#182126" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800">Drag catches the skirt</text>
+    <text x="100" y="584" fill="#667073" font-family="Arial, Helvetica, sans-serif" font-size="17">and rotates the body</text>
+  </g>
+
+  <path d="M469 449A112 112 0 0 1 635 580" fill="none" stroke="#399EC2" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow-sky)" />
+
+  <g>
+    <rect x="512" y="793" width="318" height="110" rx="24" fill="#FFFDF8" stroke="#D8D4CA" stroke-width="3" />
+    <text x="540" y="831" fill="#798C66" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800" letter-spacing="2">3 · STABLE</text>
+    <text x="540" y="864" fill="#182126" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="800">Rounded cork points down</text>
+    <text x="540" y="889" fill="#667073" font-family="Arial, Helvetica, sans-serif" font-size="17">while the feathers trail</text>
+  </g>
+
+  <g opacity="0.76">
+    <path d="M250 930V875" stroke="#399EC2" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow-sky)" />
+    <path d="M312 962V899" stroke="#399EC2" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow-sky)" />
+    <path d="M468 957V898" stroke="#399EC2" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow-sky)" />
+  </g>
+  <text x="68" y="1000" fill="#667073" font-family="Arial, Helvetica, sans-serif" font-size="18">Falling direction ↓   ·   Relative airflow ↑</text>
+</svg>

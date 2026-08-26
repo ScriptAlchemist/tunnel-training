@@ -39,9 +39,11 @@ labels:
   video: video
   videos: videos
   watchMovement: Watch the movement
+  conceptVisual: Concept visual
   prerequisite: Prerequisite
   prerequisites: Prerequisites
-  viewPrerequisites: View prerequisites
+  showPrerequisites: Show prerequisites
+  hidePrerequisites: Hide prerequisites
   previous: Previous
   next: Next
   lessonVideos: Lesson videos

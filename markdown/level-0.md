@@ -12,10 +12,17 @@ accent: "#798c66"
 
 [Back to lesson plan index](README.md)
 
-## Naturally Stable
+## Naturally Stable (Bailing)
 
-**Desired outcome:** Understand which body positions can be used to keep yourself stable.
+**Desired outcome:** Understand what muscle memory to revert to in times of worry.
+
+<figure class="concept-graphic">
+  <img src="../../shuttlecock-stability.svg" alt="Three-stage diagram of a shuttlecock released feather-side down, rotating as it falls, and settling with its rounded cork side down.">
+  <figcaption>Released feather-side down, the shuttlecock rotates until its rounded cork points down and the high-drag feathers trail above it.</figcaption>
+</figure>
 
 **Key points:**
 
-- To be added
+- Something
+
+**Coaching and safety:**

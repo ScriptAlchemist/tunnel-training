@@ -12,7 +12,7 @@ Edit `LearnToFly.md`. Its frontmatter controls section headings, the coaching qu
 
 ## Humanoid pose lab
 
-Edit `humanoid.md` to change the Humanoid page title, instructions, control labels, and joint names. The interactive figure supports independent X, Y, and Z rotation for the whole body and every listed joint.
+Edit `humanoid.md` to change the Humanoid page title, instructions, control labels, and joint names. Set `visible: true` to include it in the navigation or `visible: false` to hide the link without deleting the page. The interactive figure supports independent X, Y, and Z rotation for the whole body and every listed joint.
 
 ## Levels and lessons
 
@@ -33,15 +33,17 @@ Use `## Lesson title` headings for a level with one section. For multiple sectio
 
 Set `singlePage: true` in a level's frontmatter when every `##` section should stay together on the level page instead of generating lesson cards and internal pages. Level 0 uses this format for flight concepts.
 
+In a single-page level, wrap an illustration in `<figure class="concept-graphic">...</figure>` to move it into the section's right-hand media column. YouTube references beneath `**Links:**` appear in that same column, above any figures.
+
 Lesson text supports regular Markdown. Add YouTube references beneath `**Links:**`; they will be converted into the in-page video player automatically.
 
 ## Prerequisites
 
-Prerequisite content lives in `markdown/prerequisites/`. A visible prerequisite appears as a card on its level or section and links to a dedicated page. These files support full Markdown, including headings, tables, links, and numbered workouts.
+Prerequisite content lives in `markdown/prerequisites/`. A visible prerequisite appears as a collapsible card on its level or section. Expanding the card reveals its topics and full Markdown content. These files support headings, tables, links, and numbered workouts.
 
 - `level-1.md` attaches to Level 1.
 - `level-2.md` attaches to Level 2.
 - `level-2--static-flying.md` attaches to the Static Flying section in Level 2.
 - `level-2--formations.md` attaches to the Formations section in Level 2.
 
-Use `level` in frontmatter for a level prerequisite. Add `section` with the section slug for a section prerequisite. Set `visible: true` to display its card and generate its page, or `visible: false` to hide both without deleting the file. The `topics` list becomes a short overview on the card and page. Empty prerequisite files stay hidden until content is added.
+Use `level` in frontmatter for a level prerequisite. Add `section` with the section slug for a section prerequisite. Set `visible: true` to display its card, or `visible: false` to hide it without deleting the file. The `topics` list appears inside the expanded card. Empty prerequisite files stay hidden until content is added.

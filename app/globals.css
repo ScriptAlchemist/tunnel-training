@@ -276,6 +276,34 @@ a {
   color: var(--muted-foreground);
 }
 
+.lesson-copy .concept-graphic {
+  margin: 2rem 0;
+}
+
+.lesson-copy .concept-graphic img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  background: #f8f5ed;
+}
+
+.lesson-copy .concept-graphic figcaption {
+  margin-top: 0.8rem;
+  color: var(--muted-foreground);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.concept-media .concept-graphic {
+  margin: 0;
+}
+
+.concept-media .concept-graphic + .concept-graphic {
+  margin-top: 1.5rem;
+}
+
 .balance {
   text-wrap: balance;
 }

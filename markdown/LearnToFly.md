@@ -3,7 +3,7 @@ title: Justin Bender's Bodyflight
 author: Justin Bender
 aboutEyebrow: About the progression
 quoteLabel: Finding Your Flow State
-quote: Understanding airflow and movement requires patience and practice. Eventually we will turn there movements into second nature.
+quote: Understanding airflow and movement requires patience and practice. Let's turn there movements into second nature.
 levelsEyebrow: The flight path
 levelsTitle: Learn the positions.
 levelsDescription: Start with a dependable neutral position. Understand what creates movement and controls friction. Paired with practice until it becomes as simple as walking.
