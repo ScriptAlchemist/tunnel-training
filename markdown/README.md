@@ -37,6 +37,12 @@ In a single-page level, wrap an illustration in `<figure class="concept-graphic"
 
 Lesson text supports regular Markdown. Add YouTube references beneath `**Links:**`; they will be converted into the in-page video player automatically.
 
+Levels 2, 3, and 4 use multiple `##` track headings. Level 3 and Level 4 each contain Static Progression, Dynamic, and Formations. Level Pro contains Static Progression and Dynamic. Add or rename a `###` skill beneath those headings to update its track page, lesson page, and the Skills Chart together.
+
+## Skills chart
+
+Edit `skills-chart.md` to change the chart title, description, labels, or source note. The tracks and skill nodes themselves are generated from every `level-*.md` file, so the chart does not maintain a separate copy of the curriculum.
+
 ## Prerequisites
 
 Prerequisite content lives in `markdown/prerequisites/`. A visible prerequisite appears as a collapsible card on its level or section. Expanding the card reveals its topics and full Markdown content. These files support headings, tables, links, and numbered workouts.

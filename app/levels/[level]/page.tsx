@@ -13,6 +13,7 @@ import {
   getLevels,
   getSiteContent,
   hasPrerequisiteContent,
+  displayLevelNumber,
 } from '@/lib/course'
 
 type LevelPageProps = {
@@ -65,7 +66,7 @@ export default async function LevelPage({ params }: LevelPageProps) {
         <div className="relative z-10 px-7 py-10 sm:px-12 sm:py-14">
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
             <div>
-              <p className="text-xs font-extrabold tracking-[0.2em] text-muted-foreground uppercase">{site.labels.level} {Number(level.number)}</p>
+              <p className="text-xs font-extrabold tracking-[0.2em] text-muted-foreground uppercase">{site.labels.level} {displayLevelNumber(level.number)}</p>
               <h1 className="display-type balance mt-4 max-w-4xl text-4xl font-black sm:text-6xl">{level.shortTitle}</h1>
               <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">{level.description}</p>
             </div>

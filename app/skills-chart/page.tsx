@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import { BackButton } from '@/components/back-button'
 import {
+  displayLevelNumber,
   getLevels,
   getSiteContent,
   getSkillsChartContent,
@@ -63,14 +64,16 @@ function TrackPanel({
   title,
   skills,
   trackHref,
+  compact = false,
 }: {
   level: CourseLevel
   title: string
   skills: SkillItem[]
   trackHref?: string
+  compact?: boolean
 }) {
   const itemLabel = level.singlePage ? chart.conceptLabel : chart.skillLabel
-  const useSingleColumn = skills.length <= 3
+  const useSingleColumn = compact || skills.length <= 3
 
   return (
     <section className="rounded-2xl border border-border bg-muted/40 p-4 sm:p-5">
@@ -137,7 +140,7 @@ function LevelStage({ level }: { level: CourseLevel }) {
             className="text-xs font-black tracking-[0.18em] uppercase"
             style={{ color: level.accent }}
           >
-            {chart.levelLabel} {Number(level.number)}
+            {chart.levelLabel} {displayLevelNumber(level.number)}
           </p>
           <h2 className="display-type mt-2 text-2xl font-black sm:text-3xl">
             {level.shortTitle}
@@ -156,13 +159,22 @@ function LevelStage({ level }: { level: CourseLevel }) {
           trackHref={`/levels/${level.slug}/`}
         />
       ) : (
-        <div className={`grid gap-4 ${level.groups.length > 1 ? 'lg:grid-cols-2' : ''}`}>
+        <div
+          className={`grid gap-4 ${
+            level.groups.length >= 3
+              ? 'lg:grid-cols-3'
+              : level.groups.length > 1
+                ? 'lg:grid-cols-2'
+                : ''
+          }`}
+        >
           {level.groups.map((group) => (
             <TrackPanel
               key={group.slug}
               level={level}
               title={group.title}
               skills={skillsForGroup(level, group)}
+              compact={level.groups.length >= 3}
               trackHref={
                 level.groups.length > 1
                   ? `/levels/${level.slug}/sections/${group.slug}/`
@@ -185,7 +197,12 @@ function StraightConnector() {
   )
 }
 
-function BranchConnector() {
+function BranchConnector({ branches }: { branches: number }) {
+  const positions =
+    branches === 3
+      ? ['16.6667%', '50%', '83.3333%']
+      : ['25%', '75%']
+
   return (
     <>
       <div className="lg:hidden">
@@ -193,11 +210,22 @@ function BranchConnector() {
       </div>
       <div className="relative hidden h-20 lg:block" aria-hidden="true">
         <span className="absolute top-0 left-1/2 h-6 w-px bg-border" />
-        <span className="absolute top-6 left-1/4 h-px w-1/2 bg-border" />
-        <span className="absolute top-6 left-1/4 h-9 w-px bg-border" />
-        <span className="absolute top-6 left-3/4 h-9 w-px bg-border" />
-        <ArrowDown className="absolute top-14 left-1/4 size-5 -translate-x-1/2 text-muted-foreground" />
-        <ArrowDown className="absolute top-14 left-3/4 size-5 -translate-x-1/2 text-muted-foreground" />
+        <span
+          className="absolute top-6 h-px bg-border"
+          style={{ left: positions[0], right: `calc(100% - ${positions.at(-1)})` }}
+        />
+        {positions.map((position) => (
+          <span key={position}>
+            <span
+              className="absolute top-6 h-9 w-px bg-border"
+              style={{ left: position }}
+            />
+            <ArrowDown
+              className="absolute top-14 size-5 -translate-x-1/2 text-muted-foreground"
+              style={{ left: position }}
+            />
+          </span>
+        ))}
       </div>
     </>
   )
@@ -241,7 +269,9 @@ export default function SkillsChartPage() {
             <div key={level.slug}>
               <LevelStage level={level} />
               {nextLevel && (
-                nextLevel.groups.length > 1 ? <BranchConnector /> : <StraightConnector />
+                nextLevel.groups.length > 1
+                  ? <BranchConnector branches={nextLevel.groups.length} />
+                  : <StraightConnector />
               )}
             </div>
           )

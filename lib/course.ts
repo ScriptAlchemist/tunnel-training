@@ -463,6 +463,11 @@ export const getLevels = cache(() =>
 
 export const getLevel = (slug: string) => getLevels().find((level) => level.slug === slug)
 
+export function displayLevelNumber(number: string) {
+  const numeric = Number(number)
+  return Number.isFinite(numeric) ? String(numeric) : number
+}
+
 export const getLesson = (levelSlug: string, lessonSlug: string) =>
   getLevel(levelSlug)?.lessons.find((lesson) => lesson.slug === lessonSlug)
 

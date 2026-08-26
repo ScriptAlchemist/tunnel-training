@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { FlightFlower } from '@/components/flight-flower'
-import { getSiteContent, type CourseLevel } from '@/lib/course'
+import { displayLevelNumber, getSiteContent, type CourseLevel } from '@/lib/course'
 
 export function LevelCard({ level }: { level: CourseLevel }) {
   const site = getSiteContent()
@@ -20,7 +20,7 @@ export function LevelCard({ level }: { level: CourseLevel }) {
       className="panel group relative flex min-h-80 flex-col overflow-hidden rounded-[2rem] p-7 transition duration-300 hover:-translate-y-1 hover:shadow-2xl sm:p-9"
     >
       <FlightFlower
-        variant={Number(level.number) % 2 === 0 ? 'outspin' : 'inspin'}
+        variant={level.order % 2 === 0 ? 'outspin' : 'inspin'}
         className="absolute -top-12 -right-12 size-48 opacity-45 transition-transform duration-500 group-hover:scale-110"
         style={{ color: accent }}
       />
@@ -32,7 +32,7 @@ export function LevelCard({ level }: { level: CourseLevel }) {
       </div>
       <div className="relative mt-auto pt-14">
         <p className="mb-2 text-sm font-extrabold uppercase tracking-[0.18em]" style={{ color: accent }}>
-          {site.labels.level} {Number(level.number)}
+          {site.labels.level} {displayLevelNumber(level.number)}
         </p>
         <h3 className="display-type balance text-3xl font-extrabold sm:text-4xl">{level.shortTitle}</h3>
         <p className="mt-4 max-w-lg leading-7 text-muted-foreground">{level.description}</p>

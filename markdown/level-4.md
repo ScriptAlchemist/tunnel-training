@@ -2,77 +2,84 @@
 slug: level-4
 order: 4
 number: "04"
-shortTitle: Head Down Flying
-description: Develop stable head-down flight, controlled movement, precise transitions, and coordinated eagle maneuvers with another flyer.
-accent: "#ad5f86"
+shortTitle: Head Down, Dynamic & Formations
+description: Build controlled head-down flight, connect higher-speed dynamic lines, and expand shared formation work.
+accent: "#9967d9"
 ---
 
-# Level 4: Head Down Flying
+# Level 4: Head Down, Dynamic and Formations
 
 [Back to lesson plan index](README.md)
 
-## Neutral and Stable Head Down Position
+The supplied progression chart separates Level 4 into Static Progression,
+Dynamic, and Formation tracks. Static lesson content below is summarized from
+the September 2024 IBA Static Progression Coach Manual. Dynamic and Formation
+skills are included from the chart without inferred prerequisites.
 
-**Prerequisite:** Completed IBA Level 3 skills.
+## Static Progression
 
-**Desired outcome:** Establish and fly a neutral head-down position on and off
-the net without unwanted movement or rotation, using a stable daffy, shelf, or
-other instructor-approved position.
+Build a stable head-down orientation, add movement, and connect head-up and
+head-down flight through controlled transitions.
+
+### Head Down Neutral
+
+**Prerequisite:** Completed IBA Level 3 Skills.
+
+**Desired outcome:** Fly a neutral head-down position without excessive
+movement or rotation and demonstrate safe recovery without gripping the net.
 
 **Reference material:** IBA Flight Tutorials #42 and #43.
 
 **Key points:**
 
-- Set up near the center in the briefed head-down shape while holding the net;
-  release only on the instructor's signal and do not re-grip after release.
-- Maintain a symmetrical shape, a straight spine, and the hips stacked over the
-  head. Keep the head aligned so it does not create unwanted pitch.
-- In a daffy, spread one bent leg forward and one back; begin by controlling
-  with the legs and keep the arms clear of the leg burbles.
-- In a shelf, press both bent legs behind the body, keep the head slightly back,
-  and place the arms forward with the elbows bent.
-- Demonstrate control on the net before increasing lift. Off the net, use small,
-  continuous corrections without relying on the net, wall, or another person.
+- Set up near the center in the briefed shape while holding the net; release
+  only on the instructor's signal and do not re-grip after release.
+- Maintain a symmetrical shape, straight spine, and hips stacked over the head.
+- Use only the controls appropriate to the selected daffy, shelf, or other
+  instructor-approved position.
+- Demonstrate controlled, intentional movement on the net before progressing
+  off it.
+- Use only the briefed recovery through head-up or neutral back flight.
 
 **Coaching and safety:** The instructor must brief the setup, staged net
-release, body position, bail signal and path, spotting limits, and the local
-procedure if the flyer's head passes through the net. Keep an early flyer
-within the instructor's reach, add wind only after control is demonstrated,
-and use only the briefed recovery through head-up or neutral back flight -
-never belly flight.
+release, body position, bail signal and path, spotting limits, and local net
+procedure. Keep an early flyer within reach and add wind only after control is
+demonstrated.
 
-## Head Down Turns
+**Manual source:** Static Progression Coach Manual, Lesson Plan #22.
 
-**Prerequisite:** Neutral and stable head-down position.
+### Head Down Up & Down
 
-**Desired outcome:** Turn in both directions with balanced control, beginning
-and ending on a predetermined heading without changing altitude or position.
+**Prerequisite:** Head-Down Neutral and Stable Body Position.
 
-**Reference material:** IBA Flight Tutorial #47.
+**Desired outcome:** Move upward, stop, and move downward in the air column from
+a neutral head-down position without changing heading or adding horizontal
+movement.
+
+**Reference material:** IBA Flight Tutorial #45.
 
 **Key points:**
 
-- Begin centered in a neutral head-down position and select a visual stopping
-  reference.
-- Look and press the shoulder slightly toward the desired rotation while
-  keeping the head aligned with the spine.
-- Use the lower portion of the front leg as a rudder when appropriate for the
-  chosen position and turn rate.
-- Start with 90-degree turns, then progress to 180- and 360-degree rotations
-  only after accurate stops.
-- Apply an opposing input and return to neutral to stop on heading.
+- Begin centered a short distance above the net with a straight spine.
+- Move up by increasing surface area with a wider daffy and balanced arm
+  extension; keep the arms no higher than the shoulders.
+- Balance the inputs to prevent pitch, turns, or horizontal drive, then reduce
+  the added surface area to stop.
+- Move down by narrowing the leg spread and relaxing or lowering the arms.
+- Stop the descent with a controlled upward input before reaching the net.
 
-**Coaching and safety:** Increase rotation in small steps and require stable
-altitude, center position, and stops before adding speed. Maintain wall and
-doorway clearance, watch for pitch or drift, and reinforce when to bail rather
-than trying to save an unstable turn.
+**Coaching and safety:** Use clear upper and lower references and progress in
+small altitude changes. Do not increase wind or range until the flyer can stop
+deliberately in both directions.
 
-## Head Down Forward & Backward
+**Manual source:** Static Progression Coach Manual, Lesson Plan #25.
 
-**Prerequisite:** Neutral and stable head-down position.
+### Head Down Forward & Backward
 
-**Desired outcome:** Move forward, stop, move backward, and stop using balanced
-inputs while preserving heading, altitude, and head-down stability.
+**Prerequisite:** Head-Down Neutral and Stable Body Position.
+
+**Desired outcome:** Move forward, stop, and move backward with coordinated
+upper- and lower-body inputs while maintaining heading, altitude, and control.
 
 **Reference material:** IBA Flight Tutorial #46.
 
@@ -83,126 +90,226 @@ inputs while preserving heading, altitude, and head-down stability.
 - In a daffy position, extend the back leg and move the arms slightly back for
   forward drive.
 - Extend the front leg and move the arms slightly forward for backward drive.
-- Keep the spine straight and use small inputs.
-- Stop by returning the driving leg toward neutral, briefly extending the
-  opposite leg, and returning the arms to neutral.
+- Keep the spine straight, use small symmetrical inputs, and return the driving
+  surfaces toward neutral to stop.
 
-**Coaching and safety:** Define a short movement and early stopping point,
-leaving enough head clearance for the briefed bail. Require a stable stop
-before reversing direction and increase distance or speed only after consistent
-control.
+**Coaching and safety:** Define a short movement and early stop, leaving enough
+head clearance for the briefed bail. Require a stable stop before reversing
+direction and increase distance or speed only after consistent control.
 
-## Head Down Up & Down
+**Manual source:** Static Progression Coach Manual, Lesson Plan #24.
 
-**Prerequisite:** Neutral and stable head-down position.
+### Head Down Turns
 
-**Desired outcome:** Move up, stop, and move down in the air column without
-turning or moving forward or backward.
+**Prerequisite:** Head-Down Neutral and Stable Body Position.
 
-**Reference material:** IBA Flight Tutorial #45.
+**Desired outcome:** Complete controlled turns in both directions and begin and
+finish accurately on a predetermined heading.
+
+**Reference material:** IBA Flight Tutorial #47.
 
 **Key points:**
 
-- Begin centered a short distance above the net with a straight spine.
-- Move up by increasing surface area with a wider daffy and balanced arm
-  extension; keep the arms no higher than the shoulders.
-- Balance each input to prevent pitch, turns, or horizontal drive, then reduce
-  the added surface area to stop at the target altitude.
-- Move down by narrowing the leg spread and relaxing or lowering the arms.
-- Stop the descent with a controlled upward input before reaching the net.
+- Begin centered in neutral and select a visual stopping reference.
+- Look and press the shoulder slightly toward the desired rotation while
+  keeping the head aligned with the spine.
+- Use the lower portion of the front leg as a rudder when appropriate to the
+  selected position.
+- Start with 90-degree turns and increase only after accurate stops.
+- Apply an opposing input and return to neutral on the planned heading.
 
-**Coaching and safety:** Use clear upper and lower references, keep the student
-within the instructor's approved range, and progress in small altitude changes.
-Do not increase wind or range until the student can stop deliberately in both
-directions.
+**Coaching and safety:** Increase rotation in small steps and require stable
+altitude, center position, and stops before adding speed. Maintain wall and
+doorway clearance and reinforce when to bail rather than save an unstable turn.
 
-## Head Down Side Slides
+**Manual source:** Static Progression Coach Manual, Lesson Plan #23.
 
-**Prerequisite:** Head-down up-and-down movement, turns, and forward and
-backward movement.
+### Head Down Side Slides
 
-**Desired outcome:** Shift sideways in both directions and stop without losing
-heading, altitude, or head-down stability.
+**Prerequisite:** Head-Down Up/Down, Left/Right Turns, and Forward/Backward Movement.
+
+**Desired outcome:** Shift sideways in both directions without changing heading
+or altitude.
 
 **Reference material:** IBA Flight Tutorial #48.
 
 **Key points:**
 
-- Begin centered or to one side at a controlled height with a clear travel
-  path.
+- Begin centered or to one side at a controlled height with a clear path.
 - Rudder the lower portion of the leading leg into the airflow to create drive.
 - Slightly bend and raise the leading arm while extending and relaxing the
   trailing arm.
-- Keep the spine straight and maintain heading with a fixed visual reference.
-- Oppose the inputs early enough to stop before the wall, then return to
-  neutral.
+- Keep the spine straight and maintain heading with a fixed reference.
+- Oppose the inputs early enough to stop before the wall.
 
-**Coaching and safety:** Inputs vary with the student's selected head-down
-position, so teach only the controls appropriate to that shape. Increase slide
-distance and speed gradually, preserve instructor access, and emphasize an
-early stop and the briefed bail.
+**Coaching and safety:** Inputs vary with the selected head-down position, so
+teach only the controls appropriate to that shape. Increase distance and speed
+gradually, preserve instructor access, and emphasize an early stop and bail.
 
-## Head Down Transitions
+**Manual source:** Static Progression Coach Manual, Lesson Plan #26.
 
-**Prerequisite:** Stable head-down position on or off the net.
+### Head Down Super Positioning
 
-**Desired outcome:** Transition smoothly between head-up and head-down, or
-complete a full transition back to head-down, without excessive altitude
-change, drive, heading change, or loss of control.
+**Description:** Apply head-down control to precise relative positioning around
+another flyer.
+
+**Source status:** This skill appears in the supplied progression chart, but the
+2024 Static Progression Coach Manual does not provide a standalone lesson plan
+for it. Add the current approved positioning standard and safety plan here.
+
+### Head Down to Head Up Front Flip
+
+**Prerequisite:** Stable Head-Down Position on or off the net.
+
+**Desired outcome:** Transition from neutral head-down to neutral head-up flight
+through a controlled front flip without unintended drive or altitude change.
 
 **Reference material:** IBA Flight Tutorials #49 through #56.
 
 **Key points:**
 
-- For head-down to head-up front flips, bring the chin toward the chest, relax
-  the lower body, and finish in a strong neutral head-up position.
-- For head-up to head-down front flips, drive the upper body between the knees,
-  allow the legs to rise, and open into a strong head-down position at the
-  planned stopping point.
-- For head-up to head-down back flips, roll the shoulders forward and let the
-  upper body fall back, then time the opening input to stop head down.
-- For head-down to head-up back flips, coordinate chin, knee, and relaxed arm
-  inputs and finish in neutral head-up flight.
-- For cartwheels, initiate from the head and leading shoulder or arm, allow the
-  lower body to follow, and use visual references to stop in the target
-  orientation.
-- Master each half transition before attempting the related full head-down to
-  head-down transition.
+- Begin near the center with a defined flight line.
+- Initiate by bringing the head toward the chest while allowing the body to
+  rotate as a connected shape.
+- Relax enough to avoid forcing the rotation.
+- Finish in a clearly neutral head-up position.
 
-**Coaching and safety:** Provide a defined heading, level, and stopping
-reference and keep the maneuver away from the doorway. Transitions must
-continue smoothly through completion; watch the student's timing, pitch, and
-recovery path closely. Maintain direct instructor access and reinforce the
-briefed bail whenever control is lost.
+**Manual source:** Static Progression Coach Manual, Lesson Plan #27.
 
-## Eagles & Reverse Eagles
+**Coaching and safety:** Set the heading, level, stopping reference, and bail
+before flight. Keep the maneuver away from the doorway and continue smoothly
+through completion without pausing vertically.
 
-**Prerequisite:** Head-down transitions; each component maneuver must first be
-demonstrated solo before adding another flyer or coach.
+### Head Up to Head Down Front Flip
 
-**Desired outcome:** Complete half and full eagles and reverse eagles smoothly
-with another flyer while maintaining control, eye contact, heading, proximity,
-and altitude.
+**Prerequisite:** Stable Head-Down Position on or off the net.
 
-**Reference material:** IBA Flight Tutorials #57 through #60.
+**Desired outcome:** Transition from neutral head-up to neutral head-down flight
+through a controlled front flip without unintended drive or altitude change.
+
+**Reference material:** IBA Flight Tutorials #49 through #56.
 
 **Key points:**
 
-- The head-down flyer initiates every sequence and both flyers maintain eye
-  contact throughout.
-- In a half eagle, the head-down flyer transitions under the head-up flyer; the
-  two finish in the opposite orientations.
-- In a half reverse eagle, the head-down flyer transitions over the head-up
-  flyer; again, both finish in the opposite orientations.
-- A full eagle repeats the exchange so each flyer returns to the starting
-  orientation, using the under path first.
-- A full reverse eagle returns both flyers to their starting orientations using
-  the over path first.
-- Both flyers must continuously adjust for proximity, levels, airflow
-  interference, and the other flyer's movement.
+- Begin near the center in neutral head-up flight.
+- Tuck the upper body between the knees and allow the lower body to rise into
+  the airflow.
+- Use a visual reference as head-down approaches.
+- Open deliberately and stop in a strong neutral head-down position.
 
-**Coaching and safety:** Brief the initiation, flight paths, visual contact,
-levels, abort, and separation plan. The coach must anticipate incorrect paths
-and the effect of each flyer's burble, preserve the instructor's access, and
-reduce speed or complexity whenever either flyer cannot maintain safe spacing
-and control.
+**Manual source:** Static Progression Coach Manual, Lesson Plan #27.
+
+**Coaching and safety:** Set the heading, level, stopping reference, and bail
+before flight. Keep the maneuver away from the doorway and continue smoothly
+through completion without pausing vertically.
+
+### Head Up to Head Down Back Flip
+
+**Prerequisite:** Stable Head-Down Position on or off the net.
+
+**Desired outcome:** Transition from neutral head-up to neutral head-down flight
+through a controlled back flip without unintended drive or altitude change.
+
+**Reference material:** IBA Flight Tutorials #49 through #56.
+
+**Key points:**
+
+- Start near the center with sufficient vertical room.
+- Raise the feet and allow the upper body to fall back to initiate rotation.
+- Use a high visual reference to judge when to open.
+- Stop in a neutral head-down position rather than continuing the rotation.
+
+**Manual source:** Static Progression Coach Manual, Lesson Plan #27.
+
+**Coaching and safety:** Set the heading, level, stopping reference, and bail
+before flight. Keep the maneuver away from the doorway and continue smoothly
+through completion without pausing vertically.
+
+### Head Down to Head Up Back Flip
+
+**Prerequisite:** Stable Head-Down Position on or off the net.
+
+**Desired outcome:** Transition from neutral head-down to neutral head-up flight
+through a controlled back flip without unintended drive or altitude change.
+
+**Reference material:** IBA Flight Tutorials #49 through #56.
+
+**Key points:**
+
+- Begin near the center with adequate room behind the flight path.
+- Keep the chin up and bring the knees toward the chest to initiate rotation.
+- Keep the arms relaxed and avoid uncontrolled horizontal drive.
+- Finish in a clearly neutral head-up position.
+
+**Manual source:** Static Progression Coach Manual, Lesson Plan #27.
+
+**Coaching and safety:** Set the heading, level, stopping reference, and bail
+before flight. Keep the maneuver away from the doorway and continue smoothly
+through completion without pausing vertically.
+
+## Dynamic
+
+Connect orientations through higher-speed continuous lines. The supplied
+static progression manual does not define these dynamic skills, so the chart
+structure is preserved without adding unsupported coaching information.
+
+### Head Up In Face (HS)
+
+**Description:** Add the current high-speed head-up in-face line, entry,
+direction requirements, exit, and recovery plan.
+
+**Source status:** Listed in the supplied progression chart; no standalone
+lesson plan appears in the 2024 Static Progression Coach Manual.
+
+### Head Up Out Face (HS)
+
+**Description:** Add the current high-speed head-up out-face line, entry,
+direction requirements, exit, and recovery plan.
+
+**Source status:** Listed in the supplied progression chart; no standalone
+lesson plan appears in the 2024 Static Progression Coach Manual.
+
+### Head Down In Face (HS)
+
+**Description:** Add the current high-speed head-down in-face line, entry,
+direction requirements, exit, and recovery plan.
+
+**Source status:** Listed in the supplied progression chart; no standalone
+lesson plan appears in the 2024 Static Progression Coach Manual.
+
+### Head Down Out Face (HS)
+
+**Description:** Add the current high-speed head-down out-face line, entry,
+direction requirements, exit, and recovery plan.
+
+**Source status:** Listed in the supplied progression chart; no standalone
+lesson plan appears in the 2024 Static Progression Coach Manual.
+
+### Bottom Loop
+
+**Description:** Add the current bottom-loop standard, flight line, level
+limits, exit, and recovery plan.
+
+**Source status:** Listed in the supplied progression chart; no standalone
+lesson plan appears in the 2024 Static Progression Coach Manual.
+
+### Belly & Back Flares
+
+**Description:** Add the current belly- and back-flare standards, including
+entry speed, direction, exit, and recovery.
+
+**Source status:** Listed in the supplied progression chart; no standalone
+lesson plan appears in the 2024 Static Progression Coach Manual.
+
+## Formations
+
+Extend individual Level 4 control into larger shared flying plans.
+
+### 4-Way Formations
+
+**Description:** Add the current four-way formation goals, slot assignments,
+approach paths, level control, break-off, and recovery procedure.
+
+**Source status:** Listed in the supplied progression chart. The 2024 manual's
+revision record says earlier formation lesson plans were removed, so no
+prerequisite or technique is inferred here.
