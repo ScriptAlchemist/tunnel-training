@@ -19,7 +19,7 @@ export function LessonCard({ lesson }: { lesson: Lesson }) {
         <span className="mt-2 block max-w-3xl text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">
           {lesson.summary}
         </span>
-        {(lesson.prerequisite || lesson.videos.length > 0) && (
+        {(lesson.prerequisite || lesson.videos.length > 0 || lesson.mediaHtml) && (
           <span className="mt-3 flex flex-wrap gap-2 text-xs font-bold text-muted-foreground">
             {lesson.prerequisite && (
               <span className="rounded-full bg-[var(--panel)] px-3 py-1">{site.labels.prerequisiteIncluded}</span>
@@ -27,6 +27,11 @@ export function LessonCard({ lesson }: { lesson: Lesson }) {
             {lesson.videos.length > 0 && (
               <span className="rounded-full bg-[var(--panel)] px-3 py-1">
                 {lesson.videos.length} {lesson.videos.length > 1 ? site.labels.videos : site.labels.video}
+              </span>
+            )}
+            {lesson.mediaHtml && (
+              <span className="rounded-full bg-[var(--panel)] px-3 py-1">
+                {site.labels.conceptVisual}
               </span>
             )}
           </span>

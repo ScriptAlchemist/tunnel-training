@@ -32,8 +32,9 @@ export default async function LessonPage({ params }: LessonPageProps) {
   const adjacent = getAdjacentLessons(level, lesson)
   const site = getSiteContent()
   const hasVideos = lesson.videos.length > 0
+  const hasFigures = Boolean(lesson.mediaHtml)
   const hasPrerequisite = Boolean(lesson.prerequisite)
-  const hasSidebar = hasVideos || hasPrerequisite
+  const hasSidebar = hasVideos || hasFigures || hasPrerequisite
   const section = level.groups.find((item) => item.title === lesson.groupTitle)
   const parentHref =
     level.groups.length > 1 && section
@@ -98,8 +99,19 @@ export default async function LessonPage({ params }: LessonPageProps) {
                 <VideoPlayer videos={lesson.videos} labels={site.labels} />
               </>
             )}
+            {hasFigures && (
+              <>
+                <p className={`${hasVideos ? 'mt-6 ' : ''}mb-4 text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground`}>
+                  {site.labels.conceptVisual}
+                </p>
+                <div
+                  className="lesson-copy concept-media"
+                  dangerouslySetInnerHTML={{ __html: lesson.mediaHtml }}
+                />
+              </>
+            )}
             {hasPrerequisite && (
-              <div className={`${hasVideos ? 'mt-6' : ''} grid gap-3 rounded-2xl border border-[var(--line)] bg-[var(--panel)] p-5 text-sm`}>
+              <div className={`${hasVideos || hasFigures ? 'mt-6' : ''} grid gap-3 rounded-2xl border border-[var(--line)] bg-[var(--panel)] p-5 text-sm`}>
                 <div className="flex items-start justify-between gap-4">
                   <span className="font-bold text-muted-foreground">{site.labels.level}</span>
                   <span className="text-right font-extrabold">{level.shortTitle}</span>

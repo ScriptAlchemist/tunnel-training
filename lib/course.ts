@@ -24,6 +24,7 @@ export type Lesson = {
   summary: string
   prerequisite?: string
   html: string
+  mediaHtml: string
   videos: Video[]
   number: number
 }
@@ -201,6 +202,7 @@ type LevelFrontmatter = Pick<
 > & { singlePage?: boolean }
 
 const markdownProcessor = remark().use(remarkGfm).use(remarkHtml, { sanitize: false })
+const conceptFigurePattern = /<figure class="concept-graphic">[\s\S]*?<\/figure>/g
 
 function readContentFile(filename: string) {
   return fs.readFileSync(path.join(contentDirectory, filename), 'utf8')
@@ -274,6 +276,9 @@ function parseLesson(
     labeledParagraph(markdown, 'Manual status') ??
     defaultSummary
 
+  const rendered = markdownToHtml(lessonBody(markdown))
+  const figures = rendered.match(conceptFigurePattern) ?? []
+
   return {
     slug: slugify(title),
     title,
@@ -282,7 +287,8 @@ function parseLesson(
     groupTitle,
     summary,
     prerequisite: labeledParagraph(markdown, 'Prerequisite'),
-    html: markdownToHtml(lessonBody(markdown)),
+    html: rendered.replace(conceptFigurePattern, '').trim(),
+    mediaHtml: figures.join('\n'),
     videos: extractVideos(markdown),
     number,
   }
@@ -301,7 +307,6 @@ function parseLevel(filename: string): CourseLevel {
       .trim()
     const headings = [...content.matchAll(/^##\s+(.+)$/gm)]
     const introMarkdown = content.slice(0, headings[0]?.index ?? content.length).trim()
-    const conceptFigurePattern = /<figure class="concept-graphic">[\s\S]*?<\/figure>/g
     const contentSections = headings.map((heading, index) => {
       const start = (heading.index ?? 0) + heading[0].length
       const end = headings[index + 1]?.index ?? content.length
