@@ -31,6 +31,9 @@ export default async function LessonPage({ params }: LessonPageProps) {
   if (!level || !lesson) notFound()
   const adjacent = getAdjacentLessons(level, lesson)
   const site = getSiteContent()
+  const hasVideos = lesson.videos.length > 0
+  const hasPrerequisite = Boolean(lesson.prerequisite)
+  const hasSidebar = hasVideos || hasPrerequisite
   const section = level.groups.find((item) => item.title === lesson.groupTitle)
   const parentHref =
     level.groups.length > 1 && section
@@ -74,28 +77,42 @@ export default async function LessonPage({ params }: LessonPageProps) {
         <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">{lesson.summary}</p>
       </header>
 
-      <div className="mt-12 grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.88fr)] lg:gap-14">
+      <div
+        className={`mt-12 grid items-start gap-10 ${
+          hasSidebar
+            ? 'lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.88fr)] lg:gap-14'
+            : 'max-w-4xl'
+        }`}
+      >
         <article className="panel rounded-[1.75rem] p-6 sm:p-9">
           <div className="lesson-copy" dangerouslySetInnerHTML={{ __html: lesson.html }} />
         </article>
 
-        <aside className="lg:sticky lg:top-26">
-          <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground">
-            {site.labels.watchMovement}
-          </p>
-          <VideoPlayer videos={lesson.videos} labels={site.labels} />
-          <div className="mt-6 grid gap-3 rounded-2xl border border-[var(--line)] bg-[var(--panel)] p-5 text-sm">
-            <div className="flex items-start justify-between gap-4">
-              <span className="font-bold text-muted-foreground">{site.labels.level}</span>
-              <span className="text-right font-extrabold">{level.shortTitle}</span>
-            </div>
-            <div className="h-px bg-[var(--line)]" />
-            <div className="flex items-start justify-between gap-4">
-              <span className="font-bold text-muted-foreground">{site.labels.prerequisite}</span>
-              <span className="max-w-[16rem] text-right font-extrabold">{lesson.prerequisite ?? site.labels.seeLessonNotes}</span>
-            </div>
-          </div>
-        </aside>
+        {hasSidebar && (
+          <aside className="lg:sticky lg:top-26">
+            {hasVideos && (
+              <>
+                <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground">
+                  {site.labels.watchMovement}
+                </p>
+                <VideoPlayer videos={lesson.videos} labels={site.labels} />
+              </>
+            )}
+            {hasPrerequisite && (
+              <div className={`${hasVideos ? 'mt-6' : ''} grid gap-3 rounded-2xl border border-[var(--line)] bg-[var(--panel)] p-5 text-sm`}>
+                <div className="flex items-start justify-between gap-4">
+                  <span className="font-bold text-muted-foreground">{site.labels.level}</span>
+                  <span className="text-right font-extrabold">{level.shortTitle}</span>
+                </div>
+                <div className="h-px bg-[var(--line)]" />
+                <div className="flex items-start justify-between gap-4">
+                  <span className="font-bold text-muted-foreground">{site.labels.prerequisite}</span>
+                  <span className="max-w-[16rem] text-right font-extrabold">{lesson.prerequisite}</span>
+                </div>
+              </div>
+            )}
+          </aside>
+        )}
       </div>
 
       <nav aria-label={site.labels.lessonNavigation} className="mt-14 grid gap-4 border-t border-[var(--line)] pt-8 sm:grid-cols-2">

@@ -90,16 +90,12 @@ export type SiteContent = {
     prerequisiteIncluded: string
     video: string
     videos: string
-    referencePending: string
     watchMovement: string
     prerequisite: string
     prerequisites: string
     viewPrerequisites: string
-    seeLessonNotes: string
     previous: string
     next: string
-    videoPendingTitle: string
-    videoPendingText: string
     lessonVideos: string
     openYouTube: string
     defaultLessonSummary: string

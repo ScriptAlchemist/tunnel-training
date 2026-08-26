@@ -6,27 +6,13 @@ import type { SiteContent, Video } from '@/lib/course'
 
 type VideoLabels = Pick<
   SiteContent['labels'],
-  'videoPendingTitle' | 'videoPendingText' | 'lessonVideos' | 'openYouTube'
+  'lessonVideos' | 'openYouTube'
 >
 
 export function VideoPlayer({ videos, labels }: { videos: Video[]; labels: VideoLabels }) {
   const [active, setActive] = useState(0)
 
-  if (videos.length === 0) {
-    return (
-      <div className="grid aspect-video place-items-center rounded-[1.5rem] border border-dashed border-[var(--line)] bg-[var(--panel)] p-8 text-center">
-        <div>
-          <span className="mx-auto mb-4 grid size-12 place-items-center rounded-full bg-accent text-xl text-accent-foreground">
-            +
-          </span>
-          <p className="font-extrabold">{labels.videoPendingTitle}</p>
-          <p className="mt-2 text-sm leading-6 text-muted-foreground">
-            {labels.videoPendingText}
-          </p>
-        </div>
-      </div>
-    )
-  }
+  if (videos.length === 0) return null
 
   const video = videos[active]
 

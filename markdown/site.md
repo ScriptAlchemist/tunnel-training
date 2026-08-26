@@ -38,16 +38,12 @@ labels:
   prerequisiteIncluded: Prerequisite included
   video: video
   videos: videos
-  referencePending: Reference pending
   watchMovement: Watch the movement
   prerequisite: Prerequisite
   prerequisites: Prerequisites
   viewPrerequisites: View prerequisites
-  seeLessonNotes: See lesson notes
   previous: Previous
   next: Next
-  videoPendingTitle: Video reference coming soon
-  videoPendingText: This lesson is ready for the current training program's approved resource.
   lessonVideos: Lesson videos
   openYouTube: Open on YouTube
   defaultLessonSummary: Build understanding and control through a focused progression.
