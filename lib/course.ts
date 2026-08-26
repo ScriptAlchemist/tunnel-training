@@ -43,6 +43,9 @@ export type CourseLevel = {
   accent: string
   number: string
   order: number
+  singlePage: boolean
+  sectionCount: number
+  html: string
   groups: LessonGroup[]
   lessons: Lesson[]
 }
@@ -170,7 +173,7 @@ export type PrerequisiteContent = {
 type LevelFrontmatter = Pick<
   CourseLevel,
   'slug' | 'shortTitle' | 'description' | 'accent' | 'number' | 'order'
->
+> & { singlePage?: boolean }
 
 const markdownProcessor = remark().use(remarkGfm).use(remarkHtml, { sanitize: false })
 
@@ -264,6 +267,26 @@ function parseLevel(filename: string): CourseLevel {
   const parsed = matter(readContentFile(filename))
   const definition = parsed.data as LevelFrontmatter
   const title = parsed.content.match(/^#\s+(.+)$/m)?.[1] ?? definition.shortTitle
+  const singlePage = definition.singlePage ?? false
+
+  if (singlePage) {
+    const content = parsed.content
+      .replace(/^#\s+.+\n?/m, '')
+      .replace(/^\[Back to lesson plan index\]\(README\.md\)\s*/m, '')
+      .trim()
+    const sectionCount = [...content.matchAll(/^##\s+.+$/gm)].length
+
+    return {
+      ...definition,
+      singlePage,
+      title,
+      sectionCount,
+      html: markdownToHtml(content),
+      groups: [],
+      lessons: [],
+    }
+  }
+
   const hasNestedLessons = /^###\s+/m.test(parsed.content)
   const draftGroups: Array<{
     title: string
@@ -326,7 +349,10 @@ function parseLevel(filename: string): CourseLevel {
 
   return {
     ...definition,
+    singlePage,
     title,
+    sectionCount: groups.length,
+    html: '',
     groups,
     lessons: groups.flatMap((item) => item.lessons),
   }

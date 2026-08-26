@@ -68,14 +68,25 @@ export default async function LevelPage({ params }: LevelPageProps) {
             <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">{level.description}</p>
           </div>
           <div className="flex gap-8 md:text-right">
-            <div>
-              <p className="display-type text-3xl font-black">{level.lessons.length}</p>
-              <p className="text-xs font-bold tracking-wider text-muted-foreground uppercase">{site.labels.lessons}</p>
-            </div>
-            <div>
-              <p className="display-type text-3xl font-black">{level.groups.length}</p>
-              <p className="text-xs font-bold tracking-wider text-muted-foreground uppercase">{site.labels.sections}</p>
-            </div>
+            {level.singlePage ? (
+              <div>
+                <p className="display-type text-3xl font-black">{level.sectionCount}</p>
+                <p className="text-xs font-bold tracking-wider text-muted-foreground uppercase">
+                  {level.sectionCount === 1 ? site.labels.section : site.labels.sections}
+                </p>
+              </div>
+            ) : (
+              <>
+                <div>
+                  <p className="display-type text-3xl font-black">{level.lessons.length}</p>
+                  <p className="text-xs font-bold tracking-wider text-muted-foreground uppercase">{site.labels.lessons}</p>
+                </div>
+                <div>
+                  <p className="display-type text-3xl font-black">{level.groups.length}</p>
+                  <p className="text-xs font-bold tracking-wider text-muted-foreground uppercase">{site.labels.sections}</p>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </header>
@@ -88,7 +99,11 @@ export default async function LevelPage({ params }: LevelPageProps) {
       )}
 
       <div className="mt-14 sm:mt-18">
-        {level.groups.length > 1 ? (
+        {level.singlePage ? (
+          <article className="panel max-w-4xl rounded-[1.75rem] p-6 sm:p-9">
+            <div className="lesson-copy" dangerouslySetInnerHTML={{ __html: level.html }} />
+          </article>
+        ) : level.groups.length > 1 ? (
           <div className="grid gap-5 lg:grid-cols-2">
             {level.groups.map((group, index) => (
               <SectionCard

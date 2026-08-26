@@ -2,6 +2,7 @@
 slug: level-0
 order: 0
 number: "00"
+singlePage: true
 shortTitle: Flight Concepts
 description: A place to collect the ideas, explanations, charts, and references that support every flying position.
 accent: "#798c66"

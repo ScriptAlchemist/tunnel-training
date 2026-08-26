@@ -5,6 +5,14 @@ import { getSiteContent, type CourseLevel } from '@/lib/course'
 export function LevelCard({ level }: { level: CourseLevel }) {
   const site = getSiteContent()
   const accent = level.accent
+  const count = level.singlePage ? level.sectionCount : level.lessons.length
+  const countLabel = level.singlePage
+    ? count === 1
+      ? site.labels.section
+      : site.labels.sections
+    : count === 1
+      ? site.labels.lesson
+      : site.labels.lessons
 
   return (
     <Link
@@ -19,7 +27,7 @@ export function LevelCard({ level }: { level: CourseLevel }) {
       <div className="relative flex items-start justify-between">
         <span className="display-type text-6xl font-black opacity-15">{level.number}</span>
         <span className="rounded-full border border-[var(--line)] bg-[var(--panel-solid)] px-3 py-1.5 text-xs font-extrabold">
-          {level.lessons.length} {site.labels.lessons.toLowerCase()}
+          {count} {countLabel.toLowerCase()}
         </span>
       </div>
       <div className="relative mt-auto pt-14">
