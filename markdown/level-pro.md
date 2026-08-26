@@ -13,8 +13,8 @@ accent: "#71828d"
 
 The supplied progression chart separates the Pro progression into Static and
 Dynamic tracks. Eagle content below is summarized from the September 2024 IBA
-Static Progression Coach Manual. Other chart-listed skills are included without
-inferred prerequisites.
+Static Progression Coach Manual, and Breaker content is summarized from the
+corresponding Dynamic Progression Coach Manual.
 
 ## Static Progression
 
@@ -44,6 +44,10 @@ altitude.
 contact, levels, abort, and separation. Demonstrate the component transition
 solo before adding the second flyer.
 
+**Links:**
+
+- [Half Eagle](https://www.youtube.com/watch?v=1dfjgnLTr_I)
+
 ### Half Reverse Eagle
 
 **Prerequisite:** Head-Down Transitions.
@@ -65,6 +69,10 @@ Reverse Eagle while maintaining a clear path, heading, and altitude.
 **Coaching and safety:** Brief both slots, initiation, flight paths, eye
 contact, levels, abort, and separation. Demonstrate the component transition
 solo before adding the second flyer.
+
+**Links:**
+
+- [Half Reverse Eagle](https://www.youtube.com/watch?v=pehNQRFyZ7E)
 
 ### Full Eagle
 
@@ -88,6 +96,10 @@ their original orientations with minimal heading or altitude change.
 contact, levels, abort, and separation. Build the full maneuver only after both
 flyers can complete each half safely and predictably.
 
+**Links:**
+
+- [Full Eagle](https://www.youtube.com/watch?v=f70AVpwx9kU)
+
 ### Full Reverse Eagle
 
 **Prerequisite:** Head-Down Transitions.
@@ -110,6 +122,10 @@ return to their original orientations with minimal heading or altitude change.
 contact, levels, abort, and separation. Build the full maneuver only after both
 flyers can complete each half safely and predictably.
 
+**Links:**
+
+- [Full Reverse Eagle](https://www.youtube.com/watch?v=mWixexxRQ4U)
+
 ### Head Up Back Flip
 
 **Description:** Add the current Pro head-up back-flip standard, flight line,
@@ -118,24 +134,54 @@ entry, stopping point, and recovery plan.
 **Source status:** Listed in the supplied progression chart; no standalone
 lesson plan appears in the 2024 Static Progression Coach Manual.
 
+**Links:**
+
+- [Sit to Sit Backflip](https://www.youtube.com/watch?v=bVHM7cAwDiQ)
+
 ## Dynamic
 
-The supplied static progression manual does not define these Pro dynamic
-skills, so the chart structure is preserved without adding unsupported
-coaching information.
+Build half and full Breakers while maintaining controlled carving momentum.
+These lessons are summarized from the September 2024 IBA Dynamic Progression
+Coach Manual.
 
 ### Head Up Breaker
 
-**Description:** Add the current head-up breaker standard, including line,
-direction, speed, exit, and recovery requirements.
+**Prerequisite:** Level 3 Dynamic Skills.
 
-**Source status:** Listed in the supplied progression chart; no standalone
-lesson plan appears in the 2024 Static Progression Coach Manual.
+**Desired outcome:** Complete a belly-to-back barrel maneuver from head-up
+carving while maintaining carving momentum.
+
+**Key points:**
+
+- Build controlled momentum through the dive.
+- Use a half barrel roll for a half Breaker and the full prescribed rotation
+  for a full Breaker.
+- Keep the chin up and return to a controlled head-up orientation.
+- Account for the change in leading shoulder after the maneuver.
+
+**Manual source:** Dynamic Progression Coach Manual, Lesson Plan #23.
+
+**Links:**
+
+- [Head Up Breaker](https://www.youtube.com/watch?v=PCDGFbe8lbs)
 
 ### Head Down Breaker
 
-**Description:** Add the current head-down breaker standard, including line,
-direction, speed, exit, and recovery requirements.
+**Prerequisite:** Level 3 Dynamic Skills.
 
-**Source status:** Listed in the supplied progression chart; no standalone
-lesson plan appears in the 2024 Static Progression Coach Manual.
+**Desired outcome:** Complete a belly-to-back barrel maneuver from head-down
+carving while maintaining carving momentum.
+
+**Key points:**
+
+- Build controlled momentum through the dive.
+- Use a half barrel roll for a half Breaker and the full prescribed rotation
+  for a full Breaker.
+- Use the tunnel center as a visual reference and finish on a controlled carve.
+- Account for the change in leading shoulder after the maneuver.
+
+**Manual source:** Dynamic Progression Coach Manual, Lesson Plan #23.
+
+**Links:**
+
+- [Head Down Breaker](https://www.youtube.com/watch?v=tw7nIbm3r-Q)

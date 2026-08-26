@@ -13,8 +13,9 @@ accent: "#62a654"
 
 The supplied progression chart separates Level 3 into Static Progression,
 Dynamic, and Formation tracks. Static lesson content below is summarized from
-the September 2024 IBA Static Progression Coach Manual. Dynamic and Formation
-skills are included from the chart without inferred prerequisites.
+the September 2024 IBA Static Progression Coach Manual, and Dynamic lesson
+content is summarized from the corresponding Dynamic Progression Coach Manual.
+Formation skills are included from the chart without inferred prerequisites.
 
 ## Static Progression
 
@@ -54,6 +55,10 @@ Front Flip Transition.
 smooth, committed transition and a reliable stop before increasing speed or
 altitude, and keep the doorway outside the travel path.
 
+**Links:**
+
+- [Back to Sit Transition](https://www.youtube.com/watch?v=U0AOMPKObKQ)
+
 ### Neutral Head Up
 
 **Prerequisite:** Completed IBA Back-Flying Level 2.
@@ -80,6 +85,10 @@ position before requesting more wind, avoid a doorway-facing heading, preserve
 the instructor's access path, and keep the back-fly recovery available.
 
 **Manual source:** Static Progression Coach Manual, Lesson Plan #16.
+
+**Links:**
+
+- [Neutral Sit Position](https://www.youtube.com/watch?v=ma1_qTxn2QA)
 
 ### Head Up Forward & Backward
 
@@ -109,6 +118,10 @@ demonstrated.
 
 **Manual source:** Static Progression Coach Manual, Lesson Plan #17.
 
+**Links:**
+
+- [Sit Forward & Backward](https://www.youtube.com/watch?v=PHxwDgXrCSg)
+
 ### Head Up Turns
 
 **Prerequisite:** Neutral and Stable Head Up Position.
@@ -135,6 +148,10 @@ pitch, and drift, and keep the bail path and instructor access clear.
 
 **Manual source:** Static Progression Coach Manual, Lesson Plan #18.
 
+**Links:**
+
+- [Sit Fly Turns](https://www.youtube.com/watch?v=e4M9mC0Tp60)
+
 ### Head Up Up & Down
 
 **Prerequisite:** Head Up Left/Right Turns and Forward/Backward Movement.
@@ -160,6 +177,10 @@ adding wind or range and preserve the neutral back-flying recovery.
 
 **Manual source:** Static Progression Coach Manual, Lesson Plan #19.
 
+**Links:**
+
+- [Sit Fly Up & Down](https://www.youtube.com/watch?v=6Ps6UULKqoc)
+
 ### Head Up Side Slide
 
 **Prerequisite:** Head Up Up and Down Movement.
@@ -183,6 +204,10 @@ before starting. Teach the input on or near the net, increase speed gradually,
 and watch for excessive pitch or a late stop.
 
 **Manual source:** Static Progression Coach Manual, Lesson Plan #20.
+
+**Links:**
+
+- [Sit Side Slides](https://www.youtube.com/watch?v=--EVE78obVo)
 
 ### Head Up Super Positioning
 
@@ -217,87 +242,163 @@ the challenge only after smooth completion and reliable stops. The flyer must
 continue through a committed transition and use the briefed back-fly recovery
 if control is lost.
 
+**Links:**
+
+- [Head Up Front Flip](https://www.youtube.com/watch?v=sx4vvYp7-jg)
+
 ## Dynamic
 
-Connect orientations through continuous low-speed dynamic lines. The supplied
-static progression manual does not define these skills, so the chart structure
-is preserved without adding unsupported coaching information.
+Connect orientations through continuous layouts and low-speed carving lines.
+These lessons are summarized from the September 2024 IBA Dynamic Progression
+Coach Manual.
 
 ### Barrel Roll
 
-**Description:** Add the current Level 3 dynamic barrel-roll standard, direction
-requirements, recovery plan, and safety limits.
+**Prerequisite:** Completed all individual Belly-Flying and Back-Flying skills.
 
-**Source status:** Listed in the supplied progression chart; no standalone
-lesson plan appears in the 2024 Static Progression Coach Manual.
+**Desired outcome:** Complete controlled half and full barrel-roll transitions
+from neutral belly or back flying while preserving heading and altitude.
+
+**Key points:**
+
+- Initiate with the lower body and allow the upper body to follow.
+- Keep the legs controlled to limit unwanted forward drive.
+- Stop each half in a defined neutral orientation before building the full roll.
+- Complete the full roll as one continuous movement only after both halves are
+  reliable.
+
+**Manual source:** Dynamic Progression Coach Manual, Lesson Plan #13.
+
+**Links:**
+
+- [Full Barrel Roll](https://www.youtube.com/watch?v=RzErf8BcMaU)
 
 ### Front Layout
 
-**Description:** Add the current Level 3 front-layout standard, flight line,
-entry, exit, and recovery plan.
+**Prerequisite:** Belly-to-Back Transitions Over the Head.
 
-**Source status:** Listed in the supplied progression chart; no standalone
-lesson plan appears in the 2024 Static Progression Coach Manual.
+**Desired outcome:** Complete a controlled full belly-to-belly front layout at
+a comfortable wind speed while maintaining the intended flight line.
+
+**Key points:**
+
+- Start low to the net in belly flight and initiate upward movement before
+  rotation.
+- Keep the body long through rotation and use a consistent visual reference.
+- Connect the two transition halves without pausing.
+- Spot the net and return to a controlled belly orientation.
+
+**Manual source:** Dynamic Progression Coach Manual, Lesson Plan #16.
+
+**Links:**
+
+- [Front Layout](https://www.youtube.com/watch?v=fqqRkjROlGw)
 
 ### Back Layout
 
-**Description:** Add the current Level 3 back-layout standard, flight line,
-entry, exit, and recovery plan.
+**Prerequisite:** Belly-to-Back Transitions Over the Head.
 
-**Source status:** Listed in the supplied progression chart; no standalone
-lesson plan appears in the 2024 Static Progression Coach Manual.
+**Desired outcome:** Complete a controlled full back-to-back back layout at a
+comfortable wind speed while maintaining the intended flight line.
+
+**Key points:**
+
+- Start low to the net in back flight, feet first toward the planned wall.
+- Initiate upward movement before rotation.
+- Roll the shoulders forward, extend the legs, and allow the lower body to
+  rotate through a long body line.
+- Connect both transition halves and spot the net before returning to back
+  flight.
+
+**Manual source:** Dynamic Progression Coach Manual, Lesson Plan #16.
+
+**Links:**
+
+- [Back Layout](https://www.youtube.com/watch?v=S98wSLVQ9dM)
 
 ### Head Down Out Face (LS)
 
-**Description:** Add the current low-speed head-down out-face line and its
-approved setup and recovery.
+**Prerequisite:** Back-Fly Level 2.
 
-**Source status:** Listed in the supplied progression chart; no standalone
-lesson plan appears in the 2024 Static Progression Coach Manual.
+**Desired outcome:** Carve the tunnel circumference in a controlled low-speed
+head-down out-face orientation while remaining close to the center.
+
+**Key points:**
+
+- Initiate with a side slide and add forward drive to continue the rotation.
+- Keep the head near the center as the body rotates around it.
+- Use consistent visual references and increase angle and speed gradually.
+
+**Manual source:** Dynamic Progression Coach Manual, Lesson Plan #17.
+
+**Links:**
+
+- [Head Down Outface Low Speed](https://www.youtube.com/watch?v=INqeEdWkn8g)
 
 ### Head Up Out Face (LS)
 
-**Prerequisite:** Head Up Side Slides.
+**Prerequisite:** Back-Fly Level 2.
 
 **Desired outcome:** Maintain a controlled low-speed, head-up out-face carve
 with consistent radius, altitude, proximity, and awareness.
 
-**Reference material:** IBA Flight Tutorial #41.
+**Reference material:** IBA Flight Tutorial #71.
 
 **Key points:**
 
-- Blend a side slide, turn, and backward drive rather than treating the inputs
-  as separate movements.
-- Balance the three inputs continuously to control speed and radius.
-- Preserve wall separation, visual awareness, and a planned back-fly recovery.
+- Initiate with a side slide and add backward drive to continue the rotation.
+- Keep the knees and feet near the center while the upper body rotates around
+  them.
+- Balance the inputs continuously to control speed, radius, and altitude.
 
-**Manual source:** Static Progression Coach Manual, Lesson Plan #21.
+**Manual source:** Dynamic Progression Coach Manual, Lesson Plan #18.
+
+**Links:**
+
+- [Head Up Outface Low Speed](https://www.youtube.com/watch?v=5sI6vrEQ0bU)
 
 ### Head Down In Face (LS)
 
-**Description:** Add the current low-speed head-down in-face line and its
-approved setup and recovery.
+**Prerequisite:** Back-Fly Level 2.
 
-**Source status:** Listed in the supplied progression chart; no standalone
-lesson plan appears in the 2024 Static Progression Coach Manual.
+**Desired outcome:** Carve the tunnel circumference in a controlled low-speed
+head-down in-face orientation while remaining close to the center.
+
+**Reference material:** IBA Flight Tutorial #61.
+
+**Key points:**
+
+- Initiate with a side slide and add forward drive to continue the rotation.
+- Keep the head near the center as the body rotates around it.
+- Use wall and center references to maintain the intended path.
+
+**Manual source:** Dynamic Progression Coach Manual, Lesson Plan #19.
+
+**Links:**
+
+- [Head Down In-face Low Speed](https://www.youtube.com/watch?v=5ggCq9jY5og)
 
 ### Head Up In Face (LS)
 
-**Prerequisite:** Head Up Side Slides.
+**Prerequisite:** Back-Fly Level 2.
 
 **Desired outcome:** Maintain a controlled low-speed, head-up in-face carve with
 consistent radius, altitude, proximity, and awareness.
 
-**Reference material:** IBA Flight Tutorial #40.
+**Reference material:** IBA Flight Tutorial #66.
 
 **Key points:**
 
-- Blend a side slide, turn, and forward drive rather than treating the inputs
-  as separate movements.
-- Balance the three inputs continuously to control speed and radius.
-- Preserve wall separation, visual awareness, and a planned back-fly recovery.
+- Initiate with a side slide and add feet-first drive toward the center.
+- Keep the knees and feet near the center while the upper body rotates around
+  them.
+- Balance the inputs continuously to control speed, radius, and altitude.
 
-**Manual source:** Static Progression Coach Manual, Lesson Plan #21.
+**Manual source:** Dynamic Progression Coach Manual, Lesson Plan #20.
+
+**Links:**
+
+- [Head Up In-face Low Speed](https://www.youtube.com/watch?v=Q3Iub8VcVZc)
 
 ## Formations
 
