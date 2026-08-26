@@ -68,6 +68,7 @@ export type SiteContent = {
   email: string
   navigation: {
     levels: string
+    skillsChart: string
     humanoid: string
     about: string
   }
@@ -169,6 +170,18 @@ export type HomeContent = {
   bookingButton: string
   bookingSubject: string
   aboutHtml: string
+}
+
+export type SkillsChartContent = {
+  eyebrow: string
+  title: string
+  description: string
+  levelLabel: string
+  trackLabel: string
+  skillLabel: string
+  conceptLabel: string
+  openSkillLabel: string
+  sourceNote: string
 }
 
 export type PrerequisiteContent = {
@@ -397,6 +410,11 @@ export const getSiteContent = cache(() => {
 export const getHumanoidContent = cache(() => {
   const parsed = matter(readContentFile('humanoid.md'))
   return parsed.data as HumanoidContent
+})
+
+export const getSkillsChartContent = cache(() => {
+  const parsed = matter(readContentFile('skills-chart.md'))
+  return parsed.data as SkillsChartContent
 })
 
 export const getPrerequisites = cache(() =>

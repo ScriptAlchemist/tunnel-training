@@ -7,6 +7,7 @@ siteUrl: https://tunnel.benderjustin.com/
 email: justin.bender@iflydetroit.com
 navigation:
   levels: Levels
+  skillsChart: Skills Chart
   humanoid: Humanoid
   about: About
 theme:

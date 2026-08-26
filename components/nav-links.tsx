@@ -9,12 +9,23 @@ export function NavLinks({
   labels,
   showHumanoid,
 }: {
-  labels: { levels: string; humanoid: string; about: string; mainNavigation: string }
+  labels: {
+    levels: string
+    skillsChart: string
+    humanoid: string
+    about: string
+    mainNavigation: string
+  }
   showHumanoid: boolean
 }) {
   const pathname = usePathname()
   const links = [
     { href: '/levels/', label: labels.levels, matches: (path: string) => path.startsWith('/levels') },
+    {
+      href: '/skills-chart/',
+      label: labels.skillsChart,
+      matches: (path: string) => path.startsWith('/skills-chart'),
+    },
     ...(showHumanoid
       ? [{ href: '/humanoid/', label: labels.humanoid, matches: (path: string) => path.startsWith('/humanoid') }]
       : []),
