@@ -202,6 +202,9 @@ Preventing from flipping over or pushed against the wall.
   The physics of the shape is our tool.
 - Only on belly if we get into a situation where we start to flip. If we fallback
   to a body position of stability. We will prevent a possible spot.
+- Look forward with your chin up. Push your hips down towards the ground to make
+  a solid arch. Point your toes and keep some pressure on your legs. Allow your
+  arms to raise up higher to create a smoother curve for your body to lay on.
 - Do not grab the wall or re-grip the net unless that action is part of the
   instructor's explicit procedure. You're here to fly not pull yourself around.
 

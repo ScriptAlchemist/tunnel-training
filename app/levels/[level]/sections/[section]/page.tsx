@@ -45,9 +45,6 @@ export default async function SectionPage({ params }: SectionPageProps) {
   const sectionNumber = level.groups.findIndex((item) => item.slug === section.slug) + 1
   const prerequisite = getSectionPrerequisite(level.slug, section.slug)
   const showPrerequisite = hasPrerequisiteContent(prerequisite)
-  const hasVideos = section.videos.length > 0
-  const hasFigures = Boolean(section.mediaHtml)
-  const hasMedia = hasVideos || hasFigures
 
   return (
     <div className="shell py-10 sm:py-16">
@@ -108,44 +105,54 @@ export default async function SectionPage({ params }: SectionPageProps) {
       </header>
 
       {level.sectionPages ? (
-        <div
-          className={`mt-12 grid items-start gap-10 sm:mt-16 ${
-            hasMedia
-              ? 'lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.88fr)] lg:gap-14'
-              : 'max-w-4xl'
-          }`}
-        >
-          <article className="panel rounded-[1.75rem] p-6 sm:p-9">
-            <div
-              className="lesson-copy"
-              dangerouslySetInnerHTML={{ __html: section.html }}
-            />
-          </article>
+        <article className="panel mt-12 max-w-6xl rounded-[1.75rem] p-6 sm:mt-16 sm:p-9">
+          {section.contentSections.map((contentSection, index) => {
+            const hasVideos = contentSection.videos.length > 0
+            const hasFigures = Boolean(contentSection.mediaHtml)
+            const hasMedia = hasVideos || hasFigures
 
-          {hasMedia && (
-            <aside className="lg:sticky lg:top-26">
-              {hasVideos && (
-                <>
-                  <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground">
-                    {site.labels.watchMovement}
-                  </p>
-                  <VideoPlayer videos={section.videos} labels={site.labels} />
-                </>
-              )}
-              {hasFigures && (
-                <>
-                  <p className={`${hasVideos ? 'mt-6 ' : ''}mb-4 text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground`}>
-                    {site.labels.conceptVisual}
-                  </p>
-                  <div
-                    className="lesson-copy concept-media"
-                    dangerouslySetInnerHTML={{ __html: section.mediaHtml }}
-                  />
-                </>
-              )}
-            </aside>
-          )}
-        </div>
+            return (
+              <section
+                key={contentSection.slug}
+                id={contentSection.slug}
+                className={`${index > 0 ? 'mt-12 border-t border-border pt-12' : ''} grid scroll-mt-28 items-start gap-8 ${
+                  hasMedia
+                    ? 'lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.78fr)] lg:gap-12'
+                    : 'max-w-4xl'
+                }`}
+              >
+                <div className="lesson-copy">
+                  {contentSection.title && <h2>{contentSection.title}</h2>}
+                  <div dangerouslySetInnerHTML={{ __html: contentSection.html }} />
+                </div>
+
+                {hasMedia && (
+                  <aside>
+                    {hasVideos && (
+                      <>
+                        <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground">
+                          {site.labels.watchMovement}
+                        </p>
+                        <VideoPlayer videos={contentSection.videos} labels={site.labels} />
+                      </>
+                    )}
+                    {hasFigures && (
+                      <>
+                        <p className={`${hasVideos ? 'mt-6 ' : ''}mb-4 text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground`}>
+                          {site.labels.conceptVisual}
+                        </p>
+                        <div
+                          className="lesson-copy concept-media"
+                          dangerouslySetInnerHTML={{ __html: contentSection.mediaHtml }}
+                        />
+                      </>
+                    )}
+                  </aside>
+                )}
+              </section>
+            )
+          })}
+        </article>
       ) : (
         <section className="mt-12 sm:mt-16">
           {section.lessons.map((lesson) => (

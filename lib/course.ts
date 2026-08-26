@@ -36,6 +36,7 @@ export type LessonGroup = {
   html: string
   mediaHtml: string
   videos: Video[]
+  contentSections: SinglePageSection[]
   lessons: Lesson[]
 }
 
@@ -356,16 +357,46 @@ function parseLevel(filename: string): CourseLevel {
         firstSubheading >= 0 ? sectionMarkdown.slice(0, firstSubheading).trim() : ''
       const bodyMarkdown =
         firstSubheading >= 0 ? sectionMarkdown.slice(firstSubheading).trim() : sectionMarkdown
-      const rendered = markdownToHtml(lessonBody(bodyMarkdown))
-      const figures = rendered.match(conceptFigurePattern) ?? []
+      const subheadings = [...bodyMarkdown.matchAll(/^###\s+(.+)$/gm)]
+      const contentSections = subheadings.length > 0
+        ? subheadings.map((subheading, subheadingIndex) => {
+            const subsectionStart = (subheading.index ?? 0) + subheading[0].length
+            const subsectionEnd = subheadings[subheadingIndex + 1]?.index ?? bodyMarkdown.length
+            const subsectionMarkdown = bodyMarkdown
+              .slice(subsectionStart, subsectionEnd)
+              .trim()
+            const rendered = markdownToHtml(lessonBody(subsectionMarkdown))
+            const figures = rendered.match(conceptFigurePattern) ?? []
+
+            return {
+              slug: slugify(subheading[1]),
+              title: subheading[1],
+              html: rendered.replace(conceptFigurePattern, '').trim(),
+              mediaHtml: figures.join('\n'),
+              videos: extractVideos(subsectionMarkdown),
+            }
+          })
+        : (() => {
+            const rendered = markdownToHtml(lessonBody(bodyMarkdown))
+            const figures = rendered.match(conceptFigurePattern) ?? []
+
+            return [{
+              slug: 'content',
+              title: '',
+              html: rendered.replace(conceptFigurePattern, '').trim(),
+              mediaHtml: figures.join('\n'),
+              videos: extractVideos(bodyMarkdown),
+            }]
+          })()
 
       return {
         slug: slugify(heading[1]),
         title: heading[1],
         description: plainText(introMarkdown) || definition.description,
-        html: rendered.replace(conceptFigurePattern, '').trim(),
-        mediaHtml: figures.join('\n'),
-        videos: extractVideos(bodyMarkdown),
+        html: '',
+        mediaHtml: '',
+        videos: [],
+        contentSections,
         lessons: [],
       }
     })
@@ -433,6 +464,7 @@ function parseLevel(filename: string): CourseLevel {
       html: '',
       mediaHtml: '',
       videos: [],
+      contentSections: [],
       lessons: draftGroup.lessons.map((draftLesson) =>
         parseLesson(
           draftLesson.title,
