@@ -2,6 +2,7 @@
 slug: level-0
 order: 0
 number: "00"
+sectionPages: true
 shortTitle: Flight Concepts
 description: Learn the shared flight concepts, operating practices, safety foundations, and coaching skills that support every flying position.
 accent: "#798c66"
@@ -98,6 +99,9 @@ designated rendezvous point until emergency services authorize re-entry.
 
 ## Coaching Skills
 
+Prepare each session, communicate clearly, and coordinate with the tunnel team
+before, during, and after every flight.
+
 ### Warm-up and stretching
 
 Indoor skydiving is physically demanding. Coaches and flyers should have
@@ -173,13 +177,16 @@ unbriefed gesture.
 
 ## Stability and Recovery
 
+Use this section for the planned recovery concepts that support safe,
+predictable flight.
+
 ### Naturally Stable (Bailing)
 
 **Desired outcome:** Understand which trained recovery position to use whenever
 stability is lost or a coach or instructor gives the bail signal.
 
 <figure class="concept-graphic">
-  <img src="../../../shuttlecock-stability.svg" alt="Three-stage diagram of a shuttlecock released feather-side down, rotating as it falls, and settling with its rounded cork side down.">
+  <img src="../../../../shuttlecock-stability.svg" alt="Three-stage diagram of a shuttlecock released feather-side down, rotating as it falls, and settling with its rounded cork side down.">
   <figcaption>Released feather-side down, the shuttlecock rotates until its rounded cork points down and the high-drag feathers trail above it.</figcaption>
 </figure>
 

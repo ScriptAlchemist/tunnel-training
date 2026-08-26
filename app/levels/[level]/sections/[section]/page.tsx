@@ -5,6 +5,7 @@ import { BackButton } from '@/components/back-button'
 import { FlightFlower } from '@/components/flight-flower'
 import { LessonCard } from '@/components/lesson-card'
 import { PrerequisiteCard } from '@/components/prerequisite-card'
+import { VideoPlayer } from '@/components/video-player'
 import {
   getLevel,
   getLevels,
@@ -44,6 +45,9 @@ export default async function SectionPage({ params }: SectionPageProps) {
   const sectionNumber = level.groups.findIndex((item) => item.slug === section.slug) + 1
   const prerequisite = getSectionPrerequisite(level.slug, section.slug)
   const showPrerequisite = hasPrerequisiteContent(prerequisite)
+  const hasVideos = section.videos.length > 0
+  const hasFigures = Boolean(section.mediaHtml)
+  const hasMedia = hasVideos || hasFigures
 
   return (
     <div className="shell py-10 sm:py-16">
@@ -81,12 +85,14 @@ export default async function SectionPage({ params }: SectionPageProps) {
                 {section.description}
               </p>
             </div>
-            <div className="md:text-right">
-              <p className="display-type text-3xl font-black">{section.lessons.length}</p>
-              <p className="text-xs font-bold tracking-wider text-muted-foreground uppercase">
-                {site.labels.lessons}
-              </p>
-            </div>
+            {!level.sectionPages && (
+              <div className="md:text-right">
+                <p className="display-type text-3xl font-black">{section.lessons.length}</p>
+                <p className="text-xs font-bold tracking-wider text-muted-foreground uppercase">
+                  {site.labels.lessons}
+                </p>
+              </div>
+            )}
           </div>
         </div>
 
@@ -101,11 +107,52 @@ export default async function SectionPage({ params }: SectionPageProps) {
         )}
       </header>
 
-      <section className="mt-12 sm:mt-16">
-        {section.lessons.map((lesson) => (
-          <LessonCard key={lesson.slug} lesson={lesson} />
-        ))}
-      </section>
+      {level.sectionPages ? (
+        <div
+          className={`mt-12 grid items-start gap-10 sm:mt-16 ${
+            hasMedia
+              ? 'lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.88fr)] lg:gap-14'
+              : 'max-w-4xl'
+          }`}
+        >
+          <article className="panel rounded-[1.75rem] p-6 sm:p-9">
+            <div
+              className="lesson-copy"
+              dangerouslySetInnerHTML={{ __html: section.html }}
+            />
+          </article>
+
+          {hasMedia && (
+            <aside className="lg:sticky lg:top-26">
+              {hasVideos && (
+                <>
+                  <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground">
+                    {site.labels.watchMovement}
+                  </p>
+                  <VideoPlayer videos={section.videos} labels={site.labels} />
+                </>
+              )}
+              {hasFigures && (
+                <>
+                  <p className={`${hasVideos ? 'mt-6 ' : ''}mb-4 text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground`}>
+                    {site.labels.conceptVisual}
+                  </p>
+                  <div
+                    className="lesson-copy concept-media"
+                    dangerouslySetInnerHTML={{ __html: section.mediaHtml }}
+                  />
+                </>
+              )}
+            </aside>
+          )}
+        </div>
+      ) : (
+        <section className="mt-12 sm:mt-16">
+          {section.lessons.map((lesson) => (
+            <LessonCard key={lesson.slug} lesson={lesson} />
+          ))}
+        </section>
+      )}
     </div>
   )
 }

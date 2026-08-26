@@ -33,6 +33,9 @@ export type LessonGroup = {
   slug: string
   title: string
   description: string
+  html: string
+  mediaHtml: string
+  videos: Video[]
   lessons: Lesson[]
 }
 
@@ -53,6 +56,7 @@ export type CourseLevel = {
   number: string
   order: number
   singlePage: boolean
+  sectionPages: boolean
   sectionCount: number
   html: string
   contentSections: SinglePageSection[]
@@ -199,7 +203,7 @@ export type PrerequisiteContent = {
 type LevelFrontmatter = Pick<
   CourseLevel,
   'slug' | 'shortTitle' | 'description' | 'accent' | 'number' | 'order'
-> & { singlePage?: boolean }
+> & { singlePage?: boolean; sectionPages?: boolean }
 
 const markdownProcessor = remark().use(remarkGfm).use(remarkHtml, { sanitize: false })
 const conceptFigurePattern = /<figure class="concept-graphic">[\s\S]*?<\/figure>/g
@@ -299,6 +303,7 @@ function parseLevel(filename: string): CourseLevel {
   const definition = parsed.data as LevelFrontmatter
   const title = parsed.content.match(/^#\s+(.+)$/m)?.[1] ?? definition.shortTitle
   const singlePage = definition.singlePage ?? false
+  const sectionPages = definition.sectionPages ?? false
 
   if (singlePage) {
     const content = parsed.content
@@ -326,11 +331,54 @@ function parseLevel(filename: string): CourseLevel {
     return {
       ...definition,
       singlePage,
+      sectionPages,
       title,
       sectionCount: contentSections.length,
       html: markdownToHtml(introMarkdown),
       contentSections,
       groups: [],
+      lessons: [],
+    }
+  }
+
+  if (sectionPages) {
+    const content = parsed.content
+      .replace(/^#\s+.+\n?/m, '')
+      .replace(/^\[Back to lesson plan index\]\(README\.md\)\s*/m, '')
+      .trim()
+    const headings = [...content.matchAll(/^##\s+(.+)$/gm)]
+    const groups = headings.map((heading, index) => {
+      const start = (heading.index ?? 0) + heading[0].length
+      const end = headings[index + 1]?.index ?? content.length
+      const sectionMarkdown = content.slice(start, end).trim()
+      const firstSubheading = sectionMarkdown.search(/^###\s+/m)
+      const introMarkdown =
+        firstSubheading >= 0 ? sectionMarkdown.slice(0, firstSubheading).trim() : ''
+      const bodyMarkdown =
+        firstSubheading >= 0 ? sectionMarkdown.slice(firstSubheading).trim() : sectionMarkdown
+      const rendered = markdownToHtml(lessonBody(bodyMarkdown))
+      const figures = rendered.match(conceptFigurePattern) ?? []
+
+      return {
+        slug: slugify(heading[1]),
+        title: heading[1],
+        description: plainText(introMarkdown) || definition.description,
+        html: rendered.replace(conceptFigurePattern, '').trim(),
+        mediaHtml: figures.join('\n'),
+        videos: extractVideos(bodyMarkdown),
+        lessons: [],
+      }
+    })
+
+    return {
+      ...definition,
+      singlePage,
+      sectionPages,
+      title,
+      sectionCount: groups.length,
+      html: '',
+      contentSections: [],
+      groups,
       lessons: [],
     }
   }
@@ -382,6 +430,9 @@ function parseLevel(filename: string): CourseLevel {
       slug: slugify(draftGroup.title),
       title: draftGroup.title,
       description,
+      html: '',
+      mediaHtml: '',
+      videos: [],
       lessons: draftGroup.lessons.map((draftLesson) =>
         parseLesson(
           draftLesson.title,
@@ -398,6 +449,7 @@ function parseLevel(filename: string): CourseLevel {
   return {
     ...definition,
     singlePage,
+    sectionPages,
     title,
     sectionCount: groups.length,
     html: '',

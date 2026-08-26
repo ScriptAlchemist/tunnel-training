@@ -5,8 +5,9 @@ import { displayLevelNumber, getSiteContent, type CourseLevel } from '@/lib/cour
 export function LevelCard({ level }: { level: CourseLevel }) {
   const site = getSiteContent()
   const accent = level.accent
-  const count = level.singlePage ? level.sectionCount : level.lessons.length
-  const countLabel = level.singlePage
+  const showsSectionCount = level.singlePage || level.sectionPages
+  const count = showsSectionCount ? level.sectionCount : level.lessons.length
+  const countLabel = showsSectionCount
     ? count === 1
       ? site.labels.section
       : site.labels.sections

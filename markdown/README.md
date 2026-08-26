@@ -33,7 +33,9 @@ Use `## Lesson title` headings for a level with one section. For multiple sectio
 
 Set `singlePage: true` in a level's frontmatter when every `##` section should stay together on the level page instead of generating lesson cards and internal pages.
 
-Wrap an illustration in `<figure class="concept-graphic">...</figure>` to move it into the lesson or single-page section's right-hand media column. YouTube references beneath `**Links:**` appear in that same column, above any figures.
+Set `sectionPages: true` when every `##` heading should generate a section card and internal page while its `###` headings remain within that section page. Level 0 uses this format.
+
+Wrap an illustration in `<figure class="concept-graphic">...</figure>` to move it into a lesson or section page's right-hand media column. YouTube references beneath `**Links:**` appear in that same column, above any figures.
 
 Lesson text supports regular Markdown. Add YouTube references beneath `**Links:**`; they will be converted into the in-page video player automatically.
 

@@ -71,7 +71,7 @@ export default async function LevelPage({ params }: LevelPageProps) {
               <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">{level.description}</p>
             </div>
             <div className="flex gap-8 md:text-right">
-              {level.singlePage ? (
+              {level.singlePage || level.sectionPages ? (
                 <div>
                   <p className="display-type text-3xl font-black">{level.sectionCount}</p>
                   <p className="text-xs font-bold tracking-wider text-muted-foreground uppercase">

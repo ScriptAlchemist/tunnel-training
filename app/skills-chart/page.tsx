@@ -72,7 +72,8 @@ function TrackPanel({
   trackHref?: string
   compact?: boolean
 }) {
-  const itemLabel = level.singlePage ? chart.conceptLabel : chart.skillLabel
+  const itemLabel =
+    level.singlePage || level.sectionPages ? chart.conceptLabel : chart.skillLabel
   const useSingleColumn = compact || skills.length <= 3
 
   return (
@@ -131,6 +132,10 @@ function LevelStage({ level }: { level: CourseLevel }) {
     title: section.title,
     href: `/levels/${level.slug}/#${section.slug}`,
   }))
+  const sectionSkills = level.groups.map((section) => ({
+    title: section.title,
+    href: `/levels/${level.slug}/sections/${section.slug}/`,
+  }))
 
   return (
     <article className="panel rounded-[1.75rem] p-4 sm:p-6" style={levelStyle}>
@@ -151,11 +156,11 @@ function LevelStage({ level }: { level: CourseLevel }) {
         </p>
       </header>
 
-      {level.singlePage ? (
+      {level.singlePage || level.sectionPages ? (
         <TrackPanel
           level={level}
           title={level.shortTitle}
-          skills={conceptSkills}
+          skills={level.sectionPages ? sectionSkills : conceptSkills}
           trackHref={`/levels/${level.slug}/`}
         />
       ) : (

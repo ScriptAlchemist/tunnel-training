@@ -22,10 +22,13 @@ export function SectionCard({
           {String(number).padStart(2, '0')}
         </span>
         <span className="rounded-full border border-border bg-card px-3 py-1.5 text-xs font-extrabold text-muted-foreground">
-          {section.lessons.length}{' '}
-          {section.lessons.length === 1
-            ? site.labels.lesson.toLowerCase()
-            : site.labels.lessons.toLowerCase()}
+          {level.sectionPages
+            ? site.labels.section
+            : `${section.lessons.length} ${
+                section.lessons.length === 1
+                  ? site.labels.lesson.toLowerCase()
+                  : site.labels.lessons.toLowerCase()
+              }`}
         </span>
       </div>
       <div className="mt-auto pt-10">
