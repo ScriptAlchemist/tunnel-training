@@ -16,32 +16,6 @@ These concepts and operating practices apply across the entire progression.
 Facility procedures and the direction of the on-duty tunnel team always take
 precedence.
 
-## Naturally Stable (Bailing)
-
-**Desired outcome:** Understand which trained recovery position to use whenever
-stability is lost or a coach or instructor gives the bail signal.
-
-<figure class="concept-graphic">
-  <img src="../../shuttlecock-stability.svg" alt="Three-stage diagram of a shuttlecock released feather-side down, rotating as it falls, and settling with its rounded cork side down.">
-  <figcaption>Released feather-side down, the shuttlecock rotates until its rounded cork points down and the high-drag feathers trail above it.</figcaption>
-</figure>
-
-**Key points:**
-
-- A stable recovery is planned and practiced before the flight; it is not an
-  improvised reaction after control is lost.
-- From vertical flight, use the briefed bail path to return through head-up and,
-  when required, into a neutral back-flying position. Do not bail to belly
-  flight.
-- Keep the recovery smooth and compact, then re-establish heading, altitude,
-  and position before continuing.
-- Do not grab the wall or re-grip the net unless that action is part of the
-  instructor's explicit procedure.
-
-**Coaching and safety:** Brief and rehearse the bail before introducing a new
-orientation or more wind. Keep the instructor's route to the flyer clear, and
-end the drill immediately when the flyer can no longer recover predictably.
-
 ## General Information
 
 ### How a vertical wind tunnel works
@@ -197,3 +171,30 @@ through nine. Number signals can request a percentage of the set point; for
 example, seven followed by one requests 71 percent. Use only the local,
 pre-briefed signals and never assume that a controller will interpret an
 unbriefed gesture.
+
+## Naturally Stable (Bailing)
+
+**Desired outcome:** Understand which trained recovery position to use whenever
+stability is lost or a coach or instructor gives the bail signal.
+
+<figure class="concept-graphic">
+  <img src="../../shuttlecock-stability.svg" alt="Three-stage diagram of a shuttlecock released feather-side down, rotating as it falls, and settling with its rounded cork side down.">
+  <figcaption>Released feather-side down, the shuttlecock rotates until its rounded cork points down and the high-drag feathers trail above it.</figcaption>
+</figure>
+
+**Key points:**
+
+- A stable recovery is planned and practiced before the flight; it is not an
+  improvised reaction after control is lost.
+- From vertical flight, use the briefed bail path to return through head-up and,
+  when required, into a neutral back-flying position. Do not bail to belly
+  flight.
+- Keep the recovery smooth and compact, then re-establish heading, altitude,
+  and position before continuing.
+- Do not grab the wall or re-grip the net unless that action is part of the
+  instructor's explicit procedure.
+
+**Coaching and safety:** Brief and rehearse the bail before introducing a new
+orientation or more wind. Keep the instructor's route to the flyer clear, and
+end the drill immediately when the flyer can no longer recover predictably.
+
