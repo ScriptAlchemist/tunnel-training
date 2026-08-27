@@ -12,7 +12,7 @@ accent: "#798c66"
 
 [Back to lesson plan index](README.md)
 
-## General Information
+## Before You Fly
 
 These concepts and operating practices apply across the entire progression.
 Facility procedures and the direction of the on-duty tunnel team always take
@@ -96,11 +96,6 @@ reducing the wind, guide or direct them toward the exit, and complete a full
 shutdown. Powered staging-area doors may then be opened according to the
 facility procedure. Everyone should leave the building and remain at the
 designated rendezvous point until emergency services authorize re-entry.
-
-## Coaching Skills
-
-Prepare each session, communicate clearly, and coordinate with the tunnel team
-before, during, and after every flight.
 
 ### Warm-up and stretching
 
