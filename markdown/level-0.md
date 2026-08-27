@@ -3,8 +3,8 @@ slug: level-0
 order: 0
 number: "00"
 sectionPages: true
-shortTitle: Flight Concepts
-description: Learn the shared flight concepts, operating practices, safety foundations, and coaching skills that support every flying position.
+shortTitle: Preflight Information 
+description: Learn shared flight concepts, operating practices and safety foundations.
 accent: "#798c66"
 ---
 
