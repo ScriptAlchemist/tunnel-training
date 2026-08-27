@@ -323,6 +323,12 @@ both directions and connect the line through planned carve switches.
 
 - [Head Up Outface High Speed](https://www.youtube.com/watch?v=SS3P9u2Zf2k)
 
+### Head Up Carve Switch
+
+**Links:**
+
+- [Head Up Switches High Speed](https://www.youtube.com/watch?v=1rlNisKXvpM)
+
 ### Head Down In Face (HS)
 
 **Prerequisite:** Head-Down Carving.

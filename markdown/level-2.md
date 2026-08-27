@@ -189,9 +189,7 @@ higher wind speeds.
 
 **Links:**
 
-- [Belly to Back Barrel Roll](https://www.youtube.com/watch?v=qXftXn6KMq8)
-- [Back to Belly Barrel Roll](https://www.youtube.com/watch?v=g5sxJjlkbn4)
-- [Full Barrel Roll](https://www.youtube.com/watch?v=RzErf8BcMaU)
+- [Walking](https://www.youtube.com/watch?v=viZxh9ku5Zc)
 
 ### Half Barrel Rolls
 
@@ -217,8 +215,9 @@ for head-low pitch and forward drive.
 
 **Links:**
 
-- [Belly to Back Transition](https://www.youtube.com/watch?v=JezRB0n3zxM)
-- [Back to Belly Transition](https://www.youtube.com/watch?v=Mv7OLpMB_Xw)
+- [Belly to Back Barrel Roll](https://www.youtube.com/watch?v=qXftXn6KMq8)
+- [Back to Belly Barrel Roll](https://www.youtube.com/watch?v=g5sxJjlkbn4)
+- [Full Barrel Roll](https://www.youtube.com/watch?v=RzErf8BcMaU)
 
 ### Over the Feet Transitions
 
@@ -243,7 +242,8 @@ and avoid pausing vertically because that can produce a rapid descent.
 
 **Links:**
 
-- [Add resource title](URL)
+- [Belly to Back Transition](https://www.youtube.com/watch?v=JezRB0n3zxM)
+- [Back to Belly Transition](https://www.youtube.com/watch?v=Mv7OLpMB_Xw)
 
 ## Formations
 
