@@ -13,7 +13,7 @@ export function ThemeToggle({ labels }: { labels: { toggle: string } }) {
       variant="outline"
       size="icon-lg"
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-      className="size-11 cursor-pointer rounded-full bg-card/70 shadow-sm backdrop-blur-xl"
+      className="size-11 cursor-pointer rounded-full border-primary/20 bg-accent/70 shadow-sm backdrop-blur-xl dark:border-border dark:bg-card/70"
       aria-label={labels.toggle}
     >
       <span aria-hidden="true">

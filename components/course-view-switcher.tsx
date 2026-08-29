@@ -28,7 +28,7 @@ export function CourseViewSwitcher({
       <div
         role="group"
         aria-label={viewLabel}
-        className="inline-flex gap-1 rounded-full border border-border/80 bg-card/70 p-1 shadow-sm backdrop-blur-xl"
+        className="inline-flex gap-1 rounded-full border border-border/80 bg-card/70 p-1 shadow-sm backdrop-blur-xl dark:border-primary/25 dark:bg-background/60"
       >
         <Button
           type="button"
@@ -38,8 +38,8 @@ export function CourseViewSwitcher({
           onClick={() => setView('cards')}
           className={`h-11 min-w-28 rounded-full px-5 text-sm font-extrabold sm:min-w-32 sm:px-7 ${
             view === 'cards'
-              ? 'shadow-md'
-              : 'text-muted-foreground hover:bg-background/80 hover:text-foreground'
+              ? 'shadow-md dark:bg-[oklch(0.52_0.2_264)] dark:text-white dark:hover:bg-[oklch(0.49_0.2_264)]'
+              : 'text-muted-foreground hover:bg-background/80 hover:text-foreground dark:text-foreground/80 dark:hover:bg-accent dark:hover:text-accent-foreground'
           }`}
         >
           <LayoutGrid className="size-4.5" aria-hidden="true" />
@@ -53,8 +53,8 @@ export function CourseViewSwitcher({
           onClick={() => setView('chart')}
           className={`h-11 min-w-28 rounded-full px-5 text-sm font-extrabold sm:min-w-32 sm:px-7 ${
             view === 'chart'
-              ? 'shadow-md'
-              : 'text-muted-foreground hover:bg-background/80 hover:text-foreground'
+              ? 'shadow-md dark:bg-[oklch(0.52_0.2_264)] dark:text-white dark:hover:bg-[oklch(0.49_0.2_264)]'
+              : 'text-muted-foreground hover:bg-background/80 hover:text-foreground dark:text-foreground/80 dark:hover:bg-accent dark:hover:text-accent-foreground'
           }`}
         >
           <GitBranch className="size-4.5" aria-hidden="true" />

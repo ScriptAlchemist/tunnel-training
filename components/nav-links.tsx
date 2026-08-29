@@ -45,7 +45,7 @@ export function NavLinks({
   return (
     <nav
       aria-label={labels.mainNavigation}
-      className="flex items-center gap-1 rounded-full border border-border/80 bg-card/70 p-1 shadow-sm backdrop-blur-xl"
+      className="flex items-center gap-1 rounded-full border border-primary/20 bg-accent/70 p-1 shadow-sm backdrop-blur-xl dark:border-border/80 dark:bg-card/70"
     >
       {links.map((link) => {
         const active = link.matches(pathname)
@@ -61,7 +61,7 @@ export function NavLinks({
               'h-11 min-w-28 rounded-full px-5 text-sm font-extrabold sm:min-w-32 sm:px-7',
               active
                 ? 'shadow-md'
-                : 'text-muted-foreground hover:bg-background/80 hover:text-foreground'
+                : 'text-accent-foreground hover:bg-card hover:text-foreground dark:text-muted-foreground dark:hover:bg-accent dark:hover:text-accent-foreground'
             )}
           >
             <Icon className="size-4.5" aria-hidden="true" />
