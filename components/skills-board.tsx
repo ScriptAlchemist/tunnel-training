@@ -74,7 +74,7 @@ function TrackCard({
   const accentForeground = readableAccentForeground(accent)
   const surfaceStyle = {
     borderColor: `${accent}70`,
-    backgroundColor: `${accent}12`,
+    backgroundColor: `color-mix(in oklch, var(--card) 92%, ${accent})`,
   }
 
   return (
@@ -111,7 +111,7 @@ function TrackCard({
             key={skill.href}
             href={skill.href}
             aria-label={`${chart.openSkillLabel}: ${skill.title}`}
-            className="group flex min-h-12 items-center gap-2.5 rounded-md border border-border bg-card/80 px-3 py-2.5 text-md leading-5 font-bold text-card-foreground transition hover:-translate-y-px hover:border-primary/40 hover:bg-card hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="group flex min-h-12 items-center gap-2.5 rounded-md border border-border bg-card px-3 py-2.5 text-md leading-5 font-bold text-card-foreground transition hover:-translate-y-px hover:border-primary/40 hover:bg-card hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <span
               className="size-2 shrink-0 rounded-full"
