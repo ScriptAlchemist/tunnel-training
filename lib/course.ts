@@ -182,6 +182,8 @@ export type SkillsChartContent = {
   viewSwitcherLabel: string
   cardsViewLabel: string
   chartViewLabel: string
+  boardLabel: string
+  boardScrollHint: string
   levelLabel: string
   trackLabel: string
   skillLabel: string

@@ -5,6 +5,8 @@ description: See how the flight concepts, belly-flying skills, back-flying skill
 viewSwitcherLabel: Curriculum view
 cardsViewLabel: Level cards
 chartViewLabel: Skills chart
+boardLabel: Skill progression board
+boardScrollHint: Scroll horizontally to explore the full progression.
 levelLabel: Level
 trackLabel: Track
 skillLabel: Skill
