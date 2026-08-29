@@ -198,8 +198,8 @@ function LevelRow({
 
 export function SkillsBoard({ levels }: { levels: CourseLevel[] }) {
   return (
-    <div className="w-full bg-[#0c151b] text-white">
-      <div className="shell flex flex-col gap-2 border-b border-white/10 py-4 sm:flex-row sm:items-center sm:justify-between">
+    <div className="w-full overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0c151b] text-white shadow-[0_26px_80px_rgba(7,16,21,0.24)]">
+      <div className="flex flex-col gap-2 border-b border-white/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <p className="text-xs font-black tracking-[0.16em] text-white/70 uppercase">
           {chart.boardLabel}
         </p>
