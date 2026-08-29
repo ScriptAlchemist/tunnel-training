@@ -6,10 +6,10 @@ socialDescription: Build control, awareness, and range in the wind tunnel.
 siteUrl: https://tunnel.benderjustin.com/
 email: justin.bender@iflydetroit.com
 navigation:
+  home: Home
   levels: Levels
   skillsChart: Skills Chart
   humanoid: Humanoid
-  about: About
 theme:
   toggle: Toggle color theme
 footer:

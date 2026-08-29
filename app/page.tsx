@@ -1,5 +1,5 @@
 import { FlightFlower } from '@/components/flight-flower'
-import { LevelCard } from '@/components/level-card'
+import { SkillsGraph } from '@/components/skills-graph'
 import { Button } from '@/components/ui/button'
 import { getCourseIntro, getLevels, getSiteContent } from '@/lib/course'
 
@@ -10,7 +10,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="shell pt-8 pb-8 sm:pt-12 sm:pb-10" id="levels">
+      <section className="shell pt-8 pb-8 sm:pt-12 sm:pb-10" id="skills">
         <div className="panel relative overflow-hidden rounded-[2rem] border-primary/15 bg-card p-8 sm:p-12">
           <FlightFlower
             variant="inspin"
@@ -34,17 +34,16 @@ export default function HomePage() {
         <div className="mt-10 mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <span className="eyebrow">{intro.levelsEyebrow}</span>
-            <h1 className="display-type balance mt-4 text-4xl font-black sm:text-5xl">{intro.levelsTitle}</h1>
+            <h1 className="display-type balance mt-4 text-4xl font-black sm:text-5xl">
+              {intro.levelsTitle}
+            </h1>
           </div>
           <p className="max-w-md leading-7 text-muted-foreground">
             {intro.levelsDescription}
           </p>
         </div>
-        <div className="grid gap-5 lg:grid-cols-2">
-          {levels.map((level) => (
-            <LevelCard key={level.slug} level={level} />
-          ))}
-        </div>
+
+        <SkillsGraph levels={levels} />
       </section>
 
       <section id="about" className="shell scroll-mt-28 py-8 sm:py-10">

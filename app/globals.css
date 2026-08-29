@@ -308,6 +308,24 @@ a {
   text-wrap: balance;
 }
 
+.collapsible-stage > summary {
+  list-style: none;
+}
+
+.collapsible-stage > summary::-webkit-details-marker {
+  display: none;
+}
+
+.collapsible-stage[open] > summary {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.collapsible-stage[open] > summary .collapse-chevron {
+  transform: rotate(180deg);
+}
+
 @media (max-width: 640px) {
   .shell {
     width: min(100% - 1.25rem, 1180px);

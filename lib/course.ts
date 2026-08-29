@@ -73,10 +73,10 @@ export type SiteContent = {
   siteUrl: string
   email: string
   navigation: {
+    home: string
     levels: string
     skillsChart: string
     humanoid: string
-    about: string
   }
   theme: {
     toggle: string

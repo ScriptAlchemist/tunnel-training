@@ -18,6 +18,9 @@ These concepts and operating practices apply across the entire progression.
 Facility procedures and the direction of the on-duty tunnel team always take
 precedence.
 
+### Welcome to the wind
+
+
 ### How a vertical wind tunnel works
 
 Fans above the flight chamber draw air upward through the inlet and accelerate

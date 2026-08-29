@@ -10,16 +10,17 @@ export function NavLinks({
   showHumanoid,
 }: {
   labels: {
+    home: string
     levels: string
     skillsChart: string
     humanoid: string
-    about: string
     mainNavigation: string
   }
   showHumanoid: boolean
 }) {
   const pathname = usePathname()
   const links = [
+    { href: '/', label: labels.home, matches: (path: string) => path === '/' },
     { href: '/levels/', label: labels.levels, matches: (path: string) => path.startsWith('/levels') },
     {
       href: '/skills-chart/',
@@ -29,7 +30,6 @@ export function NavLinks({
     ...(showHumanoid
       ? [{ href: '/humanoid/', label: labels.humanoid, matches: (path: string) => path.startsWith('/humanoid') }]
       : []),
-    { href: '/', label: labels.about, matches: (path: string) => path === '/' },
   ]
 
   return (
