@@ -75,26 +75,26 @@ function TrackCard({
   }
 
   return (
-    <section className="rounded-xl border p-2.5" style={surfaceStyle}>
-      <header className="mb-2 flex min-h-8 items-center justify-between gap-2 border-b border-border/70 pb-2">
+    <section className="rounded-xl border p-3" style={surfaceStyle}>
+      <header className="mb-2.5 flex min-h-9 items-center justify-between gap-2 border-b border-border/70 pb-2.5">
         {track.href ? (
           <Link
             href={track.href}
-            className="group flex items-center gap-1.5 text-[0.68rem] leading-4 font-black tracking-[0.09em] text-foreground uppercase hover:underline"
+            className="group flex items-center gap-1.5 text-xs leading-4 font-black tracking-[0.08em] text-foreground uppercase hover:underline"
           >
             {track.title}
             <ArrowUpRight
-              className="size-3 text-muted-foreground transition group-hover:text-foreground"
+              className="size-3.5 text-muted-foreground transition group-hover:text-foreground"
               aria-hidden="true"
             />
           </Link>
         ) : (
-          <h3 className="text-[0.68rem] leading-4 font-black tracking-[0.09em] text-foreground uppercase">
+          <h3 className="text-xs leading-4 font-black tracking-[0.08em] text-foreground uppercase">
             {track.title}
           </h3>
         )}
         <span
-          className="flex size-5 shrink-0 items-center justify-center rounded-full text-[0.58rem] font-black text-[#071015]"
+          className="flex size-6 shrink-0 items-center justify-center rounded-full text-[0.68rem] font-black text-[#071015]"
           style={{ backgroundColor: accent }}
           aria-label={`${track.skills.length} ${itemLabel.toLowerCase()}${track.skills.length === 1 ? '' : 's'}`}
         >
@@ -102,16 +102,16 @@ function TrackCard({
         </span>
       </header>
 
-      <div className={track.skills.length > 3 ? 'grid grid-cols-2 gap-1.5' : 'grid gap-1.5'}>
+      <div className={track.skills.length > 3 ? 'grid grid-cols-2 gap-2' : 'grid gap-2'}>
         {track.skills.map((skill) => (
           <Link
             key={skill.href}
             href={skill.href}
             aria-label={`${chart.openSkillLabel}: ${skill.title}`}
-            className="group flex min-h-9 items-center gap-2 rounded-md border border-border bg-card/80 px-2 py-1.5 text-[0.65rem] leading-[0.85rem] font-bold text-card-foreground transition hover:-translate-y-px hover:border-primary/40 hover:bg-card hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="group flex min-h-11 items-center gap-2.5 rounded-md border border-border bg-card/80 px-2.5 py-2 text-xs leading-4 font-bold text-card-foreground transition hover:-translate-y-px hover:border-primary/40 hover:bg-card hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <span
-              className="size-1.5 shrink-0 rounded-full"
+              className="size-2 shrink-0 rounded-full"
               style={{ backgroundColor: accent }}
               aria-hidden="true"
             />
@@ -162,7 +162,7 @@ function LevelRow({
 
       <div className="min-w-0 py-8 pr-4 sm:pr-8 lg:pr-12">
         <Link href={`/levels/${level.slug}/`} className="group block pb-5">
-          <p className="text-[0.62rem] font-black tracking-[0.15em] text-muted-foreground uppercase">
+          <p className="text-xs font-black tracking-[0.14em] text-muted-foreground uppercase">
             {chart.levelLabel} {displayLevelNumber(level.number)}
           </p>
           <h2 className="mt-1 text-2xl leading-tight font-black text-foreground transition group-hover:text-[var(--board-accent)] sm:text-3xl">
@@ -200,10 +200,10 @@ export function SkillsBoard({ levels }: { levels: CourseLevel[] }) {
   return (
     <div className="w-full">
       <div className="flex flex-col gap-2 border-b border-border py-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-xs font-black tracking-[0.16em] text-foreground uppercase">
+        <p className="text-sm font-black tracking-[0.14em] text-foreground uppercase">
           {chart.boardLabel}
         </p>
-        <p className="text-xs font-bold text-muted-foreground">{chart.boardScrollHint}</p>
+        <p className="text-sm font-bold text-muted-foreground">{chart.boardScrollHint}</p>
       </div>
 
       <div>
