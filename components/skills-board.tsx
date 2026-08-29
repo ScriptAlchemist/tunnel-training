@@ -78,12 +78,12 @@ function TrackCard({
   }
 
   return (
-    <section className="rounded-xl border p-3" style={surfaceStyle}>
-      <header className="mb-2.5 flex min-h-9 items-center justify-between gap-2 border-b border-border/70 pb-2.5">
+    <section className="rounded-xl border p-3.5" style={surfaceStyle}>
+      <header className="mb-3 flex min-h-10 items-center justify-between gap-2 border-b border-border/70 pb-3">
         {track.href ? (
           <Link
             href={track.href}
-            className="group flex items-center gap-1.5 text-xs leading-4 font-black tracking-[0.08em] text-foreground uppercase hover:underline"
+            className="group flex items-center gap-1.5 text-md leading-5 font-black tracking-[0.07em] text-foreground uppercase hover:underline"
           >
             {track.title}
             <ArrowUpRight
@@ -92,12 +92,12 @@ function TrackCard({
             />
           </Link>
         ) : (
-          <h3 className="text-xs leading-4 font-black tracking-[0.08em] text-foreground uppercase">
+          <h3 className="text-md leading-5 font-black tracking-[0.07em] text-foreground uppercase">
             {track.title}
           </h3>
         )}
         <span
-          className="flex size-6 shrink-0 items-center justify-center rounded-full text-[0.68rem] font-black"
+          className="flex size-7 shrink-0 items-center justify-center rounded-full text-xs font-black"
           style={{ backgroundColor: accent, color: accentForeground }}
           aria-label={`${track.skills.length} ${itemLabel.toLowerCase()}${track.skills.length === 1 ? '' : 's'}`}
         >
@@ -111,7 +111,7 @@ function TrackCard({
             key={skill.href}
             href={skill.href}
             aria-label={`${chart.openSkillLabel}: ${skill.title}`}
-            className="group flex min-h-11 items-center gap-2.5 rounded-md border border-border bg-card/80 px-2.5 py-2 text-xs leading-4 font-bold text-card-foreground transition hover:-translate-y-px hover:border-primary/40 hover:bg-card hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="group flex min-h-12 items-center gap-2.5 rounded-md border border-border bg-card/80 px-3 py-2.5 text-md leading-5 font-bold text-card-foreground transition hover:-translate-y-px hover:border-primary/40 hover:bg-card hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <span
               className="size-2 shrink-0 rounded-full"
@@ -168,7 +168,7 @@ function LevelRow({
       <summary className="relative z-10 grid cursor-pointer list-none grid-cols-[3rem_minmax(0,1fr)] gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-5 [&::-webkit-details-marker]:hidden">
         <div className="flex justify-center">
           <span
-            className="mt-8 flex h-10 min-w-10 items-center justify-center rounded-full border-4 border-background px-2 text-xs font-black shadow-[0_0_0_1px_var(--border)]"
+            className="mt-8 flex h-11 min-w-11 items-center justify-center rounded-full border-4 border-background px-2.5 text-md font-black shadow-[0_0_0_1px_var(--border)]"
             style={{ backgroundColor: level.accent, color: accentForeground }}
           >
             {displayLevelNumber(level.number)}
@@ -176,7 +176,7 @@ function LevelRow({
         </div>
 
         <div className="min-w-0 py-8 pr-4 sm:pr-8 lg:pr-12">
-          <p className="text-xs font-black tracking-[0.14em] text-muted-foreground uppercase">
+          <p className="text-md font-black tracking-[0.12em] text-muted-foreground uppercase">
             {chart.levelLabel} {displayLevelNumber(level.number)}
           </p>
           <div className="mt-1 flex items-start justify-between gap-4">
@@ -188,7 +188,7 @@ function LevelRow({
               aria-hidden="true"
             />
           </div>
-          <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">
+          <p className="mt-2 max-w-3xl text-base leading-7 text-muted-foreground">
             {level.description}
           </p>
         </div>
@@ -231,10 +231,10 @@ export function SkillsBoard({
   return (
     <div className="w-full">
       <div className="flex flex-col gap-2 border-b border-border py-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm font-black tracking-[0.14em] text-foreground uppercase">
+        <p className="text-base font-black tracking-[0.12em] text-foreground uppercase">
           {chart.boardLabel}
         </p>
-        <p className="text-sm font-bold text-muted-foreground">{chart.boardScrollHint}</p>
+        <p className="text-base font-bold text-muted-foreground">{chart.boardScrollHint}</p>
       </div>
 
       <div>
