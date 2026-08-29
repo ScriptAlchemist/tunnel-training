@@ -3,7 +3,9 @@ title: Freefall Training
 language: en
 description: A progressive freefall and bodyflight curriculum by Justin Bender.
 socialDescription: Build control, awareness, and range in freefall and the wind tunnel.
-siteUrl: https://tunnel.benderjustin.com/
+socialImage: /about-tunnel-poster.jpg
+socialImageAlt: A flyer training inside an indoor wind tunnel.
+siteUrl: https://freefall.training/
 email: justin.bender@iflydetroit.com
 navigation:
   home: Home

@@ -1,6 +1,6 @@
 # Freefall Training
 
-The production static export is served from the root of `tunnel.benderjustin.com`. Set `NEXT_PUBLIC_BASE_PATH=/tunnel-training` only when intentionally building a repository-path preview for `scriptalchemist.github.io/tunnel-training/`.
+The production static export is served from the root of `freefall.training`. Set `NEXT_PUBLIC_BASE_PATH=/tunnel-training` only when intentionally building a repository-path preview for `scriptalchemist.github.io/tunnel-training/`.
 
 A static Next.js training curriculum generated from the Markdown lesson plans in this repository. Lessons are organized by level, each skill has a dedicated page, and YouTube references are available in an embedded player.
 
@@ -28,7 +28,7 @@ Next.js writes the deployable static site to `out/`.
 
 The workflow at `.github/workflows/deploy-pages.yml` builds and deploys the site whenever `main` is pushed. In the GitHub repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.
 
-The production build automatically uses `/tunnel-training` as its base path when it runs in GitHub Actions. Local development remains at `/`.
+The GitHub Pages production build uses the custom domain at the site root. Local development also runs at `/`.
 
 ## Editing course content
 

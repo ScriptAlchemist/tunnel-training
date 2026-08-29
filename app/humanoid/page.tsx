@@ -1,13 +1,16 @@
 import type { Metadata } from 'next'
 import { HumanoidEditor } from '@/components/humanoid-editor'
 import { getHumanoidContent } from '@/lib/course'
+import { createPageMetadata } from '@/lib/seo'
 
 const content = getHumanoidContent()
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: content.title,
   description: content.description,
-}
+  pathname: '/humanoid/',
+  index: content.visible,
+})
 
 export default function HumanoidPage() {
   return (

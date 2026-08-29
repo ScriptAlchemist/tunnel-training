@@ -15,6 +15,7 @@ import {
   hasPrerequisiteContent,
   displayLevelNumber,
 } from '@/lib/course'
+import { createPageMetadata } from '@/lib/seo'
 
 type LevelPageProps = {
   params: Promise<{ level: string }>
@@ -30,7 +31,11 @@ export async function generateMetadata({ params }: LevelPageProps): Promise<Meta
   const { level: levelSlug } = await params
   const level = getLevel(levelSlug)
   if (!level) return {}
-  return { title: level.title, description: level.description }
+  return createPageMetadata({
+    title: level.title,
+    description: level.description,
+    pathname: `/levels/${level.slug}/`,
+  })
 }
 
 export default async function LevelPage({ params }: LevelPageProps) {

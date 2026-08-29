@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { BackButton } from '@/components/back-button'
 import { VideoPlayer } from '@/components/video-player'
 import { getAdjacentLessons, getLesson, getLevel, getLevels, getSiteContent } from '@/lib/course'
+import { createPageMetadata } from '@/lib/seo'
 
 type LessonPageProps = {
   params: Promise<{ level: string; lesson: string }>
@@ -20,8 +21,13 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: LessonPageProps): Promise<Metadata> {
   const { level, lesson } = await params
   const item = getLesson(level, lesson)
-  if (!item) return {}
-  return { title: item.title, description: item.summary }
+  const levelContent = getLevel(level)
+  if (!item || !levelContent) return {}
+  return createPageMetadata({
+    title: `${item.title} · ${levelContent.shortTitle}`,
+    description: item.summary,
+    pathname: `/levels/${level}/${lesson}/`,
+  })
 }
 
 export default async function LessonPage({ params }: LessonPageProps) {

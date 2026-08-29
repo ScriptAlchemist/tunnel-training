@@ -4,6 +4,7 @@ import { BrandBackground } from '@/components/brand-background'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import { getSiteContent } from '@/lib/course'
+import { createPageMetadata } from '@/lib/seo'
 import { ThemeProvider } from './theme-provider'
 import './globals.css'
 
@@ -21,24 +22,25 @@ const nunito = Nunito_Sans({
 
 const site = getSiteContent()
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
+const homeMetadata = createPageMetadata({
+  title: site.title,
+  description: site.description,
+  socialDescription: site.socialDescription,
+  pathname: '/',
+})
 
 export const metadata: Metadata = {
+  ...homeMetadata,
   metadataBase: new URL(site.siteUrl),
   title: {
     default: site.title,
     template: `%s · ${site.title}`,
   },
-  description: site.description,
   icons: {
     icon: {
       url: `${basePath}/freefall-formation-icon.png`,
       type: 'image/png',
     },
-  },
-  openGraph: {
-    title: site.title,
-    description: site.socialDescription,
-    type: 'website',
   },
 }
 
@@ -46,6 +48,19 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang={site.language} suppressHydrationWarning data-scroll-behavior="smooth">
       <body className={`${manrope.variable} ${nunito.variable}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: site.title,
+              url: site.siteUrl,
+              description: site.description,
+              inLanguage: site.language,
+            }).replace(/</g, '\\u003c'),
+          }}
+        />
         <ThemeProvider>
           <BrandBackground />
           <div className="relative z-10">

@@ -70,6 +70,8 @@ export type SiteContent = {
   language: string
   description: string
   socialDescription: string
+  socialImage: string
+  socialImageAlt: string
   siteUrl: string
   email: string
   navigation: {

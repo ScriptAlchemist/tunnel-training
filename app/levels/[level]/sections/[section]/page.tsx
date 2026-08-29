@@ -14,6 +14,7 @@ import {
   getSiteContent,
   hasPrerequisiteContent,
 } from '@/lib/course'
+import { createPageMetadata } from '@/lib/seo'
 
 type SectionPageProps = {
   params: Promise<{ level: string; section: string }>
@@ -31,9 +32,14 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: SectionPageProps): Promise<Metadata> {
   const { level: levelSlug, section: sectionSlug } = await params
+  const level = getLevel(levelSlug)
   const section = getSection(levelSlug, sectionSlug)
-  if (!section) return {}
-  return { title: section.title, description: section.description }
+  if (!level || !section) return {}
+  return createPageMetadata({
+    title: `${section.title} · ${level.shortTitle}`,
+    description: section.description,
+    pathname: `/levels/${levelSlug}/sections/${sectionSlug}/`,
+  })
 }
 
 export default async function SectionPage({ params }: SectionPageProps) {
