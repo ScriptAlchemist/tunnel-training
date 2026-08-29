@@ -3,7 +3,7 @@ import { LevelCard } from '@/components/level-card'
 import { SkillsBoard } from '@/components/skills-board'
 import { getLevels, getSiteContent, getSkillsChartContent } from '@/lib/course'
 
-export function CourseIndex({ initialView = 'cards' }: { initialView?: CourseView }) {
+export function CourseIndex({ initialView = 'chart' }: { initialView?: CourseView }) {
   const levels = getLevels()
   const site = getSiteContent()
   const chart = getSkillsChartContent()

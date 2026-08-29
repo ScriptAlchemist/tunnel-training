@@ -9,7 +9,7 @@ export function Logo() {
 
   return (
     <Link href="/" className="group flex items-center gap-3" aria-label={`${site.title} ${site.labels.home}`}>
-      <span className="relative size-10 shrink-0 transition-transform duration-300 group-hover:scale-105">
+      <span className="relative size-12 shrink-0 transition-transform duration-300 group-hover:scale-105">
         <Image
           src={lightLogo}
           alt=""
