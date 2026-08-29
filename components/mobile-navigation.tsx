@@ -108,7 +108,7 @@ export function MobileNavigation({
                       }),
                       'h-14 w-full justify-start rounded-2xl px-5 text-base font-extrabold',
                       active &&
-                        'text-white hover:text-white dark:text-primary-foreground dark:hover:text-primary-foreground',
+                        'text-white! hover:text-white! dark:text-primary-foreground! dark:hover:text-primary-foreground!',
                       !active &&
                         'text-foreground hover:bg-accent hover:text-accent-foreground'
                     )}

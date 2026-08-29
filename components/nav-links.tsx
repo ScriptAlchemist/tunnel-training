@@ -60,7 +60,7 @@ export function NavLinks({
               buttonVariants({ variant: active ? 'default' : 'ghost', size: 'lg' }),
               'h-11 min-w-28 rounded-full px-5 text-sm font-extrabold sm:min-w-32 sm:px-7',
               active
-                ? 'text-white shadow-md hover:text-white dark:text-primary-foreground dark:hover:text-primary-foreground'
+                ? 'text-white! shadow-md hover:text-white! dark:text-primary-foreground! dark:hover:text-primary-foreground!'
                 : 'text-accent-foreground hover:bg-card hover:text-foreground dark:text-muted-foreground dark:hover:bg-accent dark:hover:text-accent-foreground'
             )}
           >
