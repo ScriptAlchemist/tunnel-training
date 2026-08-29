@@ -1,6 +1,6 @@
 import { CourseViewSwitcher, type CourseView } from '@/components/course-view-switcher'
 import { LevelCard } from '@/components/level-card'
-import { SkillsGraph } from '@/components/skills-graph'
+import { SkillsBoard } from '@/components/skills-board'
 import { getLevels, getSiteContent, getSkillsChartContent } from '@/lib/course'
 
 export function CourseIndex({ initialView = 'cards' }: { initialView?: CourseView }) {
@@ -22,7 +22,7 @@ export function CourseIndex({ initialView = 'cards' }: { initialView?: CourseVie
     </>
   )
 
-  const chartView = <SkillsGraph levels={levels} />
+  const chartView = <SkillsBoard levels={levels} />
 
   return (
     <div className="shell py-14 sm:py-22">

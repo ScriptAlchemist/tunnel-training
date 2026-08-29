@@ -196,10 +196,18 @@ function LevelRow({
   )
 }
 
-export function SkillsBoard({ levels }: { levels: CourseLevel[] }) {
+export function SkillsBoard({
+  levels,
+  fullWidth = false,
+}: {
+  levels: CourseLevel[]
+  fullWidth?: boolean
+}) {
   return (
     <div className="w-full">
-      <div className="shell flex flex-col gap-2 border-b border-border py-4 sm:flex-row sm:items-center sm:justify-between">
+      <div
+        className={`${fullWidth ? 'shell' : ''} flex flex-col gap-2 border-b border-border py-4 sm:flex-row sm:items-center sm:justify-between`}
+      >
         <p className="text-xs font-black tracking-[0.16em] text-foreground uppercase">
           {chart.boardLabel}
         </p>

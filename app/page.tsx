@@ -62,7 +62,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <SkillsBoard levels={levels} />
+        <SkillsBoard levels={levels} fullWidth />
       </section>
 
       <section className="shell pt-8 pb-4 sm:pt-10 sm:pb-8">
