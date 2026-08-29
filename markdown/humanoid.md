@@ -2,7 +2,7 @@
 visible: false
 eyebrow: Pose lab
 title: Humanoid
-description: Rotate a simple body on every axis, then adjust each joint independently to explore positions before taking them into the tunnel.
+description: Rotate a simple body on every axis, then adjust each joint independently to explore positions before practicing them in airflow.
 viewportLabel: Interactive three-dimensional humanoid pose editor
 instructions: Drag to orbit the view, scroll to zoom, or select a joint in the figure or control panel. Every rotation is measured in degrees.
 bodyTitle: Whole-body rotation

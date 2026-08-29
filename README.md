@@ -1,4 +1,4 @@
-# Bender Tunnel Training
+# Freefall Training
 
 The production static export is served from the root of `tunnel.benderjustin.com`. Set `NEXT_PUBLIC_BASE_PATH=/tunnel-training` only when intentionally building a repository-path preview for `scriptalchemist.github.io/tunnel-training/`.
 

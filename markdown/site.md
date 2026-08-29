@@ -1,8 +1,8 @@
 ---
-title: Bender Tunnel Training
+title: Freefall Training
 language: en
-description: A progressive tunnel flying curriculum by Justin Bender.
-socialDescription: Build control, awareness, and range in the wind tunnel.
+description: A progressive freefall and bodyflight curriculum by Justin Bender.
+socialDescription: Build control, awareness, and range in freefall and the wind tunnel.
 siteUrl: https://tunnel.benderjustin.com/
 email: justin.bender@iflydetroit.com
 navigation:
@@ -12,7 +12,7 @@ navigation:
 theme:
   toggle: Toggle color theme
 footer:
-  text: Lesson plans by Justin Bender. Train with a qualified tunnel instructor and fly within your demonstrated ability.
+  text: Lesson plans by Justin Bender. Train with a qualified coach and fly within your demonstrated ability.
   link: Learn →
 labels:
   mainNavigation: Main navigation
@@ -31,11 +31,11 @@ labels:
   sections: Sections
   courseIndex: Learn
   levelIndexMetadataTitle: Learn
-  levelIndexMetadataDescription: Explore the full tunnel flying curriculum by level.
+  levelIndexMetadataDescription: Explore the full freefall and bodyflight curriculum by level.
   levelIndexTitle: Your path through the air.
   levelIndexDescription: Each level is a progression, not a checklist. Work with your instructor, repeat the fundamentals, and move forward when control feels dependable.
   readinessTitle: "A note on readiness:"
-  readinessText: Prerequisites and desired outcomes are included on every lesson page. Your on-duty tunnel instructor has final authority over wind speed, spotting, and progression.
+  readinessText: Prerequisites and desired outcomes are included on every lesson page. Your responsible instructor has final authority over training conditions, spotting, and progression.
   viewCurriculum: View curriculum
   viewSection: View section
   prerequisiteIncluded: Prerequisite included

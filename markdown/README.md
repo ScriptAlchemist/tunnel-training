@@ -1,4 +1,4 @@
-# Editing the Bender Tunnel Training site
+# Editing the Freefall Training site
 
 Everything visitors read is stored in this folder.
 
