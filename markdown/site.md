@@ -16,6 +16,9 @@ footer:
   link: Learn →
 labels:
   mainNavigation: Main navigation
+  openMenu: Open navigation
+  closeMenu: Close navigation
+  appearance: Appearance
   breadcrumb: Breadcrumb
   lessonNavigation: Lesson navigation
   home: Home

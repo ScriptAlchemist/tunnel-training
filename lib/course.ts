@@ -86,6 +86,9 @@ export type SiteContent = {
   }
   labels: {
     mainNavigation: string
+    openMenu: string
+    closeMenu: string
+    appearance: string
     breadcrumb: string
     lessonNavigation: string
     home: string
