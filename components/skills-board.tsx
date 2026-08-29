@@ -76,20 +76,20 @@ function TrackCard({
 
   return (
     <section className="rounded-xl border p-2.5" style={surfaceStyle}>
-      <header className="mb-2 flex min-h-8 items-center justify-between gap-2 border-b border-white/10 pb-2">
+      <header className="mb-2 flex min-h-8 items-center justify-between gap-2 border-b border-border/70 pb-2">
         {track.href ? (
           <Link
             href={track.href}
-            className="group flex items-center gap-1.5 text-[0.68rem] leading-4 font-black tracking-[0.09em] text-white uppercase hover:underline"
+            className="group flex items-center gap-1.5 text-[0.68rem] leading-4 font-black tracking-[0.09em] text-foreground uppercase hover:underline"
           >
             {track.title}
             <ArrowUpRight
-              className="size-3 text-white/55 transition group-hover:text-white"
+              className="size-3 text-muted-foreground transition group-hover:text-foreground"
               aria-hidden="true"
             />
           </Link>
         ) : (
-          <h3 className="text-[0.68rem] leading-4 font-black tracking-[0.09em] text-white uppercase">
+          <h3 className="text-[0.68rem] leading-4 font-black tracking-[0.09em] text-foreground uppercase">
             {track.title}
           </h3>
         )}
@@ -108,7 +108,7 @@ function TrackCard({
             key={skill.href}
             href={skill.href}
             aria-label={`${chart.openSkillLabel}: ${skill.title}`}
-            className="group flex min-h-9 items-center gap-2 rounded-md border border-white/10 bg-[#132029] px-2 py-1.5 text-[0.65rem] leading-[0.85rem] font-bold text-white/80 transition hover:-translate-y-px hover:border-white/35 hover:bg-[#192b36] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+            className="group flex min-h-9 items-center gap-2 rounded-md border border-border bg-card/80 px-2 py-1.5 text-[0.65rem] leading-[0.85rem] font-bold text-card-foreground transition hover:-translate-y-px hover:border-primary/40 hover:bg-card hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <span
               className="size-1.5 shrink-0 rounded-full"
@@ -141,7 +141,7 @@ function LevelRow({
 
   return (
     <article
-      className={`grid w-full grid-cols-[3rem_minmax(0,1fr)] items-stretch gap-3 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-5 ${isLast ? '' : 'border-b border-white/10'}`}
+      className={`grid w-full grid-cols-[3rem_minmax(0,1fr)] items-stretch gap-3 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-5 ${isLast ? '' : 'border-b border-border'}`}
       style={levelStyle}
     >
       <div className="relative flex justify-center">
@@ -153,7 +153,7 @@ function LevelRow({
         <Link
           href={`/levels/${level.slug}/`}
           aria-label={`${chart.levelLabel} ${displayLevelNumber(level.number)}: ${level.shortTitle}`}
-          className="relative z-10 mt-8 flex h-10 min-w-10 items-center justify-center rounded-full border-4 border-[#0c151b] px-2 text-xs font-black text-[#071015] shadow-[0_0_0_1px_rgba(255,255,255,0.15)] transition hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          className="relative z-10 mt-8 flex h-10 min-w-10 items-center justify-center rounded-full border-4 border-background px-2 text-xs font-black text-white shadow-[0_0_0_1px_var(--border)] transition hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           style={{ backgroundColor: level.accent }}
         >
           {displayLevelNumber(level.number)}
@@ -162,13 +162,13 @@ function LevelRow({
 
       <div className="min-w-0 py-8 pr-4 sm:pr-8 lg:pr-12">
         <Link href={`/levels/${level.slug}/`} className="group block pb-5">
-          <p className="text-[0.62rem] font-black tracking-[0.15em] text-white/45 uppercase">
+          <p className="text-[0.62rem] font-black tracking-[0.15em] text-muted-foreground uppercase">
             {chart.levelLabel} {displayLevelNumber(level.number)}
           </p>
-          <h2 className="mt-1 text-2xl leading-tight font-black text-white transition group-hover:text-[var(--board-accent)] sm:text-3xl">
+          <h2 className="mt-1 text-2xl leading-tight font-black text-foreground transition group-hover:text-[var(--board-accent)] sm:text-3xl">
             {level.shortTitle}
           </h2>
-          <p className="mt-2 max-w-3xl text-sm leading-6 text-white/50">
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">
             {level.description}
           </p>
         </Link>
@@ -198,21 +198,15 @@ function LevelRow({
 
 export function SkillsBoard({ levels }: { levels: CourseLevel[] }) {
   return (
-    <div className="w-full overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0c151b] text-white shadow-[0_26px_80px_rgba(7,16,21,0.24)]">
-      <div className="flex flex-col gap-2 border-b border-white/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-        <p className="text-xs font-black tracking-[0.16em] text-white/70 uppercase">
+    <div className="w-full">
+      <div className="shell flex flex-col gap-2 border-b border-border py-4 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-xs font-black tracking-[0.16em] text-foreground uppercase">
           {chart.boardLabel}
         </p>
-        <p className="text-xs font-bold text-white/45">{chart.boardScrollHint}</p>
+        <p className="text-xs font-bold text-muted-foreground">{chart.boardScrollHint}</p>
       </div>
 
-      <div
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-        }}
-      >
+      <div>
         {levels.map((level, index) => (
           <LevelRow
             key={level.slug}
