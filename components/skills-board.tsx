@@ -7,6 +7,7 @@ import {
   getSkillsChartContent,
   type CourseLevel,
 } from '@/lib/course'
+import { readableAccentForeground } from '@/lib/utils'
 
 const chart = getSkillsChartContent()
 
@@ -70,6 +71,7 @@ function TrackCard({
   accent: string
   itemLabel: string
 }) {
+  const accentForeground = readableAccentForeground(accent)
   const surfaceStyle = {
     borderColor: `${accent}70`,
     backgroundColor: `${accent}12`,
@@ -95,8 +97,8 @@ function TrackCard({
           </h3>
         )}
         <span
-          className="flex size-6 shrink-0 items-center justify-center rounded-full text-[0.68rem] font-black text-[#071015]"
-          style={{ backgroundColor: accent }}
+          className="flex size-6 shrink-0 items-center justify-center rounded-full text-[0.68rem] font-black"
+          style={{ backgroundColor: accent, color: accentForeground }}
           aria-label={`${track.skills.length} ${itemLabel.toLowerCase()}${track.skills.length === 1 ? '' : 's'}`}
         >
           {track.skills.length}
@@ -143,6 +145,7 @@ function LevelRow({
   const levelStyle = {
     '--board-accent': level.accent,
   } as CSSProperties
+  const accentForeground = readableAccentForeground(level.accent)
 
   return (
     <UrlStateDetails
@@ -165,8 +168,8 @@ function LevelRow({
       <summary className="relative z-10 grid cursor-pointer list-none grid-cols-[3rem_minmax(0,1fr)] gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-5 [&::-webkit-details-marker]:hidden">
         <div className="flex justify-center">
           <span
-            className="mt-8 flex h-10 min-w-10 items-center justify-center rounded-full border-4 border-background px-2 text-xs font-black text-white shadow-[0_0_0_1px_var(--border)]"
-            style={{ backgroundColor: level.accent }}
+            className="mt-8 flex h-10 min-w-10 items-center justify-center rounded-full border-4 border-background px-2 text-xs font-black shadow-[0_0_0_1px_var(--border)]"
+            style={{ backgroundColor: level.accent, color: accentForeground }}
           >
             {displayLevelNumber(level.number)}
           </span>

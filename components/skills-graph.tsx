@@ -8,6 +8,7 @@ import {
   type CourseLevel,
   type LessonGroup,
 } from '@/lib/course'
+import { readableAccentForeground } from '@/lib/utils'
 
 const chart = getSkillsChartContent()
 const site = getSiteContent()
@@ -35,8 +36,11 @@ function SkillLink({
       className="group grid min-h-13 grid-cols-[auto_1fr_auto] items-center gap-3 rounded-xl border border-border bg-card px-3.5 py-3 shadow-sm transition hover:-translate-y-0.5 hover:border-primary/45 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
     >
       <span
-        className="flex size-6 items-center justify-center rounded-full text-[0.64rem] font-black text-white"
-        style={{ backgroundColor: accent }}
+        className="flex size-6 items-center justify-center rounded-full text-[0.64rem] font-black"
+        style={{
+          backgroundColor: accent,
+          color: readableAccentForeground(accent),
+        }}
         aria-hidden="true"
       >
         {String(index + 1).padStart(2, '0')}
