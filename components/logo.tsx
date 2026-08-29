@@ -1,15 +1,27 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { getSiteContent } from '@/lib/course'
+import darkLogo from '@/public/freefall-formation-icon-dark.png'
+import lightLogo from '@/public/freefall-formation-icon.png'
 
 export function Logo() {
   const site = getSiteContent()
 
   return (
     <Link href="/" className="group flex items-center gap-3" aria-label={`${site.title} ${site.labels.home}`}>
-      <span className="relative grid size-10 place-items-center overflow-hidden rounded-full bg-[var(--foreground)] text-[var(--background)]">
-        <span className="absolute size-6 rounded-full border-2 border-current opacity-40 transition-transform duration-500 group-hover:scale-125" />
-        <span className="absolute size-3 rounded-full border-2 border-current" />
-        <span className="h-5 w-0.5 rotate-45 bg-current" />
+      <span className="relative size-10 shrink-0 transition-transform duration-300 group-hover:scale-105">
+        <Image
+          src={lightLogo}
+          alt=""
+          aria-hidden="true"
+          className="size-full object-contain dark:hidden"
+        />
+        <Image
+          src={darkLogo}
+          alt=""
+          aria-hidden="true"
+          className="hidden size-full object-contain dark:block"
+        />
       </span>
       <span className="display-type text-lg font-extrabold tracking-tight">{site.title}</span>
     </Link>

@@ -2,6 +2,8 @@ import { SkillsBoard } from '@/components/skills-board'
 import { Button } from '@/components/ui/button'
 import { getCourseIntro, getLevels, getSiteContent } from '@/lib/course'
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
+
 export default function HomePage() {
   const intro = getCourseIntro()
   const levels = getLevels()
@@ -18,10 +20,10 @@ export default function HomePage() {
             muted
             playsInline
             preload="metadata"
-            poster="about-tunnel-poster.jpg"
+            poster={`${basePath}/about-tunnel-poster.jpg`}
             aria-hidden="true"
           >
-            <source src="about-tunnel.mp4" type="video/mp4" />
+            <source src={`${basePath}/about-tunnel.mp4`} type="video/mp4" />
           </video>
           <div
             className="absolute inset-0 bg-gradient-to-r from-card via-card/95 to-card/75 sm:to-card/35"

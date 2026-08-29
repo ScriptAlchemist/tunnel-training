@@ -19,6 +19,7 @@ const nunito = Nunito_Sans({
 })
 
 const site = getSiteContent()
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.siteUrl),
@@ -27,6 +28,20 @@ export const metadata: Metadata = {
     template: `%s · ${site.title}`,
   },
   description: site.description,
+  icons: {
+    icon: [
+      {
+        url: `${basePath}/freefall-formation-icon.png`,
+        type: 'image/png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: `${basePath}/freefall-formation-icon-dark.png`,
+        type: 'image/png',
+        media: '(prefers-color-scheme: dark)',
+      },
+    ],
+  },
   openGraph: {
     title: site.title,
     description: site.socialDescription,
@@ -36,7 +51,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang={site.language} suppressHydrationWarning>
+    <html lang={site.language} suppressHydrationWarning data-scroll-behavior="smooth">
       <body className={`${manrope.variable} ${nunito.variable}`}>
         <ThemeProvider>
           <Header />
