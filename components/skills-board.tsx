@@ -127,10 +127,12 @@ function LevelRow({
   level,
   isFirst,
   isLast,
+  defaultOpen,
 }: {
   level: CourseLevel
   isFirst: boolean
   isLast: boolean
+  defaultOpen: boolean
 }) {
   const tracks = tracksForLevel(level)
   const itemLabel =
@@ -141,7 +143,7 @@ function LevelRow({
 
   return (
     <details
-      open
+      open={defaultOpen}
       className={`group relative w-full ${isLast ? '' : 'border-b border-border'}`}
       style={levelStyle}
     >
@@ -209,7 +211,13 @@ function LevelRow({
   )
 }
 
-export function SkillsBoard({ levels }: { levels: CourseLevel[] }) {
+export function SkillsBoard({
+  levels,
+  defaultOpen = true,
+}: {
+  levels: CourseLevel[]
+  defaultOpen?: boolean
+}) {
   return (
     <div className="w-full">
       <div className="flex flex-col gap-2 border-b border-border py-4 sm:flex-row sm:items-center sm:justify-between">
@@ -226,6 +234,7 @@ export function SkillsBoard({ levels }: { levels: CourseLevel[] }) {
             level={level}
             isFirst={index === 0}
             isLast={index === levels.length - 1}
+            defaultOpen={defaultOpen}
           />
         ))}
       </div>
