@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { BookOpenText, House, Menu, PersonStanding, X } from 'lucide-react'
+import { BookOpenText, House, Menu, PersonStanding, UsersRound, X } from 'lucide-react'
 import { Dialog } from 'radix-ui'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { Button, buttonVariants } from '@/components/ui/button'
@@ -11,6 +11,7 @@ import { cn } from '@/lib/utils'
 type MobileNavigationLabels = {
   home: string
   levels: string
+  team: string
   humanoid: string
   mainNavigation: string
   openMenu: string
@@ -20,10 +21,12 @@ type MobileNavigationLabels = {
 
 export function MobileNavigation({
   labels,
+  showTeam,
   showHumanoid,
   themeLabels,
 }: {
   labels: MobileNavigationLabels
+  showTeam: boolean
   showHumanoid: boolean
   themeLabels: { toggle: string }
 }) {
@@ -42,6 +45,14 @@ export function MobileNavigation({
       matches: (path: string) =>
         path.startsWith('/levels') || path.startsWith('/skills-chart'),
     },
+    ...(showTeam
+      ? [{
+          href: '/team/',
+          label: labels.team,
+          icon: UsersRound,
+          matches: (path: string) => path.startsWith('/team'),
+        }]
+      : []),
     ...(showHumanoid
       ? [
           {

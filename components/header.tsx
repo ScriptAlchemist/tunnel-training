@@ -2,11 +2,12 @@ import { Logo } from './logo'
 import { MobileNavigation } from './mobile-navigation'
 import { NavLinks } from './nav-links'
 import { ThemeToggle } from './theme-toggle'
-import { getHumanoidContent, getSiteContent } from '@/lib/course'
+import { getHumanoidContent, getSiteContent, getTeamContent } from '@/lib/course'
 
 export function Header() {
   const site = getSiteContent()
   const humanoid = getHumanoidContent()
+  const team = getTeamContent()
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[var(--header)] backdrop-blur-xl">
@@ -15,6 +16,7 @@ export function Header() {
         <div className="hidden items-center justify-end gap-4 md:flex">
           <NavLinks
             labels={{ ...site.navigation, mainNavigation: site.labels.mainNavigation }}
+            showTeam={team.visible}
             showHumanoid={humanoid.visible}
           />
           <ThemeToggle labels={site.theme} />
@@ -28,6 +30,7 @@ export function Header() {
               closeMenu: site.labels.closeMenu,
               appearance: site.labels.appearance,
             }}
+            showTeam={team.visible}
             showHumanoid={humanoid.visible}
             themeLabels={site.theme}
           />

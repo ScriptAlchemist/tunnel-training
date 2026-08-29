@@ -75,6 +75,7 @@ export type SiteContent = {
   navigation: {
     home: string
     levels: string
+    team: string
     humanoid: string
   }
   theme: {
@@ -162,6 +163,21 @@ export type HumanoidContent = {
     | 'rightAnkle',
     string
   >
+}
+
+export type TeamMember = {
+  slug: string
+  name: string
+  html: string
+}
+
+export type TeamContent = {
+  visible: boolean
+  eyebrow: string
+  title: string
+  description: string
+  memberLabel: string
+  members: TeamMember[]
 }
 
 export type HomeContent = {
@@ -504,6 +520,28 @@ export const getSiteContent = cache(() => {
 export const getHumanoidContent = cache(() => {
   const parsed = matter(readContentFile('humanoid.md'))
   return parsed.data as HumanoidContent
+})
+
+export const getTeamContent = cache(() => {
+  const parsed = matter(readContentFile('team.md'))
+  const definition = parsed.data as Omit<TeamContent, 'members'>
+  const headings = [...parsed.content.matchAll(/^##\s+(.+)$/gm)]
+  const members = headings.map((heading, index) => {
+    const start = (heading.index ?? 0) + heading[0].length
+    const end = headings[index + 1]?.index ?? parsed.content.length
+    const memberMarkdown = parsed.content
+      .slice(start, end)
+      .replace(/<!--[\s\S]*?-->/g, '')
+      .trim()
+
+    return {
+      slug: slugify(heading[1]),
+      name: heading[1],
+      html: markdownToHtml(memberMarkdown),
+    }
+  })
+
+  return { ...definition, members }
 })
 
 export const getSkillsChartContent = cache(() => {

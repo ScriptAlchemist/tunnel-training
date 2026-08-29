@@ -2,20 +2,23 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { BookOpenText, House, PersonStanding } from 'lucide-react'
+import { BookOpenText, House, PersonStanding, UsersRound } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 export function NavLinks({
   labels,
+  showTeam,
   showHumanoid,
 }: {
   labels: {
     home: string
     levels: string
+    team: string
     humanoid: string
     mainNavigation: string
   }
+  showTeam: boolean
   showHumanoid: boolean
 }) {
   const pathname = usePathname()
@@ -32,6 +35,14 @@ export function NavLinks({
       icon: BookOpenText,
       matches: (path: string) => path.startsWith('/levels') || path.startsWith('/skills-chart'),
     },
+    ...(showTeam
+      ? [{
+          href: '/team/',
+          label: labels.team,
+          icon: UsersRound,
+          matches: (path: string) => path.startsWith('/team'),
+        }]
+      : []),
     ...(showHumanoid
       ? [{
           href: '/humanoid/',

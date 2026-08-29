@@ -8,6 +8,7 @@ email: justin.bender@iflydetroit.com
 navigation:
   home: Home
   levels: Learn
+  team: Meet the Team
   humanoid: Humanoid
 theme:
   toggle: Toggle color theme
