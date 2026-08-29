@@ -2,6 +2,9 @@
 eyebrow: Flight progression
 title: Skills Chart
 description: See how the flight concepts, belly-flying skills, back-flying skills, and formation skills connect across the current curriculum.
+viewSwitcherLabel: Curriculum view
+cardsViewLabel: Level cards
+chartViewLabel: Skills chart
 levelLabel: Level
 trackLabel: Track
 skillLabel: Skill

@@ -12,7 +12,6 @@ export function NavLinks({
   labels: {
     home: string
     levels: string
-    skillsChart: string
     humanoid: string
     mainNavigation: string
   }
@@ -21,11 +20,10 @@ export function NavLinks({
   const pathname = usePathname()
   const links = [
     { href: '/', label: labels.home, matches: (path: string) => path === '/' },
-    { href: '/levels/', label: labels.levels, matches: (path: string) => path.startsWith('/levels') },
     {
-      href: '/skills-chart/',
-      label: labels.skillsChart,
-      matches: (path: string) => path.startsWith('/skills-chart'),
+      href: '/levels/',
+      label: labels.levels,
+      matches: (path: string) => path.startsWith('/levels') || path.startsWith('/skills-chart'),
     },
     ...(showHumanoid
       ? [{ href: '/humanoid/', label: labels.humanoid, matches: (path: string) => path.startsWith('/humanoid') }]

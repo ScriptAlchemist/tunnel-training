@@ -8,7 +8,6 @@ email: justin.bender@iflydetroit.com
 navigation:
   home: Home
   levels: Levels
-  skillsChart: Skills Chart
   humanoid: Humanoid
 theme:
   toggle: Toggle color theme

@@ -75,7 +75,6 @@ export type SiteContent = {
   navigation: {
     home: string
     levels: string
-    skillsChart: string
     humanoid: string
   }
   theme: {
@@ -180,6 +179,9 @@ export type SkillsChartContent = {
   eyebrow: string
   title: string
   description: string
+  viewSwitcherLabel: string
+  cardsViewLabel: string
+  chartViewLabel: string
   levelLabel: string
   trackLabel: string
   skillLabel: string
