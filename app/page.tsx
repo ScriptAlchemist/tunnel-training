@@ -49,8 +49,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="shell scroll-mt-28 py-8 sm:py-10" id="skills">
-        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <section className="scroll-mt-28 py-8 sm:py-10" id="skills">
+        <div className="shell mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <span className="eyebrow">{intro.levelsEyebrow}</span>
             <h2 className="display-type balance mt-4 text-4xl font-black sm:text-5xl">

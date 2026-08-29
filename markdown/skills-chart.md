@@ -6,7 +6,7 @@ viewSwitcherLabel: Curriculum view
 cardsViewLabel: Level cards
 chartViewLabel: Skills chart
 boardLabel: Skill progression board
-boardScrollHint: Scroll horizontally to explore the full progression.
+boardScrollHint: Follow the progression from top to bottom.
 levelLabel: Level
 trackLabel: Track
 skillLabel: Skill

@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react'
 import Link from 'next/link'
-import { ArrowRight, ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import {
   displayLevelNumber,
   getSkillsChartContent,
@@ -123,11 +123,13 @@ function TrackCard({
   )
 }
 
-function LevelColumn({
+function LevelRow({
   level,
+  isFirst,
   isLast,
 }: {
   level: CourseLevel
+  isFirst: boolean
   isLast: boolean
 }) {
   const tracks = tracksForLevel(level)
@@ -136,43 +138,50 @@ function LevelColumn({
   const levelStyle = {
     '--board-accent': level.accent,
   } as CSSProperties
-  const markerStyle = {
-    borderColor: `${level.accent}80`,
-    background: `linear-gradient(180deg, ${level.accent}38, ${level.accent}12)`,
-  }
 
   return (
     <article
-      className="relative grid grid-cols-[2.75rem_minmax(0,1fr)] items-stretch gap-2.5"
+      className={`grid w-full grid-cols-[3rem_minmax(0,1fr)] items-stretch gap-3 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-5 ${isLast ? '' : 'border-b border-white/10'}`}
       style={levelStyle}
     >
-      <div
-        className="flex min-h-72 items-center justify-center rounded-xl border"
-        style={markerStyle}
-      >
+      <div className="relative flex justify-center">
         <span
-          className="text-sm font-black tracking-[0.2em] whitespace-nowrap uppercase"
-          style={{
-            color: level.accent,
-            writingMode: 'vertical-rl',
-            transform: 'rotate(180deg)',
-          }}
+          className={`absolute inset-y-0 w-1.5 ${isFirst ? 'rounded-t-full' : ''} ${isLast ? 'rounded-b-full' : ''}`}
+          style={{ backgroundColor: level.accent }}
+          aria-hidden="true"
+        />
+        <Link
+          href={`/levels/${level.slug}/`}
+          aria-label={`${chart.levelLabel} ${displayLevelNumber(level.number)}: ${level.shortTitle}`}
+          className="relative z-10 mt-8 flex h-10 min-w-10 items-center justify-center rounded-full border-4 border-[#0c151b] px-2 text-xs font-black text-[#071015] shadow-[0_0_0_1px_rgba(255,255,255,0.15)] transition hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          style={{ backgroundColor: level.accent }}
         >
-          {chart.levelLabel} {displayLevelNumber(level.number)}
-        </span>
+          {displayLevelNumber(level.number)}
+        </Link>
       </div>
 
-      <div className="min-w-0">
-        <Link href={`/levels/${level.slug}/`} className="group block px-0.5 pb-3">
+      <div className="min-w-0 py-8 pr-4 sm:pr-8 lg:pr-12">
+        <Link href={`/levels/${level.slug}/`} className="group block pb-5">
           <p className="text-[0.62rem] font-black tracking-[0.15em] text-white/45 uppercase">
             {chart.levelLabel} {displayLevelNumber(level.number)}
           </p>
-          <h2 className="mt-1 text-lg leading-5 font-black text-white transition group-hover:text-[var(--board-accent)]">
+          <h2 className="mt-1 text-2xl leading-tight font-black text-white transition group-hover:text-[var(--board-accent)] sm:text-3xl">
             {level.shortTitle}
           </h2>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-white/50">
+            {level.description}
+          </p>
         </Link>
 
-        <div className="grid gap-2.5">
+        <div
+          className={`grid items-start gap-3 ${
+            tracks.length >= 3
+              ? 'xl:grid-cols-3'
+              : tracks.length === 2
+                ? 'lg:grid-cols-2'
+                : ''
+          }`}
+        >
           {tracks.map((track) => (
             <TrackCard
               key={track.title}
@@ -183,46 +192,35 @@ function LevelColumn({
           ))}
         </div>
       </div>
-
-      {!isLast && (
-        <span
-          className="absolute top-7 -right-[1.12rem] z-10 flex size-6 items-center justify-center rounded-full border border-white/15 bg-[#111d25] text-white/50"
-          aria-hidden="true"
-        >
-          <ArrowRight className="size-3.5" />
-        </span>
-      )}
     </article>
   )
 }
 
 export function SkillsBoard({ levels }: { levels: CourseLevel[] }) {
   return (
-    <div className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0c151b] text-white shadow-[0_26px_80px_rgba(7,16,21,0.24)]">
-      <div className="flex flex-col gap-2 border-b border-white/10 bg-white/[0.025] px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+    <div className="w-full bg-[#0c151b] text-white">
+      <div className="shell flex flex-col gap-2 border-b border-white/10 py-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs font-black tracking-[0.16em] text-white/70 uppercase">
           {chart.boardLabel}
         </p>
         <p className="text-xs font-bold text-white/45">{chart.boardScrollHint}</p>
       </div>
 
-      <div className="skills-board-scroll overflow-x-auto overscroll-x-contain">
-        <div
-          className="grid w-max grid-flow-col auto-cols-[19rem] items-start gap-5 p-4 sm:p-6"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px)',
-            backgroundSize: '28px 28px',
-          }}
-        >
-          {levels.map((level, index) => (
-            <LevelColumn
-              key={level.slug}
-              level={level}
-              isLast={index === levels.length - 1}
-            />
-          ))}
-        </div>
+      <div
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+        }}
+      >
+        {levels.map((level, index) => (
+          <LevelRow
+            key={level.slug}
+            level={level}
+            isFirst={index === 0}
+            isLast={index === levels.length - 1}
+          />
+        ))}
       </div>
     </div>
   )
