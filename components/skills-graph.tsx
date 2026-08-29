@@ -70,29 +70,23 @@ function TrackPanel({
   const useSingleColumn = compact || skills.length <= 3
 
   return (
-    <details open className="collapsible-stage rounded-2xl border border-border bg-muted/40 p-4 sm:p-5">
-      <summary className="flex cursor-pointer items-center justify-between gap-4 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+    <section className="rounded-2xl border border-border bg-muted/40 p-4 sm:p-5">
+      <header className="mb-4 flex items-center justify-between gap-4 border-b border-border pb-4">
         <div>
           <p className="text-[0.66rem] font-black tracking-[0.16em] text-muted-foreground uppercase">
             {chart.trackLabel}
           </p>
           <h3 className="mt-1 font-extrabold">{title}</h3>
         </div>
-        <span className="flex items-center gap-2">
-          <span className="rounded-full border border-border bg-card px-2.5 py-1 text-xs font-extrabold text-muted-foreground">
-            {skills.length}
-          </span>
-          <ChevronDown
-            className="collapse-chevron size-4 text-muted-foreground transition-transform"
-            aria-hidden="true"
-          />
+        <span className="rounded-full border border-border bg-card px-2.5 py-1 text-xs font-extrabold text-muted-foreground">
+          {skills.length}
         </span>
-      </summary>
+      </header>
 
       {trackHref && (
         <Link
           href={trackHref}
-          className="mb-4 inline-flex items-center gap-1.5 text-xs font-extrabold text-primary hover:underline"
+          className="mb-4 flex w-fit items-center gap-1.5 text-xs font-extrabold text-primary hover:underline"
         >
           {site.labels.viewSection}
           <ArrowUpRight className="size-3.5" aria-hidden="true" />
@@ -110,7 +104,7 @@ function TrackPanel({
           />
         ))}
       </div>
-    </details>
+    </section>
   )
 }
 

@@ -163,9 +163,7 @@ export type HumanoidContent = {
 }
 
 export type HomeContent = {
-  title: string
   author: string
-  aboutEyebrow: string
   quoteLabel: string
   quote: string
   levelsEyebrow: string
