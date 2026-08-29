@@ -9,6 +9,6 @@ export const metadata: Metadata = {
   description: site.labels.levelIndexMetadataDescription,
 }
 
-export default function LevelsPage() {
+export default function LearnPage() {
   return <CourseIndex />
 }

@@ -7,27 +7,27 @@ siteUrl: https://tunnel.benderjustin.com/
 email: justin.bender@iflydetroit.com
 navigation:
   home: Home
-  levels: Levels
+  levels: Learn
   humanoid: Humanoid
 theme:
   toggle: Toggle color theme
 footer:
   text: Lesson plans by Justin Bender. Train with a qualified tunnel instructor and fly within your demonstrated ability.
-  link: Explore levels →
+  link: Learn →
 labels:
   mainNavigation: Main navigation
   breadcrumb: Breadcrumb
   lessonNavigation: Lesson navigation
   home: Home
   back: Back
-  levels: Levels
+  levels: Learn
   level: Level
   lesson: Lesson
   lessons: Lessons
   section: Section
   sections: Sections
-  courseIndex: Course index
-  levelIndexMetadataTitle: Training Levels
+  courseIndex: Learn
+  levelIndexMetadataTitle: Learn
   levelIndexMetadataDescription: Explore the full tunnel flying curriculum by level.
   levelIndexTitle: Your path through the air.
   levelIndexDescription: Each level is a progression, not a checklist. Work with your instructor, repeat the fundamentals, and move forward when control feels dependable.
@@ -53,5 +53,5 @@ notFound:
   eyebrow: Off course
   title: That lesson isn't here.
   description: Return to the curriculum and choose another flight path.
-  button: View all levels
+  button: Go to Learn
 ---

@@ -22,20 +22,7 @@ export function CourseIndex({ initialView = 'cards' }: { initialView?: CourseVie
     </>
   )
 
-  const chartView = (
-    <>
-      <header className="mb-10 max-w-4xl">
-        <span className="eyebrow">{chart.eyebrow}</span>
-        <h2 className="display-type balance mt-4 text-3xl font-black sm:text-5xl">
-          {chart.title}
-        </h2>
-        <p className="mt-5 max-w-3xl leading-7 text-muted-foreground">
-          {chart.description}
-        </p>
-      </header>
-      <SkillsGraph levels={levels} />
-    </>
-  )
+  const chartView = <SkillsGraph levels={levels} />
 
   return (
     <div className="shell py-14 sm:py-22">
