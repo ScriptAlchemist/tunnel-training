@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react'
 import Link from 'next/link'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, ChevronDown } from 'lucide-react'
 import {
   displayLevelNumber,
   getSkillsChartContent,
@@ -52,7 +52,7 @@ function tracksForLevel(level: CourseLevel): BoardTrack[] {
     href:
       level.groups.length > 1
         ? `/levels/${level.slug}/sections/${group.slug}/`
-        : undefined,
+        : `/levels/${level.slug}/`,
     skills: group.lessons.map((lesson) => ({
       title: lesson.title,
       href: `/levels/${level.slug}/${lesson.slug}/`,
@@ -140,41 +140,54 @@ function LevelRow({
   } as CSSProperties
 
   return (
-    <article
-      className={`grid w-full grid-cols-[3rem_minmax(0,1fr)] items-stretch gap-3 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-5 ${isLast ? '' : 'border-b border-border'}`}
+    <details
+      open
+      className={`group relative w-full ${isLast ? '' : 'border-b border-border'}`}
       style={levelStyle}
     >
-      <div className="relative flex justify-center">
+      <div
+        className="pointer-events-none absolute inset-y-0 left-0 flex w-12 justify-center sm:w-16"
+        aria-hidden="true"
+      >
         <span
-          className={`absolute inset-y-0 w-1.5 ${isFirst ? 'rounded-t-full' : ''} ${isLast ? 'rounded-b-full' : ''}`}
+          className={`w-1.5 ${isFirst ? 'rounded-t-full' : ''} ${isLast ? 'rounded-b-full' : ''}`}
           style={{ backgroundColor: level.accent }}
-          aria-hidden="true"
         />
-        <Link
-          href={`/levels/${level.slug}/`}
-          aria-label={`${chart.levelLabel} ${displayLevelNumber(level.number)}: ${level.shortTitle}`}
-          className="relative z-10 mt-8 flex h-10 min-w-10 items-center justify-center rounded-full border-4 border-background px-2 text-xs font-black text-white shadow-[0_0_0_1px_var(--border)] transition hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          style={{ backgroundColor: level.accent }}
-        >
-          {displayLevelNumber(level.number)}
-        </Link>
       </div>
 
-      <div className="min-w-0 py-8 pr-4 sm:pr-8 lg:pr-12">
-        <Link href={`/levels/${level.slug}/`} className="group block pb-5">
+      <summary className="relative z-10 grid cursor-pointer list-none grid-cols-[3rem_minmax(0,1fr)] gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-5 [&::-webkit-details-marker]:hidden">
+        <div className="flex justify-center">
+          <span
+            className="mt-8 flex h-10 min-w-10 items-center justify-center rounded-full border-4 border-background px-2 text-xs font-black text-white shadow-[0_0_0_1px_var(--border)]"
+            style={{ backgroundColor: level.accent }}
+          >
+            {displayLevelNumber(level.number)}
+          </span>
+        </div>
+
+        <div className="min-w-0 py-8 pr-4 sm:pr-8 lg:pr-12">
           <p className="text-xs font-black tracking-[0.14em] text-muted-foreground uppercase">
             {chart.levelLabel} {displayLevelNumber(level.number)}
           </p>
-          <h2 className="mt-1 text-2xl leading-tight font-black text-foreground transition group-hover:text-[var(--board-accent)] sm:text-3xl">
-            {level.shortTitle}
-          </h2>
+          <div className="mt-1 flex items-start justify-between gap-4">
+            <h2 className="text-2xl leading-tight font-black text-foreground transition group-hover:text-[var(--board-accent)] sm:text-3xl">
+              {level.shortTitle}
+            </h2>
+            <ChevronDown
+              className="mt-1 size-5 shrink-0 text-muted-foreground transition-transform group-open:rotate-180 sm:size-6"
+              aria-hidden="true"
+            />
+          </div>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">
             {level.description}
           </p>
-        </Link>
+        </div>
+      </summary>
 
+      <div className="relative z-10 grid grid-cols-[3rem_minmax(0,1fr)] gap-3 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-5">
+        <div aria-hidden="true" />
         <div
-          className={`grid items-start gap-3 ${
+          className={`grid min-w-0 items-start gap-3 pb-8 pr-4 sm:pr-8 lg:pr-12 ${
             tracks.length >= 3
               ? 'xl:grid-cols-3'
               : tracks.length === 2
@@ -192,7 +205,7 @@ function LevelRow({
           ))}
         </div>
       </div>
-    </article>
+    </details>
   )
 }
 
