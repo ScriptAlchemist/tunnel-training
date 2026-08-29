@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react'
 import Link from 'next/link'
 import { ArrowUpRight, ChevronDown } from 'lucide-react'
-import { PersistentDetails } from '@/components/persistent-details'
+import { UrlStateDetails } from '@/components/url-state-details'
 import {
   displayLevelNumber,
   getSkillsChartContent,
@@ -129,13 +129,13 @@ function LevelRow({
   isFirst,
   isLast,
   defaultOpen,
-  persistenceKey,
+  urlStateParameter,
 }: {
   level: CourseLevel
   isFirst: boolean
   isLast: boolean
   defaultOpen: boolean
-  persistenceKey?: string
+  urlStateParameter?: string
 }) {
   const tracks = tracksForLevel(level)
   const itemLabel =
@@ -145,9 +145,10 @@ function LevelRow({
   } as CSSProperties
 
   return (
-    <PersistentDetails
+    <UrlStateDetails
       defaultOpen={defaultOpen}
-      storageKey={persistenceKey ? `${persistenceKey}:${level.slug}` : undefined}
+      stateId={level.slug}
+      urlParameter={urlStateParameter}
       className={`group relative w-full ${isLast ? '' : 'border-b border-border'}`}
       style={levelStyle}
     >
@@ -211,18 +212,18 @@ function LevelRow({
           ))}
         </div>
       </div>
-    </PersistentDetails>
+    </UrlStateDetails>
   )
 }
 
 export function SkillsBoard({
   levels,
   defaultOpen = true,
-  persistenceKey,
+  urlStateParameter,
 }: {
   levels: CourseLevel[]
   defaultOpen?: boolean
-  persistenceKey?: string
+  urlStateParameter?: string
 }) {
   return (
     <div className="w-full">
@@ -241,7 +242,7 @@ export function SkillsBoard({
             isFirst={index === 0}
             isLast={index === levels.length - 1}
             defaultOpen={defaultOpen}
-            persistenceKey={persistenceKey}
+            urlStateParameter={urlStateParameter}
           />
         ))}
       </div>

@@ -65,7 +65,7 @@ export default function HomePage() {
         <SkillsBoard
           levels={levels}
           defaultOpen={false}
-          persistenceKey="home-skills-board"
+          urlStateParameter="open"
         />
       </section>
 
