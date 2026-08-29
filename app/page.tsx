@@ -62,7 +62,11 @@ export default function HomePage() {
           </p>
         </div>
 
-        <SkillsBoard levels={levels} defaultOpen={false} />
+        <SkillsBoard
+          levels={levels}
+          defaultOpen={false}
+          persistenceKey="home-skills-board"
+        />
       </section>
 
       <section className="shell pt-8 pb-4 sm:pt-10 sm:pb-8">

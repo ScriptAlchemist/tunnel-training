@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react'
 import Link from 'next/link'
 import { ArrowUpRight, ChevronDown } from 'lucide-react'
+import { PersistentDetails } from '@/components/persistent-details'
 import {
   displayLevelNumber,
   getSkillsChartContent,
@@ -128,11 +129,13 @@ function LevelRow({
   isFirst,
   isLast,
   defaultOpen,
+  persistenceKey,
 }: {
   level: CourseLevel
   isFirst: boolean
   isLast: boolean
   defaultOpen: boolean
+  persistenceKey?: string
 }) {
   const tracks = tracksForLevel(level)
   const itemLabel =
@@ -142,8 +145,9 @@ function LevelRow({
   } as CSSProperties
 
   return (
-    <details
-      open={defaultOpen}
+    <PersistentDetails
+      defaultOpen={defaultOpen}
+      storageKey={persistenceKey ? `${persistenceKey}:${level.slug}` : undefined}
       className={`group relative w-full ${isLast ? '' : 'border-b border-border'}`}
       style={levelStyle}
     >
@@ -207,16 +211,18 @@ function LevelRow({
           ))}
         </div>
       </div>
-    </details>
+    </PersistentDetails>
   )
 }
 
 export function SkillsBoard({
   levels,
   defaultOpen = true,
+  persistenceKey,
 }: {
   levels: CourseLevel[]
   defaultOpen?: boolean
+  persistenceKey?: string
 }) {
   return (
     <div className="w-full">
@@ -235,6 +241,7 @@ export function SkillsBoard({
             isFirst={index === 0}
             isLast={index === levels.length - 1}
             defaultOpen={defaultOpen}
+            persistenceKey={persistenceKey}
           />
         ))}
       </div>
