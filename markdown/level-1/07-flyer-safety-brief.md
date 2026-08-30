@@ -1,6 +1,8 @@
 ## Flyer Safety Brief
 
-**Reference:** IBA STN 4/23 — Flyer Safety Brief.
+**References:** IBA STN 4/23 — Flyer Safety Brief; IBA Flyer Safety
+Responsibilities — Flyer Safety: Be Part of the Team; The New IBA Flyer
+Currency Program — Designed to Elevate Your Flying.
 
 **Prerequisite:** Completed all IBA Level 1 flight skills.
 
@@ -76,8 +78,36 @@ actions and work with the instructor to create the safest environment possible
 for yourself, the other flyers, and the instructor. This responsibility becomes
 more important when performing approved skills without direct physical support.
 
-Review the IBA article **“Flyer Safety—Be Part of the Team”** as an additional
-reminder of the flyer's role in maintaining safety.
+**Flyer safety: Be part of the team**
+
+The flyer is an active member of the safety team. Before flying, review the
+training aids available through [the IBA website](https://www.tunnelflight.com/)
+and follow these practical responsibilities:
+
+- **Maintain the logbook and flight skills.** Keep the personal progression
+  record accurate so the instructor can review it before flight and conduct an
+  efficient, relevant briefing.
+- **Stay current.** After a few months away, plan to rebuild to the last
+  approved skill level before adding new challenges. Currency matters more
+  than total accumulated tunnel time.
+- **Fly within the approval level.** When flying without a coach or instructor,
+  perform only approved skills. Learn new skills under qualified supervision
+  and arrive with a clear plan.
+- **Support friends without crossing coaching boundaries.** Everyone sharing a
+  flight must be signed off to fly together. Know the other flyers' skill
+  levels, respect their limitations, and do not coach without the required
+  coaching approvals.
+- **Talk to the instructor before flying.** Participate in the briefing,
+  explain the plan and goals, and disclose limitations or concerns that may
+  affect the flight.
+- **Respect the rotation and the people in it.** Know the rotation pattern,
+  support less-experienced flyers, respect the instructor's responsibilities,
+  and model behavior that encourages collaborative learning and progression.
+- **Protect the flight gear and tunnel.** Complete a preflight inspection:
+  confirm shoes are securely tied, use non-marking soles, remove stones or
+  debris that could damage the glass, secure fasteners and hook-and-loop
+  closures, verify helmet fittings, and account for how booties or a different
+  suit fit will affect the flight.
 
 **Communication**
 
@@ -105,10 +135,68 @@ maintaining an accurate record supports the overall safety system.
 
 **Maintaining currency**
 
-Understand the currency requirements and what happens when currency lapses. A
-previous skill approval does not guarantee that the skill can be flown without
-limits after time away. A non-current flyer may be restricted in what they can
-fly and should expect increased instructor supervision.
+Flyer Currency is the minimum flight activity required to maintain the personal
+skills needed to fly safely in a wind tunnel. The IBA Flyer Currency Program
+applies to rated flyers at Level 1 or above. The on-duty instructor must confirm
+a rated flyer's currency before flight.
+
+To remain current, record at least one of the following in the personal IBA
+logbook within a 180-day period:
+
+- One flight.
+- A new skill approval.
+
+The IBA dashboard calculates the **Flyer Currency Date** by adding 180 days to
+the most recently recorded flight or skill approval. Each qualifying logbook
+entry moves the date forward another 180 days and displays the flyer as Active
+(Current) or Inactive (Not Current).
+
+Flyers with an active account who have not yet achieved Level 1 do not need to
+show currency because they are still flying with instructor coaching. Their
+currency status displays as N/A (Not Applicable).
+
+The system sends an automated notice 30 days before the currency date expires,
+but monitoring currency remains the flyer's responsibility. Do not rely only on
+the automated reminder, and raise account or logbook problems with the IBA for
+resolution.
+
+**Regaining currency**
+
+After currency expires, the flyer must complete a currency flight with an
+appropriately qualified IBA instructor. The flight includes:
+
+- A supervised demonstration of the approved skills shown on the flyer's
+  flight chart.
+- An assessment of the flyer's ability to perform those approved skills.
+- Coaching, support, or assistance where needed.
+
+The currency flight must be planned and conducted under these conditions:
+
+- The instructor and flyer agree on a specific plan, goals, and expectations
+  based on the documented skills.
+- The flight is supervised one-on-one with no other flyers involved.
+- The flyer performs no new skills during the currency flight.
+- The instructor observes every skill previously approved on the personal
+  flight chart.
+- If the flyer cannot perform a previously approved skill, the instructor
+  adjusts the flight chart to reflect the skills in which the flyer remains
+  proficient.
+
+The supervising instructor must hold the rating appropriate to the flyer's
+approved skills:
+
+- **Level 1 and Formation Skydiving through Level 4:** IBA Instructor Level 1
+  or higher.
+- **Back Fly Level 2:** IBA Instructor Level 2 or higher.
+- **Static or Dynamic Level 3:** The relevant IBA Static or Dynamic Level 3
+  instructor rating or higher.
+- **Static or Dynamic Level 4 or Pro:** The relevant IBA Static or Dynamic
+  Level 4 instructor rating or higher.
+
+After the currency flight, the supervising instructor records it in the
+flyer's account using the manual skill-assignment function or the flyer's
+logbook skill request. The flyer cannot log new skills until the currency
+flight has been completed.
 
 **Flying within the approved level**
 
@@ -163,7 +251,9 @@ that the flyer understands:
    suitable equipment, and avoid rushed or unplanned movements.
 
 **Source details:** IBA STN 4/23, issued by the IBA Director of Safety and
-Training and effective October 1, 2023.
+Training and effective October 1, 2023; IBA Flyer Safety Responsibilities —
+Flyer Safety: Be Part of the Team; The New IBA Flyer Currency Program, dated
+November 16, 2023 and effective February 1, 2024.
 
 **Links:**
 
