@@ -315,6 +315,64 @@ a {
   margin-top: 1.5rem;
 }
 
+.lesson-copy .fitness-guide-visuals {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.lesson-copy .fitness-exercise {
+  min-width: 0;
+  padding: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+}
+
+.lesson-copy .fitness-exercise h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.lesson-copy .fitness-sequence {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(4.75rem, 1fr));
+  gap: 0.5rem;
+}
+
+.lesson-copy .concept-graphic .fitness-sequence img {
+  width: 100%;
+  height: 7.5rem;
+  border-radius: 0.65rem;
+  background: #fff;
+  object-fit: contain;
+}
+
+.lesson-copy .fitness-chart {
+  margin: 2rem 0;
+}
+
+.lesson-copy .fitness-chart a {
+  display: block;
+  border-radius: 1.25rem;
+}
+
+.lesson-copy .fitness-chart img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  background: #fff;
+}
+
+.lesson-copy .fitness-chart figcaption {
+  margin-top: 0.8rem;
+  color: var(--muted-foreground);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
 .balance {
   text-wrap: balance;
 }
