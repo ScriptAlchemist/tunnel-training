@@ -16,7 +16,7 @@ Edit `humanoid.md` to change the Humanoid page title, instructions, control labe
 
 ## Levels and lessons
 
-Every file matching `level-*.md` becomes a level page. Copy an existing level file to add another level, then update its frontmatter:
+Every folder matching `level-*/` becomes a level. Its `index.md` contains the level frontmatter, level title, and any introductory copy. Copy an existing level folder to add another level, then update the frontmatter in its `index.md`:
 
 ```yaml
 ---
@@ -29,21 +29,33 @@ accent: "#6f62c7"
 ---
 ```
 
-Use `## Lesson title` headings for a level with one section. For multiple sections, use `## Section title` and put each lesson beneath it as a `### Lesson title` heading. Every section and lesson heading automatically generates its own static page. Text placed between a section heading and its first lesson becomes the section description.
+Each other Markdown file in the folder represents one top-level section and must begin with a single `##` heading. Files are loaded by filename, so use numeric prefixes to control their order:
 
-Set `singlePage: true` in a level's frontmatter when every `##` section should stay together on the level page instead of generating lesson cards and internal pages.
+```text
+markdown/
+  level-2/
+    index.md
+    01-static-flying.md
+    02-formations.md
+```
 
-Set `sectionPages: true` when every `##` heading should generate a section card and internal page while its `###` headings remain within that section page. Level 0 uses this format.
+For a level where the top-level sections are individual lessons, each section file contains its `## Lesson title` and lesson copy. Level 1 uses this format.
+
+For a level with multiple tracks, each section file begins with `## Section title` and places its lessons beneath it as `### Lesson title` headings. Levels 2, 3, 4, and Pro use this format. Every section and lesson heading automatically generates the same static pages as before. Text placed between a section heading and its first lesson becomes the section description.
+
+Set `singlePage: true` in a level's `index.md` frontmatter when every section file should stay together on the level page instead of generating lesson cards and internal pages.
+
+Set `sectionPages: true` when every section file should generate a section card and internal page while its `###` headings remain within that section page. Level 0 uses this format.
 
 Wrap an illustration in `<figure class="concept-graphic">...</figure>` to move it into a lesson or section page's right-hand media column. YouTube references beneath `**Links:**` appear in that same column, above any figures.
 
 Lesson text supports regular Markdown. Add YouTube references beneath `**Links:**`; they will be converted into the in-page video player automatically.
 
-Levels 2, 3, and 4 use multiple `##` track headings. Level 3 and Level 4 each contain Static Progression, Dynamic, and Formations. Level Pro contains Static Progression and Dynamic. Add or rename a `###` skill beneath those headings to update its track page, lesson page, and the Skills Chart together.
+Levels 2, 3, and 4 use multiple track files. Level 3 and Level 4 each contain Static Progression, Dynamic, and Formations. Level Pro contains Static Progression and Dynamic. Add or rename a `###` skill within the appropriate track file to update its track page, lesson page, and the Skills Chart together.
 
 ## Skills chart
 
-Edit `skills-chart.md` to change the chart title, description, labels, or source note. The tracks and skill nodes themselves are generated from every `level-*.md` file, so the chart does not maintain a separate copy of the curriculum.
+Edit `skills-chart.md` to change the chart title, description, labels, or source note. The tracks and skill nodes themselves are generated from every `level-*/` folder, so the chart does not maintain a separate copy of the curriculum.
 
 ## Prerequisites
 

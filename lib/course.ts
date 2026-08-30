@@ -236,6 +236,20 @@ function readContentFile(filename: string) {
   return fs.readFileSync(path.join(contentDirectory, filename), 'utf8')
 }
 
+function readLevelDirectory(directoryName: string) {
+  const levelDirectory = path.join(contentDirectory, directoryName)
+  const indexSource = fs.readFileSync(path.join(levelDirectory, 'index.md'), 'utf8')
+  const sectionSources = fs
+    .readdirSync(levelDirectory)
+    .filter((filename) => filename.endsWith('.md') && filename !== 'index.md')
+    .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }))
+    .map((filename) => fs.readFileSync(path.join(levelDirectory, filename), 'utf8'))
+
+  return [indexSource, ...sectionSources]
+    .map((source) => source.trim())
+    .join('\n\n')
+}
+
 function markdownToHtml(markdown: string) {
   return markdownProcessor.processSync(markdown).toString()
 }
@@ -322,8 +336,8 @@ function parseLesson(
   }
 }
 
-function parseLevel(filename: string): CourseLevel {
-  const parsed = matter(readContentFile(filename))
+function parseLevel(directoryName: string): CourseLevel {
+  const parsed = matter(readLevelDirectory(directoryName))
   const definition = parsed.data as LevelFrontmatter
   const title = parsed.content.match(/^#\s+(.+)$/m)?.[1] ?? definition.shortTitle
   const singlePage = definition.singlePage ?? false
@@ -332,7 +346,7 @@ function parseLevel(filename: string): CourseLevel {
   if (singlePage) {
     const content = parsed.content
       .replace(/^#\s+.+\n?/m, '')
-      .replace(/^\[Back to lesson plan index\]\(README\.md\)\s*/m, '')
+      .replace(/^\[Back to lesson plan index\]\((?:\.\.\/)?README\.md\)\s*/m, '')
       .trim()
     const headings = [...content.matchAll(/^##\s+(.+)$/gm)]
     const introMarkdown = content.slice(0, headings[0]?.index ?? content.length).trim()
@@ -368,7 +382,7 @@ function parseLevel(filename: string): CourseLevel {
   if (sectionPages) {
     const content = parsed.content
       .replace(/^#\s+.+\n?/m, '')
-      .replace(/^\[Back to lesson plan index\]\(README\.md\)\s*/m, '')
+      .replace(/^\[Back to lesson plan index\]\((?:\.\.\/)?README\.md\)\s*/m, '')
       .trim()
     const headings = [...content.matchAll(/^##\s+(.+)$/gm)]
     const groups = headings.map((heading, index) => {
@@ -589,9 +603,14 @@ export const hasPrerequisiteContent = (content?: PrerequisiteContent) =>
 
 export const getLevels = cache(() =>
   fs
-    .readdirSync(contentDirectory)
-    .filter((filename) => /^level-[a-z0-9-]+\.md$/i.test(filename))
-    .map(parseLevel)
+    .readdirSync(contentDirectory, { withFileTypes: true })
+    .filter(
+      (entry) =>
+        entry.isDirectory() &&
+        /^level-[a-z0-9-]+$/i.test(entry.name) &&
+        fs.existsSync(path.join(contentDirectory, entry.name, 'index.md'))
+    )
+    .map((entry) => parseLevel(entry.name))
     .sort((a, b) => a.order - b.order)
 )
 

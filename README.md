@@ -34,6 +34,6 @@ The GitHub Pages production build uses the custom domain at the site root. Local
 
 - `markdown/site.md` controls site-wide labels, metadata, navigation, contact details, and interface copy.
 - `markdown/LearnToFly.md` controls the homepage and About section.
-- Every `markdown/level-*.md` file creates a level and its lesson pages.
+- Every `markdown/level-*/` folder creates a level from its `index.md` metadata and ordered section files.
 
 See `markdown/README.md` for the level frontmatter and heading format. Standard YouTube links placed under a lesson’s `**Links:**` section are automatically turned into in-page videos.

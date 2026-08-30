@@ -9,7 +9,7 @@ siteUrl: https://freefall.training/
 email: justin.bender@iflydetroit.com
 navigation:
   home: Home
-  levels: Learn
+  levels: Skill Board
   team: Meet the Team
   humanoid: Humanoid
 theme:
