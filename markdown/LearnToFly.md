@@ -1,7 +1,7 @@
 ---
 author: Justin Bender
 quoteLabel: Finding Your Flow State
-quote: Understanding airflow and movement requires patience and practice. Let's turn these movements into second nature.
+quote: Want to fly? Come join us in the wind!
 levelsEyebrow: The flight path
 levelsTitle: Learn the positions.
 levelsDescription: Start with a dependable neutral position. Understand what creates movement and controls friction. Paired with practice until it becomes as simple as walking.

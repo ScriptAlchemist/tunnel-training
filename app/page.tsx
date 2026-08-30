@@ -36,7 +36,7 @@ export default function HomePage() {
               </span>
               <blockquote className="mt-4">
                 <h1 className="display-type balance text-3xl leading-tight font-black sm:text-5xl">
-                  “{intro.quote}”
+                  {intro.quote}
                 </h1>
                 <div
                   className="lesson-copy mt-7 max-w-2xl text-base leading-7 font-bold text-foreground sm:text-lg [&_p:last-child]:mb-0"
