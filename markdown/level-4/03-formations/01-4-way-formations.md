@@ -1,7 +1,3 @@
-## Formations
-
-Extend individual Level 4 control into larger shared flying plans.
-
 ### 4-Way Formations
 
 **Prerequisite:** 3-Way Flying.

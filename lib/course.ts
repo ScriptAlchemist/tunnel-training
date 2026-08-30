@@ -236,16 +236,31 @@ function readContentFile(filename: string) {
   return fs.readFileSync(path.join(contentDirectory, filename), 'utf8')
 }
 
+function readMarkdownDirectory(directory: string): string[] {
+  const indexPath = path.join(directory, 'index.md')
+  const indexSource = fs.existsSync(indexPath) ? [fs.readFileSync(indexPath, 'utf8')] : []
+  const contentSources = fs
+    .readdirSync(directory, { withFileTypes: true })
+    .filter(
+      (entry) =>
+        entry.name !== 'index.md' &&
+        (entry.isDirectory() || (entry.isFile() && entry.name.endsWith('.md')))
+    )
+    .sort((a, b) => a.name.localeCompare(b.name, 'en', { numeric: true }))
+    .flatMap((entry) => {
+      const entryPath = path.join(directory, entry.name)
+      return entry.isDirectory()
+        ? readMarkdownDirectory(entryPath)
+        : [fs.readFileSync(entryPath, 'utf8')]
+    })
+
+  return [...indexSource, ...contentSources]
+}
+
 function readLevelDirectory(directoryName: string) {
   const levelDirectory = path.join(contentDirectory, directoryName)
-  const indexSource = fs.readFileSync(path.join(levelDirectory, 'index.md'), 'utf8')
-  const sectionSources = fs
-    .readdirSync(levelDirectory)
-    .filter((filename) => filename.endsWith('.md') && filename !== 'index.md')
-    .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }))
-    .map((filename) => fs.readFileSync(path.join(levelDirectory, filename), 'utf8'))
 
-  return [indexSource, ...sectionSources]
+  return readMarkdownDirectory(levelDirectory)
     .map((source) => source.trim())
     .join('\n\n')
 }

@@ -30,4 +30,4 @@ safety points and the coach and tunnel instructor agree on the plan.
 
 **Links:**
 
-- [Add resource title](URL)
+- [The Impossible](https://www.youtube.com/watch?v=aC5xjMIVFwM)

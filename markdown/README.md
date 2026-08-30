@@ -41,7 +41,22 @@ markdown/
 
 For a level where the top-level sections are individual lessons, each section file contains its `## Lesson title` and lesson copy. Level 1 uses this format.
 
-For a level with multiple tracks, each section file begins with `## Section title` and places its lessons beneath it as `### Lesson title` headings. Levels 2, 3, 4, and Pro use this format. Every section and lesson heading automatically generates the same static pages as before. Text placed between a section heading and its first lesson becomes the section description.
+For a level with multiple tracks, give each track its own ordered folder. The track's `index.md` begins with `## Section title` and contains the section description. Each other file in that folder contains exactly one `### Skill title` and all of that skill's copy:
+
+```text
+markdown/
+  level-2/
+    index.md
+    01-static-flying/
+      index.md
+      01-neutral-back-fly-position.md
+      02-back-forward-and-backward.md
+    02-formations/
+      index.md
+      01-2-way-formations.md
+```
+
+Levels 2, 3, 4, and Pro use this nested format. Folder and skill-file names are loaded in numeric order. Every section and skill heading automatically generates the same static pages as before.
 
 Set `singlePage: true` in a level's `index.md` frontmatter when every section file should stay together on the level page instead of generating lesson cards and internal pages.
 
@@ -51,7 +66,7 @@ Wrap an illustration in `<figure class="concept-graphic">...</figure>` to move i
 
 Lesson text supports regular Markdown. Add YouTube references beneath `**Links:**`; they will be converted into the in-page video player automatically.
 
-Levels 2, 3, and 4 use multiple track files. Level 3 and Level 4 each contain Static Progression, Dynamic, and Formations. Level Pro contains Static Progression and Dynamic. Add or rename a `###` skill within the appropriate track file to update its track page, lesson page, and the Skills Chart together.
+Levels 2, 3, and 4 use multiple track folders. Level 3 and Level 4 each contain Static Progression, Dynamic, and Formations. Level Pro contains Static Progression and Dynamic. Add, edit, or rename a skill Markdown file within the appropriate track folder to update its track page, lesson page, and the Skills Chart together.
 
 ## Skills chart
 
