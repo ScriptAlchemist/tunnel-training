@@ -37,10 +37,19 @@ export const metadata: Metadata = {
     template: `%s · ${site.title}`,
   },
   icons: {
-    icon: {
-      url: `${basePath}/freefall-formation-icon.png`,
-      type: 'image/png',
-    },
+    icon: [
+      {
+        url: `${basePath}/favicon.ico`,
+        type: 'image/x-icon',
+        sizes: 'any',
+      },
+      {
+        url: `${basePath}/freefall-formation-icon.png`,
+        type: 'image/png',
+        sizes: '1254x1254',
+      },
+    ],
+    shortcut: `${basePath}/favicon.ico`,
   },
 }
 

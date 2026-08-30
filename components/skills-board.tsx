@@ -7,9 +7,16 @@ import {
   getSkillsChartContent,
   type CourseLevel,
 } from '@/lib/course'
-import { readableAccentForeground } from '@/lib/utils'
 
 const chart = getSkillsChartContent()
+const badgeForeground = '#071015'
+
+function numberBadgeStyle(accent: string) {
+  return {
+    backgroundColor: `color-mix(in srgb, ${accent} 90%, white)`,
+    color: badgeForeground,
+  }
+}
 
 type BoardSkill = {
   title: string
@@ -71,7 +78,6 @@ function TrackCard({
   accent: string
   itemLabel: string
 }) {
-  const accentForeground = readableAccentForeground(accent)
   const surfaceStyle = {
     borderColor: `${accent}70`,
     backgroundColor: `color-mix(in oklch, var(--card) 92%, ${accent})`,
@@ -98,7 +104,7 @@ function TrackCard({
         )}
         <span
           className="flex size-7 shrink-0 items-center justify-center rounded-full text-xs font-black"
-          style={{ backgroundColor: accent, color: accentForeground }}
+          style={numberBadgeStyle(accent)}
           aria-label={`${track.skills.length} ${itemLabel.toLowerCase()}${track.skills.length === 1 ? '' : 's'}`}
         >
           {track.skills.length}
@@ -145,7 +151,6 @@ function LevelRow({
   const levelStyle = {
     '--board-accent': level.accent,
   } as CSSProperties
-  const accentForeground = readableAccentForeground(level.accent)
 
   return (
     <UrlStateDetails
@@ -169,7 +174,7 @@ function LevelRow({
         <div className="flex justify-center">
           <span
             className="mt-8 flex h-11 min-w-11 items-center justify-center rounded-full border-4 border-background px-2.5 text-md font-black shadow-[0_0_0_1px_var(--border)]"
-            style={{ backgroundColor: level.accent, color: accentForeground }}
+            style={numberBadgeStyle(level.accent)}
           >
             {displayLevelNumber(level.number)}
           </span>
